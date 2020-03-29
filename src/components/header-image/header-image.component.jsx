@@ -1,51 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Carousel from 'react-bootstrap/Carousel';
 import './header-image.style.scss';
 
-class ImageHeader extends React.Component {
-    render() {
-        return (
-            <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-                <ol className="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
+function ImageHeader() {
+    const [index, setIndex] = useState(0);
 
-                <div className="carousel-inner">
-                    <div className="carousel-item active">
-                        <img className="d-block w-100" src="https://source.unsplash.com/RCAhiGJsUUE/1920x1080" alt="Second slide"></img>
-                        <div className="carousel-caption d-none d-md-block">
-                            <h3 className="display-4">First Slide</h3>
-                            <p className="lead">This is a description for the first slide.</p>
-                        </div>
-                    </div>
-                    <div className="carousel-item">
-                        <img className="d-block w-100" src="https://source.unsplash.com/wfh8dDlNFOk/1920x1080" alt="Second slide"></img>
-                        <div className="carousel-caption d-none d-md-block">
-                            <h5>Part1</h5>
-                            <p>aeifjkaserofigjaergierg.</p>
-                        </div>
-                    </div>
-                    <div className="carousel-item">
-                        <img className="d-block w-100" src="https://source.unsplash.com/O7fzqFEfLlo/1920x1080" alt="Third slide"></img>
-                        <div className="carousel-caption d-none d-md-block">
-                            <h5>Part1</h5>
-                            <p>aeifjkaserofigjaergierg.</p>
-                        </div>
-                    </div>
-                </div>
+    const handleSelect = (selectedIndex, e) => {
+        setIndex(selectedIndex);
+    }
 
-                <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Previous</span>
-                </a>
-                <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Next</span>
-                </a>
-            </div>
-        );
-    };
+    return (
+        <Carousel activeIndex={index} onSelect={handleSelect}>
+            <Carousel.Item>
+                <img
+                    className="d-block w-100"
+                    src="https://source.unsplash.com/RCAhiGJsUUE/1920x1080"
+                    alt="First slide"
+                />
+                <Carousel.Caption>
+                    <h2>First slide label</h2>
+                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+                <img
+                    className="d-block w-100"
+                    src="https://source.unsplash.com/wfh8dDlNFOk/1920x1080"
+                    alt="Second slide"
+                />
+
+                <Carousel.Caption>
+                    <h2>Second slide label</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+                <img
+                    className="d-block w-100"
+                    src="https://source.unsplash.com/O7fzqFEfLlo/1920x1080"
+                    alt="Third slide"
+                />
+                <Carousel.Caption>
+                    <h2>Third slide label</h2>
+                    <p>
+                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                    </p>
+                </Carousel.Caption>
+            </Carousel.Item>
+        </Carousel>
+    );
 }
 
 export default ImageHeader;

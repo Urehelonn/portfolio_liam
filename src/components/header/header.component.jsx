@@ -1,39 +1,32 @@
 import React from 'react';
+import { Nav, NavDropdown } from 'react-bootstrap';
 import './header.style.scss';
 
-class Header extends React.Component {
-    render() {
-        return (
-            <div>
-                <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                    <div className="container">
-                        <a className="navbar-brand">Start Bootstrap</a>
-                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarResponsive">
-                            <ul className="navbar-nav ml-auto">
-                                <li className="nav-item active">
-                                    <a className="nav-link">Home
-                                    <span className="sr-only">(current)</span>
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link">About</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link">Services</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        );
-    }
+const Header = () => {
+    const handleSelect = (eventKey) => {
+        // todo: use to nav later
+    };
+    return (
+        <Nav variant="pills" activeKey="1" onSelect={handleSelect} >
+            <Nav.Item>
+                <Nav.Link eventKey="1">
+                    Liam's Work Space
+                </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Nav.Link eventKey="2" title="Item">
+                    NavLink 2 content
+                </Nav.Link>
+            </Nav.Item>
+            <NavDropdown title="Dropdown" id="nav-dropdown">
+                <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
+                <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
+                <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
+            </NavDropdown>
+        </Nav>
+    );
 }
 
 export default Header;
