@@ -4,10 +4,10 @@
 
 Created using React.js
 
-============
+---
 
 ## Partfolio Design
-============
+---
 
 ### Explanation
 
@@ -23,19 +23,25 @@ Created using React.js
 * **Homepage**: With an index which leads to pages to show some of the main projects I created.
 * **Header**: Has some buttons for navigation, includes [ *Main Page*, *About*, *Contact Me* ]
 * **Project Page**: Has at least one picture, followed by a brief explanation, such as technology stacks used. Public projects will provide the link(s) to the repository.
+* **About Page**: Will provide development diary, and all the source, including readme + github repo.
 
 ### Source Control & Workflow
 
 * Since this is a personal project, I will commit most onto the master branch, unless bumping onto some major bug.
 * Due to the design I have got now is too simple, Agile will not be used (it is too strict for one-person-team as well), Extreme Programming methodology will be used for me to create this project. A new task will be created and finished (I suppose) on a daily bases. 
 
-=================
+---
 ## Development Track
 
-- 29 Mar: 
-    - Start project with design and basic documentation;
-    - Done; 
+- 28 Mar: 
+    - Start project with design and basic documentation(Done);
 
+- 29 Mar:
+    - Router setting;
+    - Header adding with navigation to other pages;
+    - Homepage layout;
+    - *header from https://startbootstrap.com/snippets/half-slider/*
+    - Images used in the header are from *www.unsplash.com*
 
 
 

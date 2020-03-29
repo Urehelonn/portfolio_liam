@@ -1,0 +1,25 @@
+.carousel-item {
+    height: 65vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.bkg_image1 {
+    background-image: url('https://source.unsplash.com/RCAhiGJsUUE/1920x1080');
+}
+
+.bkg_image2 {
+    background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1920x1080');
+}
+
+.bkg_image3 {
+    background-image: url('https://source.unsplash.com/O7fzqFEfLlo/1920x1080');
+}
+
+.d-md-block {
+    height: 25% !important;
+}
