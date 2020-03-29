@@ -33,8 +33,8 @@ Created using React.js
 ## Development Track
 
 - 29 Mar: 
-⋅⋅- Start project with design and basic documentation;
-⋅⋅- Done; 
+    - Start project with design and basic documentation;
+    - Done; 
 
 
 
