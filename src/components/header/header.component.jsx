@@ -1,27 +1,36 @@
 import React from 'react';
-import { Nav, NavDropdown } from 'react-bootstrap';
+import { Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import './header.style.scss';
 
 const Header = () => {
+    let state = {
+        activeKey: "0"
+    };
     const handleSelect = (eventKey) => {
-        // todo: use to nav later
+        this.setState({ activeKey: eventKey });
+        console.log(state);
     };
     return (
-        <Nav variant="pills" activeKey="1" onSelect={handleSelect} >
+        <Nav variant="pills" activeKey={state.activeKey} onSelect={handleSelect} >
+            <Navbar.Brand>
+                {/* <img src="./../../images/logo.png" width="35px" height="30px" /> */}
+                <a href="#">
+                    Liam's Work Space</a>
+            </Navbar.Brand>
             <Nav.Item>
-                <Nav.Link eventKey="1">
-                    Liam's Work Space
+                <Nav.Link eventKey={1} title="Item">
+                    About
                 </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link eventKey="2" title="Item">
-                    NavLink 2 content
+                <Nav.Link eventKey={2} title="Item">
+                    Contact
                 </Nav.Link>
             </Nav.Item>
             <NavDropdown title="Dropdown" id="nav-dropdown">
-                <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
-                <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
-                <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
+                <NavDropdown.Item eventKey={4.1}>Action</NavDropdown.Item>
+                <NavDropdown.Item eventKey={4.2}>Another action</NavDropdown.Item>
+                <NavDropdown.Item eventKey={4.3}>Something else here</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
             </NavDropdown>
