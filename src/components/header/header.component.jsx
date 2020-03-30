@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import './header.style.scss';
 
 const Header = () => {
-    let state = {
-        activeKey: "0"
-    };
+    const [activeKey, setActiveKey] = useState('1');
     const handleSelect = (eventKey) => {
-        this.setState({ activeKey: eventKey });
-        console.log(state);
+        setActiveKey(eventKey);
+        // state.activeKey = eventKey;
+        console.log(activeKey);
     };
     return (
-        <Nav variant="pills" activeKey={state.activeKey} onSelect={handleSelect} >
+        <Nav variant="pills" activeKey={activeKey} onSelect={handleSelect} >
             <Navbar.Brand>
                 {/* <img src="./../../images/logo.png" width="35px" height="30px" /> */}
                 <a href="#">
