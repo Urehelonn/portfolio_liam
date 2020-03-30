@@ -37,13 +37,13 @@ Created using React.js
     - Start project with design and basic documentation(Done);
 
 - 29 Mar:
-    - Router setting;
-    - Header adding with navigation to other pages;
-    - Homepage layout;
+    - Router setting; (done)
+    - Header adding with navigation to other pages;  (done)
     - *header from https://startbootstrap.com/snippets/half-slider/*
     - Images used in the header are from *www.unsplash.com*
 
-
+- 30 Mar: 
+    - Homepage layout; (continue)
 
 
 
