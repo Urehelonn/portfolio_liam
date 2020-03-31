@@ -39,11 +39,12 @@ Created using React.js
 - 29 Mar:
     - Router setting; (done)
     - Header adding with navigation to other pages;  (done)
-    - *header from https://startbootstrap.com/snippets/half-slider/*
+    <!-- - *header from https://startbootstrap.com/snippets/half-slider/* -->
     - Images used in the header are from *www.unsplash.com*
 
 - 30 Mar: 
-    - Homepage layout; (continue)
+    - Homepage basic design with layout adding;
+    - Page index add to mainpage with routing;
 
 
 

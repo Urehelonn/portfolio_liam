@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Router, Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import './header.style.scss';
 
-const Header = (props) => {
+const Header = () => {
     const [activeKey, setActiveKey] = useState('1');
     const handleSelect = (eventKey) => {
         setActiveKey(eventKey);
@@ -17,11 +17,25 @@ const Header = (props) => {
                 {/* <img src="./../../images/logo.png" width="35px" height="30px" /> */}
                 <Link to={'/'}>Liam's Work Space</Link>
             </Navbar.Brand>
+
+            <Nav.Item>
+                <Nav.Link as={Link} to="/about" eventKey={1} title="Item">
+                    Main Page
+                </Nav.Link>
+            </Nav.Item>
+
             <Nav.Item>
                 <Nav.Link as={Link} to="/about" eventKey={1} title="Item">
                     About
-                    </Nav.Link>
+                </Nav.Link>
             </Nav.Item>
+
+            <Nav.Item>
+                <Nav.Link as={Link} to="/about" eventKey={1} title="Item">
+                    Connact
+                </Nav.Link>
+            </Nav.Item>
+
             {/* <Nav.Item>
                 <Nav.Link eventKey={2} title="Item">
                     Contact
