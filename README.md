@@ -43,8 +43,10 @@ Created using React.js
     - Images used in the header are from *www.unsplash.com*
 
 - 30 Mar: 
-    - Homepage basic design with layout adding;
-    - Page index add to mainpage with routing;
+    - Homepage basic design with layout adding; (done)
+
+- 31 Mar:
+    - Page index add to mainpage with routing; 
 
 
 
