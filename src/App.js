@@ -3,33 +3,33 @@ import React from 'react';
 import './App.scss';
 import Header from './components/header/header.component';
 import {
-  BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
 
 import Homepage from './pages/homepage/homepage.component';
 import About from './pages/about/about.component';
+import Project from './pages/project/project.component';
 
-function App(props) {
-  return (
-    <Router>
+export default class App extends React.Component {
+  render() {
+    return (
       <div className="App">
-        <Header></Header>
+        <Header />
         <Switch>
-          <Route exact path="/">
-            <Homepage />
+          <Route exact path="/"
+            component={Homepage}
+          />
+          <Route exact path="/about"
+            component={About}
+          />
+          <Route path="/project">
+            <Project />
           </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          {/* <Route path="/project">
-          <Project />
-        </Route> */}
         </Switch>
       </div >
-    </Router>
-  );
+    );
+  };
 }
 
-export default App;
+// export default App;

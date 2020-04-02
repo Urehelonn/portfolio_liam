@@ -46,7 +46,10 @@ Created using React.js
     - Homepage basic design with layout adding; (done)
 
 - 31 Mar:
-    - Page index add to mainpage with routing; 
+    - Page index add to mainpage with routing; (done)
+
+- 1 Apr:
+    - Add project page basic layout;
 
 
 

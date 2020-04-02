@@ -19,7 +19,7 @@ const Header = () => {
             </Navbar.Brand>
 
             <Nav.Item>
-                <Nav.Link as={Link} to="/about" eventKey={1} title="Item">
+                <Nav.Link as={Link} to="/" eventKey={1} title="Item">
                     Main Page
                 </Nav.Link>
             </Nav.Item>

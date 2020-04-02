@@ -1,24 +1,33 @@
 import React from 'react';
 import './page-index.style.scss';
+import { useHistory, Redirect } from 'react-router-dom';
+import IndexItem from '../index-item/index-item.component';
+import { DATA } from '../../assets/data';
+import { render } from '@testing-library/react';
 
-export default class PageIndex extends React.Component {
+class PageIndex extends React.Component {
+    state = { data: DATA };
+    // let history = useHistory();
+    // console.log("PageIndex prop: ");
+    // console.log(props);
+    // const routeChange = (path) => {
+    //     history.push(path);
+    // }
     render() {
+        const { data } = this.state;
+        console.log(data);
         return (
             <div className="container">
                 <div className="list-group">
-                    <button type="button" className="list-group-item list-group-item-action active">
-                        Cras justo odio
-                    </button>
-                    <button type="button" className="list-group-item list-group-item-action">
-                        Dapibus ac facilisis in</button>
-                    <button type="button" className="list-group-item list-group-item-action">
-                        Morbi leo risus</button>
-                    <button type="button" className="list-group-item list-group-item-action">
-                        Porta ac consectetur ac</button>
-                    <button type="button" className="list-group-item list-group-item-action" disabled>
-                        Vestibulum at eros</button>
+                    {data.project.map(({id, ...otherprops}) => {
+                        return (
+                            <IndexItem key={id} {...otherprops}></IndexItem>
+                        );
+                    })}
                 </div>
             </div>
         );
     };
 }
+
+export default PageIndex;
