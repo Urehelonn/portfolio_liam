@@ -50,10 +50,12 @@ Created using React.js
 
 - 1 Apr:
     - Add project page basic layout; (done)
-    - Header improvment;
+    - Contact page layout;
 
 - 2 Apr:
-    - 
+    - About page layout;
+    - Header improvment;
+
 
 
 

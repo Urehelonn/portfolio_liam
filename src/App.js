@@ -10,6 +10,7 @@ import {
 import Homepage from './pages/homepage/homepage.component';
 import About from './pages/about/about.component';
 import Project from './pages/project/project.component';
+import Contact from './pages/contact/contact.component';
 
 export default class App extends React.Component {
   render() {
@@ -24,6 +25,9 @@ export default class App extends React.Component {
             component={About}
           />
           <Route path="/project/:projectID" component={Project}>
+          </Route>
+
+          <Route path="/contact" component={Contact}>
           </Route>
         </Switch>
       </div >

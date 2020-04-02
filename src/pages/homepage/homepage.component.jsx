@@ -12,7 +12,7 @@ const Homepage = () => {
             <div className='container intro'>
                 {DATA.introduction_paragraph}
             </div>
-            <PageIndex ></PageIndex>
+            <PageIndex></PageIndex>
         </div>
     );
 }

@@ -31,8 +31,8 @@ const Header = () => {
             </Nav.Item>
 
             <Nav.Item>
-                <Nav.Link as={Link} to="/about" eventKey={1} title="Item">
-                    Connact
+                <Nav.Link as={Link} to="/contact" eventKey={1} title="Item">
+                    Contact
                 </Nav.Link>
             </Nav.Item>
 
