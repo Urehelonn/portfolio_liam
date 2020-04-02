@@ -24,7 +24,7 @@ export const DATA = {
                 "afeagiarogijrojtuhspituhpiruaeuir",
                 "ffofodpokprokpdorkpgdogkpdorkgdpokkgdpkgpdogkpd",
             ],
-            image: "",
+            image: "https://i.ibb.co/RjF3FB4/kda-eve-by-tmiracle-dcr9nhy.png",
             path:"project/0"
         },
         {

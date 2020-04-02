@@ -23,8 +23,7 @@ export default class App extends React.Component {
           <Route exact path="/about"
             component={About}
           />
-          <Route path="/project">
-            <Project />
+          <Route path="/project/:projectID" component={Project}>
           </Route>
         </Switch>
       </div >

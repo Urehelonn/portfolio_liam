@@ -49,7 +49,11 @@ Created using React.js
     - Page index add to mainpage with routing; (done)
 
 - 1 Apr:
-    - Add project page basic layout;
+    - Add project page basic layout; (done)
+    - Header improvment;
+
+- 2 Apr:
+    - 
 
 
 

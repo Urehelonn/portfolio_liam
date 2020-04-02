@@ -7,7 +7,7 @@ import './homepage.style.scss';
 
 const Homepage = () => {
     return (
-        <div className="main-body">
+        <div>
             <ImageHeader></ImageHeader>
             <div className='container intro'>
                 {DATA.introduction_paragraph}
