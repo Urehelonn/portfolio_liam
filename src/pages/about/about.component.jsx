@@ -10,7 +10,7 @@ export default class About extends React.Component {
                 <h4>This web page is used to demonstrate some of my work, and introduce
                     with some of the projects I worked with for my previous position.</h4>
                 <p>Created using React.js</p>
-                <br/>
+                <br />
                 <hr />
 
                 <div className="section">
@@ -45,8 +45,7 @@ export default class About extends React.Component {
                      main projects I created.</li>
 
                         <li><strong>Header</strong>:
-                     Has some buttons for navigation, includes [ <em>Main Page</em>,
-                     <em>About</em>, <em>Contact Me</em> ]</li>
+                     Has some buttons for navigation, includes [ <em>Main Page</em>, <em>About</em>, <em>Contact Me</em> ]</li>
 
                         <li><strong>Project Page</strong>:
                          Has at least one picture, followed by a brief explanation, such as
@@ -73,7 +72,7 @@ export default class About extends React.Component {
                 <hr />
                 <div className="section">
                     <h2>Development Track</h2>
-
+                    <br />
                     <p>==== This Part Will Be Displayed After ===</p>
                 </div>
 

@@ -53,12 +53,12 @@ Created using React.js
     - Contact page layout; (done)
 
 - 2 Apr:
-    - About page layout;
+    - About page layout; (done)
     - Use this readme as the content for about page, converted use this website:
-        https://www.browserling.com/tools/markdown-to-html
+        https://www.browserling.com/tools/markdown-to-html (done)
 
 - 3 Apr:
-    - Header improvment;
+    - Header improvment; 
 
 
 
