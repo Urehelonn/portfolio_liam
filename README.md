@@ -59,6 +59,7 @@ Created using React.js
 
 - 3 Apr:
     - Header improvment; 
+    (https://startbootstrap.com/snippets/navbar-logo/)
 
 
 
