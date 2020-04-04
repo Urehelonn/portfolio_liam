@@ -23,7 +23,7 @@ Created using React.js
 * **Homepage**: With an index which leads to pages to show some of the main projects I created.
 * **Header**: Has some buttons for navigation, includes [ *Main Page*, *About*, *Contact Me* ]
 * **Project Page**: Has at least one picture, followed by a brief explanation, such as technology stacks used. Public projects will provide the link(s) to the repository.
-* **About Page**: Will provide development diary, and all the source, including readme + github repo.
+* **About Page**: Will provide development diary (this readme file), and all the source, including readme + github repo.
 
 ### Source Control & Workflow
 
@@ -50,13 +50,15 @@ Created using React.js
 
 - 1 Apr:
     - Add project page basic layout; (done)
-    - Contact page layout;
+    - Contact page layout; (done)
 
 - 2 Apr:
     - About page layout;
+    - Use this readme as the content for about page, converted use this website:
+        https://www.browserling.com/tools/markdown-to-html
+
+- 3 Apr:
     - Header improvment;
-
-
 
 
 
