@@ -4,6 +4,7 @@
     background-color: #1e242b;
     color: cornsilk;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 // from https://css-tricks.com/examples/hrs/
@@ -11,5 +12,5 @@ hr {
     border: 0;
     height: 3px !important;
     background-image:
-    linear-gradient(to right, rgba(230, 215, 215, 0), rgba(230, 215, 215, 0.75), rgba(230, 215, 215, 0));
+        linear-gradient(to right, rgba(230, 215, 215, 0), rgba(230, 215, 215, 0.75), rgba(230, 215, 215, 0));
 }

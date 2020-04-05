@@ -58,12 +58,11 @@ Created using React.js
         https://www.browserling.com/tools/markdown-to-html (done)
 
 - 3 Apr:
-    - Header improvment; 
-    (https://startbootstrap.com/snippets/navbar-logo/)
+    - Header improvment; (done)
 
 - 4 Apr:
-    - Continue working on header
-    
+    - Continue working on header (done)
+
 
 
 
