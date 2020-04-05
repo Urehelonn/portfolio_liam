@@ -10,37 +10,32 @@ const Header = () => {
         console.log(activeKey);
     };
 
-    const [expanded, setExpanded] = useState(false);
-
     return (
-        <Nav className='navbar navbar-expand-lg navbar-dark bg-dark static-top'
-            variant="pills" activeKey={activeKey} onSelect={handleSelect}>
-            <Navbar.Brand className='navbar-brand'>
+        <Navbar bg="dark" expand="md" variant="dark" sticky="top">
+            <Navbar.Brand>
                 <Link to={'/'}>Liam's Work Space</Link>
             </Navbar.Brand>
-
-            <Navbar.Toggle onClick={() => setExpanded(expanded ? false : "expanded")}
-                aria-controls="basic-navbar-nav" />
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-                <Nav onClick={handleSelect}>
+                <Nav className="ml-auto">
                     <Nav.Item>
-                        <Nav.Link as={Link} to="/" eventKey={1} title="Item">
+                        <Nav.Link as={Link} to="/" eventKey={1} title="main">
                             Main Page
-                        </Nav.Link>
+                         </Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link as={Link} to="/about" eventKey={2} title="Item">
+                        <Nav.Link as={Link} to="/about" eventKey={2} title="about">
                             About
-                        </Nav.Link>
+                         </Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link as={Link} to="/contact" eventKey={3} title="Item">
+                        <Nav.Link as={Link} to="/contact" eventKey={3} title="contact">
                             Contact
-                        </Nav.Link>
+                         </Nav.Link>
                     </Nav.Item>
                 </Nav>
             </Navbar.Collapse>
-        </Nav>
+        </Navbar>
     );
 }
 
