@@ -63,6 +63,10 @@ Created using React.js
 - 4 Apr:
     - Continue working on header (done)
 
+- 5 Apr:
+    - Image header router add
+    - Resume content data entry
+    
 
 
 

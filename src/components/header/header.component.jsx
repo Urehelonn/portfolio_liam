@@ -4,12 +4,6 @@ import { Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import './header.style.scss';
 
 const Header = () => {
-    const [activeKey, setActiveKey] = useState(1);
-    const handleSelect = (eventKey) => {
-        setActiveKey(eventKey);
-        console.log(activeKey);
-    };
-
     return (
         <Navbar bg="dark" expand="md" variant="dark" sticky="top">
             <Navbar.Brand>
