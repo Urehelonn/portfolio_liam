@@ -61,12 +61,12 @@ Created using React.js
     - Header improvment; (done)
 
 - 4 Apr:
-    - Continue working on header (done)
+    - Continue working on header; (done)
 
 - 5 Apr:
-    - Image header router add
-    - Resume content data entry
-    
+    - Image header router add; (done)
+    - Resume content data entry; 
+
 
 
 

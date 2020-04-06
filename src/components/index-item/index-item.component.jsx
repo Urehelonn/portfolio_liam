@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import './index-item.style.scss';
 
 const IndexItem = ({ history, match, path, name, content }) => {
     return (
@@ -8,7 +9,7 @@ const IndexItem = ({ history, match, path, name, content }) => {
             onClick={() => { history.push(`${match.url}${path}`) }}
         >
             {name}
-            <div>{content}</div>
+            <div className="overflow_auto">{content}</div>
         </button>
     );
 }

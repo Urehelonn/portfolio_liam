@@ -1,7 +1,11 @@
-
-
-.intro {
+.container {
     margin: auto;
     margin-top: 40px;
-    text-align: center;
+
+    &.intro {
+        text-align: left;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        margin-top: 15px;
+    }
 }

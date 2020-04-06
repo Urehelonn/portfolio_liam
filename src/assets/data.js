@@ -1,10 +1,21 @@
 export const DATA = {
-    introduction_paragraph: "Introduction paragraph blah blah blah",
+    introduction_paragraph:
+        "I'm a new Computer Science graduate seeking a developer position to contribute my "
+        + "programming skills and knowledge in a dynamic organization.",
+
+    profile: [
+        "Highly motivated and experienced problem solver with a positive attitude and eager to learn.",
+        "Demonstrated programming skills and experience with the knowledge on web development.",
+        "Dedicated to completing projects and tasks in a timely manner.",
+        "Highly adaptable, flexible developer who embraces teamwork, but also enjoys working independently.",
+        "Always willing to learn, and take responsibility."
+    ],
     tech_stacks: {
-        front_end: ["stk1, stk2, stk3, stk4"],
-        back_end: ["stk1, stk2, stk3, stk4"],
-        database: ["stk1, stk2, stk3, stk4"],
-        others: ["stk1, stk2, stk3, stk4"],
+        programming_languages: ["Java", "JavaScript (ES6)", "TypeScript", "C#"],
+        front_end: ["Angular 8", "jQuery", "HTML", "CSS", "Bootstrap", "XML", "React"],
+        back_end: ["NodeJS", "Express", "Spring Boot", "Hibernate", "ASP .Net"],
+        database: ["MySQL", "MongoDB", "SQLite"],
+        others: ["Unity", "Android Studio", "Photoshop", "Unit Testing", "AWS", "Linux(Ubuntu)"],
     },
     title: [
         {
@@ -25,7 +36,7 @@ export const DATA = {
                 "ffofodpokprokpdorkpgdogkpdorkgdpokkgdpkgpdogkpd",
             ],
             image: "https://i.ibb.co/RjF3FB4/kda-eve-by-tmiracle-dcr9nhy.png",
-            path:"project/0"
+            path: "project/0"
         },
         {
             id: 1,
@@ -38,7 +49,7 @@ export const DATA = {
                 "ffofodpokprokpdorkpgdogkpdorkgdpokkgdpkgpdogkpd",
             ],
             image: "",
-            path:"project/1"
+            path: "project/1"
         },
         {
             id: 2,
@@ -51,7 +62,7 @@ export const DATA = {
                 "ffofodpokprokpdorkpgdogkpdorkgdpokkgdpkgpdogkpd",
             ],
             image: "",
-            path:"project/2"
+            path: "project/2"
         },
 
     ],
