@@ -7,15 +7,8 @@ import { render } from '@testing-library/react';
 
 class PageIndex extends React.Component {
     state = { data: DATA };
-    // let history = useHistory();
-    // console.log("PageIndex prop: ");
-    // console.log(props);
-    // const routeChange = (path) => {
-    //     history.push(path);
-    // }
     render() {
         const { data } = this.state;
-        console.log(data);
         return (
             <div className="container">
                 <div className="list-group">

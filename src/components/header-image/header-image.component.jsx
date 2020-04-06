@@ -1,54 +1,33 @@
 import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import './header-image.style.scss';
-import HeaderImageItem from '../header-image-item/header-image-item.component';
 
-function ImageHeader() {
+function ImageHeader(props) {
     const [index, setIndex] = useState(0);
-
-    const handleSelect = (selectedIndex, e) => {
+    const handleSelect = (selectedIndex) => {
         setIndex(selectedIndex);
     }
 
+    const carouselVal = [];
+    props.data.project.forEach((e, ind) => {
+        carouselVal.push(
+            <Carousel.Item key={ind}>
+                <img
+                    className="d-block w-100"
+                    src={e.image}
+                    alt={e.name}
+                />
+                <Carousel.Caption>
+                    <h2>{e.name}</h2>
+                    <p>{e.description}</p>
+                </Carousel.Caption>
+            </Carousel.Item>
+        );
+    });
+
     return (
         <Carousel activeIndex={index} onSelect={handleSelect}>
-            <HeaderImageItem></HeaderImageItem>
-            {/* <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="https://source.unsplash.com/RCAhiGJsUUE/1920x1080"
-                    alt="First slide"
-                />
-                <Carousel.Caption>
-                    <h2>First slide label</h2>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </Carousel.Caption>
-            </Carousel.Item> */}
-            {/* <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="https://source.unsplash.com/wfh8dDlNFOk/1920x1080"
-                    alt="Second slide"
-                />
-
-                <Carousel.Caption>
-                    <h2>Second slide label</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </Carousel.Caption>
-            </Carousel.Item> */}
-            {/* <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="https://source.unsplash.com/O7fzqFEfLlo/1920x1080"
-                    alt="Third slide"
-                />
-                <Carousel.Caption>
-                    <h2>Third slide label</h2>
-                    <p>
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                    </p>
-                </Carousel.Caption>
-            </Carousel.Item> */}
+            {carouselVal}
         </Carousel>
     );
 }

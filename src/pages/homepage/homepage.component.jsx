@@ -8,7 +8,8 @@ import './homepage.style.scss';
 const Homepage = () => {
     return (
         <div>
-            <ImageHeader></ImageHeader>
+            <ImageHeader
+                data={DATA}></ImageHeader>
             <div className='container intro'>
                 {DATA.introduction_paragraph}
             </div>
