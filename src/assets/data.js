@@ -66,6 +66,15 @@ export const DATA = {
         },
 
     ],
+    personal_info: {
+        github_page: "https://github.com/Urehelonn",
+        gitlab_page: "https://gitlab.com/Urehelonn",
+        location: "Maple, Vaughan, York Region, GTA Area, ON, Canada",
+        description: "",
+        closure: "Thank you for checking out my portfolio, here's some of my fuzzy friend's photo, hope you enjoy those as I do!（｡ò ∀ ó｡）!",
+        fuzzy_img1: "",
+        fuzzy_img2: ""
+    }
 };
 
 export default DATA;

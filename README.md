@@ -39,8 +39,6 @@ Created using React.js
 - 29 Mar:
     - Router setting; (done)
     - Header adding with navigation to other pages;  (done)
-    <!-- - *header from https://startbootstrap.com/snippets/half-slider/* -->
-    - Images used in the header are from *www.unsplash.com*
 
 - 30 Mar: 
     - Homepage basic design with layout adding; (done)
@@ -65,9 +63,15 @@ Created using React.js
 
 - 5 Apr:
     - Image header router add; (done)
-    - Resume content data entry; 
+    - Resume content data entry; (in-progress)
 
+- 6 Apr:
+    - Contact page had to be done;
+    - Start data entry for projects as well;
 
+- 9 Apr:
+    - Back to work, contact page detail adding; (done)
+    - 
 
 
 
