@@ -8,9 +8,9 @@ import TechTable from '../../components/tech-table/tech-table.component';
 
 const Homepage = () => {
 
-    const profile = [];
-    DATA.profile.forEach(e => {
-        profile.push(<li>{e}</li>);
+    const profile1 = [];
+    DATA.profile1.forEach(e => {
+        profile1.push(<li>{e}</li>);
     });
     return (
         <div>
@@ -19,13 +19,14 @@ const Homepage = () => {
             <div className='container intro'>
                 {DATA.introduction_paragraph}
                 <hr />
+                <br/>
                 <div>
-                    {profile}
+                    {profile1}
                 </div>
             </div>
 
             <hr />
-            <TechTable data={DATA.tech_stacks}></TechTable>
+            <TechTable data={DATA}></TechTable>
 
             <PageIndex></PageIndex>
         </div>

@@ -3,12 +3,16 @@ export const DATA = {
         "I'm a new Computer Science graduate seeking a developer position to contribute my "
         + "programming skills and knowledge in a dynamic organization.",
 
-    profile: [
+    profile1: [
         "Highly motivated and experienced problem solver with a positive attitude and eager to learn.",
         "Demonstrated programming skills and experience with the knowledge on web development.",
         "Dedicated to completing projects and tasks in a timely manner.",
         "Highly adaptable, flexible developer who embraces teamwork, but also enjoys working independently.",
         "Always willing to learn, and take responsibility."
+    ],
+    profile2: [
+        "Strong OOP concept and hands-on modern web development experience.",
+        "Agile development process (Scrum); Hands-on experiences in JIRA; Version control system: Git."
     ],
     tech_stacks: {
         programming_languages: ["Java", "JavaScript (ES6)", "TypeScript", "C#"],
@@ -71,7 +75,7 @@ export const DATA = {
         gitlab_page: "https://gitlab.com/Urehelonn",
         location: "Maple, Vaughan, York Region, GTA Area, ON, Canada",
         description: "",
-        closure: "Thank you for checking out my portfolio, here's some of my fuzzy friend's photo, hope you enjoy those as I do!（｡ò ∀ ó｡）!",
+        closure: "Thank you for checking out my portfolio, here's some of my fuzzy friend's photo, hope you enjoy those as I do!",
         fuzzy_img1: "",
         fuzzy_img2: ""
     }

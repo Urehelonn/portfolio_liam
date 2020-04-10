@@ -71,7 +71,10 @@ Created using React.js
 
 - 9 Apr:
     - Back to work, contact page detail adding; (done)
-    - 
+    - Start adding content onto project pages;
+
+- 10 Apr:
+    - Continue working on project pages;
 
 
 

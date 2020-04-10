@@ -3,7 +3,7 @@ import React from 'react';
 import './contact.style.scss';
 import DATA from '../../assets/data';
 
-const Contact = (props) => {
+const Contact = () => {
     return (
         <div className='container'>
             <h1>Contact Information</h1>
@@ -18,11 +18,17 @@ const Contact = (props) => {
                         </div>
                     </div>
 
-                    <div>
+                    <h5>
                         Name: Lin Xu
-                    </div>
-                    <div>
+                    </h5>
+                    <h5>
                         Preferred Name: Liam
+                    </h5>
+                    <div className="extra">
+                        <strong> *Yes my profile picture is Ruiner Nergigante from MH: World,
+                             I forgot to draw the wings at the time, google it yourself, stop asking me D:
+                    </strong>
+
                     </div>
                 </div>
                 <div className='right'>
@@ -42,7 +48,10 @@ const Contact = (props) => {
                         <br />
                         <div>
                             <p>{DATA.personal_info.closure}</p>
+                            （｡ò ∀ ó｡）!
+                            <br/>
                             <img src={DATA.personal_info.fuzzy_img1} alt="My Fuzzy Friend" />
+                            <img src={DATA.personal_info.fuzzy_img2} alt="My Fuzzy Friend" />
                         </div>
                     </div>
                 </div>

@@ -4,30 +4,39 @@ import './tech-table.style.scss';
 
 const TechTable = (props) => {
     const programming_language = [];
-    props.data.programming_languages.forEach(e => {
+    const data = props.data.tech_stacks; 
+    data.programming_languages.forEach(e => {
         programming_language.push(<td>{e}</td>);
     });
     const front = [];
-    props.data.front_end.forEach(e => {
+    data.front_end.forEach(e => {
         front.push(<td>{e}</td>);
     });
     const back = [];
-    props.data.back_end.forEach(e => {
+    data.back_end.forEach(e => {
         back.push(<td>{e}</td>);
     });
     const database = [];
-    props.data.database.forEach(e => {
+    data.database.forEach(e => {
         database.push(<td>{e}</td>);
     });
     const others = [];
-    props.data.others.forEach(e => {
+    data.others.forEach(e => {
         others.push(<td>{e}</td>);
     });
 
+    const profile2 = [];
+    props.data.profile2.forEach(e => {
+        profile2.push(<li>{e}</li>);
+    });
 
     return (
         <div>
             <div className='tech_table_intro'>
+                <div>
+                    {profile2}
+                </div>
+                <br/>
                 <h5>Here are some of the tech stacks I have used: </h5>
             </div>
             <Table striped bordered hover variant="dark">
