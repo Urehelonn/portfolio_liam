@@ -31,13 +31,16 @@ export const DATA = {
     project: [
         {
             id: 0,
-            name: 'project1',
-            description: 'rgkseprogkpo',
+            name: 'Restaurant Web Builder',
+            description: 'A web application to help resturant owner build their own menu website.',
             content: [
-                "aeiuhrigerugaeiruauirghemcixhmergaehnmguyrg",
-                "arpgijerigyuhaidjcnaoiruygaoeuirhpiudjcapiuv",
-                "afeagiarogijrojtuhspituhpiruaeuir",
-                "ffofodpokprokpdorkpgdogkpdorkgdpokkgdpkgpdogkpd",
+                "Developed restaurant website builder which helps user to create websites for their restaurant, using Angular, Spring boot and MySQL.",
+                "Analyzed the requirements and used Jira, Github for version control and ticket tracking.",
+                "Implemented a stylish website using Bootstrap, SCSS, with Angular.",
+                "Used Java Persistence API(JPA)+Hibernate to persistently store the vast amounts of data into the database.",
+                "Created builder pages to let users modify their restaurant page using builder service and controller.",
+                "Provided user authentication functions, with email confirmation needed, using user controllers and services.",
+                "Deployed using Dockers, Nginx, on AWS EC2 CentOS instance."
             ],
             image: "https://i.ibb.co/RjF3FB4/kda-eve-by-tmiracle-dcr9nhy.png",
             path: "project/0"

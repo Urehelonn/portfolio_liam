@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import './header-image.style.scss';
 
-function ImageHeader(props) {
+const ImageHeader = (props) => {
     const [index, setIndex] = useState(0);
     const handleSelect = (selectedIndex) => {
         setIndex(selectedIndex);
