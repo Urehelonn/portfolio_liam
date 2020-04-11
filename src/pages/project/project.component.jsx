@@ -14,9 +14,9 @@ const Project = (props) => {
             </div>
 
             <div className='content'>
-                {data.content.map((ct) => {
+                {data.content.map((ct, ind) => {
                     return (
-                    <li>{ct}</li>
+                    <li key={ind}>{ct}</li>
                     );
                 })}
             </div>

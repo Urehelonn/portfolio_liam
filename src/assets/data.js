@@ -21,17 +21,11 @@ export const DATA = {
         database: ["MySQL", "MongoDB", "SQLite"],
         others: ["Unity", "Android Studio", "Photoshop", "Unit Testing", "AWS", "Linux(Ubuntu)"],
     },
-    title: [
-        {
-            title_image: "",
-            title: "",
-            title_description: ""
-        },
-    ],
     project: [
         {
             id: 0,
             name: 'Restaurant Web Builder',
+            title_image: "https://i.ibb.co/F6dz1Fv/Screenshot-from-2020-04-11-05-08-34.png",
             description: 'A web application to help resturant owner build their own menu website.',
             content: [
                 "Developed restaurant website builder which helps user to create websites for their restaurant, using Angular, Spring boot and MySQL.",
@@ -42,7 +36,7 @@ export const DATA = {
                 "Provided user authentication functions, with email confirmation needed, using user controllers and services.",
                 "Deployed using Dockers, Nginx, on AWS EC2 CentOS instance."
             ],
-            image: "https://i.ibb.co/RjF3FB4/kda-eve-by-tmiracle-dcr9nhy.png",
+            image: "https://i.ibb.co/kDgfCDJ/Screenshot-from-2020-04-11-04-51-33.png",
             path: "project/0"
         },
         {

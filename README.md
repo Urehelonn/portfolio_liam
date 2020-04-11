@@ -79,6 +79,6 @@ Created using React.js
 - 11 Apr:
     - Fix header content, add router link to project as well;
 
-
+TODO: add the color guessing mini-game to portfolio.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

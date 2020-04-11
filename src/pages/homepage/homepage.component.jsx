@@ -9,8 +9,8 @@ import TechTable from '../../components/tech-table/tech-table.component';
 const Homepage = () => {
 
     const profile1 = [];
-    DATA.profile1.forEach(e => {
-        profile1.push(<li>{e}</li>);
+    DATA.profile1.forEach((e, ind) => {
+        profile1.push(<li key={ind}>{e}</li>);
     });
     return (
         <div>

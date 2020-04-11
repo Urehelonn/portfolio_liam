@@ -1,9 +1,7 @@
 import React from 'react';
 import './page-index.style.scss';
-import { useHistory, Redirect } from 'react-router-dom';
 import IndexItem from '../index-item/index-item.component';
 import { DATA } from '../../assets/data';
-import { render } from '@testing-library/react';
 
 class PageIndex extends React.Component {
     state = { data: DATA };
@@ -12,7 +10,7 @@ class PageIndex extends React.Component {
         return (
             <div className="container">
                 <div className="list-group">
-                    {data.project.map(({id, ...otherprops}) => {
+                    {data.project.map(({ id, ...otherprops }) => {
                         return (
                             <IndexItem key={id} {...otherprops}></IndexItem>
                         );

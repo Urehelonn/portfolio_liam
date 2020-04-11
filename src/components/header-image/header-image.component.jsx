@@ -14,7 +14,7 @@ const ImageHeader = (props) => {
             <Carousel.Item key={ind}>
                 <img
                     className="d-block w-100"
-                    src={e.image}
+                    src={e.title_image}
                     alt={e.name}
                 />
                 <Carousel.Caption>

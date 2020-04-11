@@ -5,29 +5,29 @@ import './tech-table.style.scss';
 const TechTable = (props) => {
     const programming_language = [];
     const data = props.data.tech_stacks; 
-    data.programming_languages.forEach(e => {
-        programming_language.push(<td>{e}</td>);
+    data.programming_languages.forEach((e, ind) => {
+        programming_language.push(<td key={ind}>{e}</td>);
     });
     const front = [];
-    data.front_end.forEach(e => {
-        front.push(<td>{e}</td>);
+    data.front_end.forEach((e, ind) => {
+        front.push(<td key={ind}>{e}</td>);
     });
     const back = [];
-    data.back_end.forEach(e => {
-        back.push(<td>{e}</td>);
+    data.back_end.forEach((e, ind) => {
+        back.push(<td key={ind}>{e}</td>);
     });
     const database = [];
-    data.database.forEach(e => {
-        database.push(<td>{e}</td>);
+    data.database.forEach((e, ind) => {
+        database.push(<td key={ind}>{e}</td>);
     });
     const others = [];
-    data.others.forEach(e => {
-        others.push(<td>{e}</td>);
+    data.others.forEach((e, ind) => {
+        others.push(<td key={ind}>{e}</td>);
     });
 
     const profile2 = [];
-    props.data.profile2.forEach(e => {
-        profile2.push(<li>{e}</li>);
+    props.data.profile2.forEach((e, ind) => {
+        profile2.push(<li key={ind}>{e}</li>);
     });
 
     return (

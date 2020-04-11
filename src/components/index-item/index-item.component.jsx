@@ -2,14 +2,14 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './index-item.style.scss';
 
-const IndexItem = ({ history, match, path, name, content }) => {
+const IndexItem = (props) => {
     return (
         <button type="button"
             className="list-group-item list-group-item-action"
-            onClick={() => { history.push(`${match.url}${path}`) }}
+            onClick={() => { props.history.push(`${props.match.url}${props.path}`) }}
         >
-            {name}
-            <div className="overflow_auto">{content}</div>
+            <b>{props.name}</b>
+            <div className="overflow_auto">{props.description}</div>
         </button>
     );
 }
