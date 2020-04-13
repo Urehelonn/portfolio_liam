@@ -3,6 +3,7 @@
 ### This page is used to demonstrate some of my work, and introduce with some of the projects I worked with for my previous position.
 
 Created using React.js
+Deployed using heroku: https://urehelonn-portfolio.herokuapp.com/
 
 ---
 
