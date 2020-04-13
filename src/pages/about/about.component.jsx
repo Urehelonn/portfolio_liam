@@ -75,6 +75,7 @@ export default class About extends React.Component {
                     <br />
                     <p>==== This Part Will Be Displayed After ===</p>
                 </div>
+                <h1>THIS WEB APPLICATION IS STILL IN PROGRESS OF DEVELOPING</h1>
 
                 <br />
                 <br />

@@ -7,20 +7,20 @@ const Project = (props) => {
     const { match: { params } } = props;
     const data = DATA.project[params.projectID];
     return (
-        <div className='container'>
-            <h1>{data.name.toUpperCase()}</h1>
-            <div className='img-container'>
-                <img src={data.image} alt={data.image}></img>
-            </div>
+        <div >
+            <div className="container">
+                <h1>{data.name.toUpperCase()}</h1>
+                <div className='content'>
+                    {data.content.map((ct, ind) => {
+                        return (
+                            <li key={ind}>{ct}</li>
+                        );
+                    })}
+                </div>
+                <hr />
 
-            <div className='content'>
-                {data.content.map((ct, ind) => {
-                    return (
-                    <li key={ind}>{ct}</li>
-                    );
-                })}
+                <img id="content_image" src={data.image} alt={data.image}></img>
             </div>
-            <hr/>
         </div>
     );
 }

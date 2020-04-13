@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
+import {useHistory} from 'react-router-dom';
 import './header-image.style.scss';
 
 const ImageHeader = (props) => {
@@ -7,7 +8,7 @@ const ImageHeader = (props) => {
     const handleSelect = (selectedIndex) => {
         setIndex(selectedIndex);
     }
-
+    const history = useHistory();
     const carouselVal = [];
     props.data.project.forEach((e, ind) => {
         carouselVal.push(
@@ -16,6 +17,7 @@ const ImageHeader = (props) => {
                     className="d-block w-100"
                     src={e.title_image}
                     alt={e.name}
+                    onClick={()=> history.push(e.path)}
                 />
                 <Carousel.Caption>
                     <h2>{e.name}</h2>

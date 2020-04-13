@@ -74,11 +74,15 @@ Created using React.js
     - Start adding content onto project pages; (done)
 
 - 10 Apr:
-    - Continue working on project pages;
+    - Continue working on project pages; 
 
 - 11 Apr:
-    - Fix header content, add router link to project as well;
+    - Fix header content, add router link to project as well; (done)
 
-TODO: add the color guessing mini-game to portfolio.
+TODO: 
+- 1. Add the color guessing mini-game to portfolio.
+- 2. Font change
+- 3. Image onclick zoom
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
