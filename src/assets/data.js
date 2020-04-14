@@ -1,4 +1,5 @@
 export const DATA = {
+    base_url: "https://urehelonn.github.io/porfolio_liam",
     introduction_paragraph:
         "I'm a new Computer Science graduate seeking a developer position to contribute my "
         + "programming skills and knowledge in a dynamic organization.",

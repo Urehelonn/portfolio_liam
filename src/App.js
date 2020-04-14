@@ -4,7 +4,8 @@ import './App.scss';
 import Header from './components/header/header.component';
 import {
   Switch,
-  Route
+  Route,
+  HashRouter
 } from "react-router-dom";
 
 import Homepage from './pages/homepage/homepage.component';
@@ -14,25 +15,26 @@ import Contact from './pages/contact/contact.component';
 
 export default class App extends React.Component {
   render() {
+    console.log("Your process.env.PUBLIC_URL:"+ process.env.PUBLIC_URL);
     return (
-      <div className="App">
-        <Header />
-        <Switch>
-          <Route exact path="/"
-            component={Homepage}
-          />
-          <Route exact path="/about"
-            component={About}
-          />
-          <Route path="/project/:projectID" component={Project}>
-          </Route>
+      <HashRouter basename='/'>
+        <div className="App">
+          <Header />
+          <Switch>
+            <Route exact path="/"
+              component={Homepage}
+            />
+            <Route exact path="/about"
+              component={About}
+            />
+            <Route path="/project/:projectID" component={Project}>
+            </Route>
 
-          <Route path="/contact" component={Contact}>
-          </Route>
-        </Switch>
-      </div >
+            <Route path="/contact" component={Contact}>
+            </Route>
+          </Switch>
+        </div >
+      </HashRouter>
     );
   };
 }
-
-// export default App;
