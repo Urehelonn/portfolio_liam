@@ -67,18 +67,31 @@ Deployed using github page: https://urehelonn.github.io/portfolio_liam/#/
     - Resume content data entry; (in-progress)
 
 - 6 Apr:
-    - Contact page had to be done;
-    - Start data entry for projects as well;
+    - Contact page had to be done; (done)
+    - Start data entry for projects as well; (done)
 
 - 9 Apr:
     - Back to work, contact page detail adding; (done)
     - Start adding content onto project pages; (done)
 
 - 10 Apr:
-    - Continue working on project pages; 
+    - Continue working on project pages; (continue)
 
 - 11 Apr:
     - Fix header content, add router link to project as well; (done)
+
+- 12 Apr:
+    - Start working to deploy the static website; (done)
+
+- 14 Apr:
+    - Done deploy, heroku abundoned, still using github page; (done)
+    - Continue data entry;
+
+- 15 Apr:
+    - Continuer data entry;
+    - Add Stack usage section for every project, and insert record into data;
+
+
 
 TODO: 
 - 1. Add the color guessing mini-game to portfolio.

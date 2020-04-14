@@ -42,26 +42,38 @@ export const DATA = {
         },
         {
             id: 1,
-            name: 'project_3',
-            description: 'paefkaepr',
+            name: 'Broker SaaS Application',
+            description: 'A web application to help user find the right travelling insurance broker.',
             content: [
-                "aeiuhrigerugaeiruauirghemcixhmergaehnmguyrg",
-                "arpgijerigyuhaidjcnaoiruygaoeuirhpiudjcapiuv",
-                "afeagiarogijrojtuhspituhpiruaeuir",
-                "ffofodpokprokpdorkpgdogkpdorkgdpokkgdpkgpdogkpd",
+                "Developed broker SaaS website for users to choose different brokers with different travel insurance companies and plans, using Angular, NodeJS Express, and MySQL.",
+                "Separate users’ role to user account and broker account with authentication",
+                "Design and created traveling companies’ database, and filter system for users to enter their cost budget, age, and insurance affecting time to filter and get insurance company’s information at back end.",
+                "Created brokers’ profile page, brokers can edit the information they provide to users on their profile page, and has permission to post articles with rich text editor to inform or advertising their business to users, design and implemented both front and back end.",
             ],
             image: "",
             path: "project/1"
         },
         {
             id: 2,
-            name: 'project 2',
-            description: 'aoefaoeif',
+            name: 'Online Order Management System',
+            description: 'A web application build for client to do order management for his factory.',
             content: [
-                "aeiuhrigerugaeiruauirghemcixhmergaehnmguyrg",
-                "arpgijerigyuhaidjcnaoiruygaoeuirhpiudjcapiuv",
-                "afeagiarogijrojtuhspituhpiruaeuir",
-                "ffofodpokprokpdorkpgdogkpdorkgdpokkgdpkgpdogkpd",
+                "Developed single-page order management website which helps the client to create and manage their orders, "
+                + "factories can use the system to update production processes to the client, and the client's customers can use the "
+                + "system to check their order status, used Angular, Spring Boot and MySQL.",
+                "Analyzed the requirements and used Jira, Gitlab for version control and ticket tracking.",
+                "Implemented a stylish website using Bootstrap, SASS, with Angular.",
+                "Used Java Persistence API(JPA)+Hibernate to persistently store vast amounts of data into the database, with "
+                + "code-first flow for migration.",
+                "Created order management pages to create orders, manage orders, or check order details, based on order’s "
+                +"different stage, and user’s role.",
+                "Provided user authentication functions with different roles, ‘super-admin’ as client’s role which has all "
+                +"permission, and ‘user’ role has limited permission so customers will not see the other customers’ order details,"
+                +"and user account could not edit order either. ‘admin’ account is used to check sub-order details and to edit the "
+                +"producing status.",
+                "Created producing system so the client can track the production status from the record factory’s providing.",
+                "Created delivering system so factories can report the shipment of the products, and the client can keep track of the "
+                +"products."
             ],
             image: "",
             path: "project/2"
