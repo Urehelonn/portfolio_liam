@@ -15,7 +15,6 @@ import Contact from './pages/contact/contact.component';
 
 export default class App extends React.Component {
   render() {
-    console.log("Your process.env.PUBLIC_URL:"+ process.env.PUBLIC_URL);
     return (
       <HashRouter basename='/'>
         <div className="App">

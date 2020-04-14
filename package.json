@@ -2,7 +2,7 @@
   "name": "portfolio_liam",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "http://urehelonn.github.io/yourreponame",
+  "homepage" : "https://urehelonn.github.io/portfolio_liam/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
