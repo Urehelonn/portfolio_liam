@@ -4,7 +4,6 @@
         margin: auto;
         margin-top: 35px;
         min-width: 700px;
-        overflow-x: scroll;
     }
 
     // border from: 
@@ -101,7 +100,7 @@
         border-radius: 255px 15px 225px 15px/15px 225px;
         border-left: dotted 5px rgba(230, 215, 215, 0.7);
         padding: 5%;
-        overflow: scroll;
+        overflow: auto;
 
         .content {
             text-align: center;
