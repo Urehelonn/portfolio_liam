@@ -11,6 +11,8 @@ export default class About extends React.Component {
                     with some of the projects I worked with for my previous position.</h4>
                 <p>Created using React.js</p>
                 <br />
+                <div>Repo for this page: <a href="https://github.com/Urehelonn/portfolio_liam">Visit Liam's Github</a>
+                </div>
                 <hr />
 
                 <div className="section">
@@ -79,8 +81,7 @@ export default class About extends React.Component {
 
                 <br />
                 <br />
-                <p>This project was bootstrapped with
-                    <a href="https://github.com/facebook/create-react-app">Create React App</a>.</p>
+                <p>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.</p>
             </div>
         );
     }

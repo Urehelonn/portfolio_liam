@@ -2,6 +2,8 @@
 
 ### This page is used to demonstrate some of my work, and introduce with some of the projects I worked with for my previous position.
 
+Repo for this page: https://github.com/Urehelonn/portfolio_liam
+
 Created using React.js
 <!-- Deployed using heroku: https://urehelonn-portfolio.herokuapp.com/ -->
 Deployed using github page: https://urehelonn.github.io/portfolio_liam/#/
@@ -88,15 +90,17 @@ Deployed using github page: https://urehelonn.github.io/portfolio_liam/#/
     - Continue data entry;
 
 - 15 Apr:
-    - Continuer data entry;
+    - Bug find on contact page display, need to get it fixed;
+    - Continue data entry;
     - Add Stack usage section for every project, and insert record into data;
 
 
 
 TODO: 
 - 1. Add the color guessing mini-game to portfolio.
-- 2. Font change
-- 3. Image onclick zoom
+- 2. Font change.
+- 3. Image onclick zoom.
+- 4. Share fuzzy friends' photos with visitors.
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
