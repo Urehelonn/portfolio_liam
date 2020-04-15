@@ -28,6 +28,7 @@ export const DATA = {
             name: 'Restaurant Web Builder',
             title_image: "https://i.ibb.co/F6dz1Fv/Screenshot-from-2020-04-11-05-08-34.png",
             description: 'A web application to help resturant owner build their own menu website.',
+            stacks: "Angular, Spring Boot, MySQL, Docker",
             content: [
                 "Developed restaurant website builder which helps user to create websites for their restaurant, using Angular, Spring boot and MySQL.",
                 "Analyzed the requirements and used Jira, Github for version control and ticket tracking.",
@@ -44,9 +45,11 @@ export const DATA = {
             id: 1,
             name: 'Broker SaaS Application',
             description: 'A web application to help user find the right travelling insurance broker.',
+            stacks: "Node JS, Express, Angular, MySQL, MongoDB",
             content: [
                 "Developed broker SaaS website for users to choose different brokers with different travel insurance companies and plans, using Angular, NodeJS Express, and MySQL.",
                 "Separate users’ role to user account and broker account with authentication",
+                "Used TypeORM to persistently store the vast amounts of data into the database.",
                 "Design and created traveling companies’ database, and filter system for users to enter their cost budget, age, and insurance affecting time to filter and get insurance company’s information at back end.",
                 "Created brokers’ profile page, brokers can edit the information they provide to users on their profile page, and has permission to post articles with rich text editor to inform or advertising their business to users, design and implemented both front and back end.",
             ],
@@ -57,6 +60,7 @@ export const DATA = {
             id: 2,
             name: 'Online Order Management System',
             description: 'A web application build for client to do order management for his factory.',
+            stacks: "Angular, Spring Boot, MySQL",
             content: [
                 "Developed single-page order management website which helps the client to create and manage their orders, "
                 + "factories can use the system to update production processes to the client, and the client's customers can use the "

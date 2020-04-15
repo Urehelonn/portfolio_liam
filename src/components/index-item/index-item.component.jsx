@@ -10,6 +10,9 @@ const IndexItem = (props) => {
         >
             <b>{props.name}</b>
             <div className="overflow_auto">{props.description}</div>
+            <div className="index-item-stacks-display">
+                <b>Mainly Using: {props.stacks}</b>
+            </div>
         </button>
     );
 }

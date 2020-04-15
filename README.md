@@ -90,10 +90,13 @@ Deployed using github page: https://urehelonn.github.io/portfolio_liam/#/
     - Continue data entry;
 
 - 15 Apr:
-    - Bug find on contact page display, need to get it fixed;
-    - Continue data entry;
-    - Add Stack usage section for every project, and insert record into data;
+    - Bug find on contact page display, need to get it fixed; (done)
+    - Continue data entry; (done)
+    - Add Stack usage section for every project, and insert record into data; (done)
 
+- 16 Apr:
+    - Put the rest project from resume into data;
+    - Font changing;
 
 
 TODO: 
