@@ -18,7 +18,7 @@ const Project = (props) => {
                     })}
                 </div>
                 <hr />
-                <img id="content_image" src={data.image} alt={data.image}></img>
+                <img id="content_image" src={data.image} alt={data.name}></img>
             </div>
         </div>
     );

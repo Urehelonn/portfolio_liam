@@ -95,7 +95,7 @@ Deployed using github page: https://urehelonn.github.io/portfolio_liam/#/
     - Add Stack usage section for every project, and insert record into data; (done)
 
 - 16 Apr:
-    - Put the rest project from resume into data;
+    - Put the rest project from resume into data; (done)
     - Font changing;
 
 

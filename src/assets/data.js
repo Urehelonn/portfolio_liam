@@ -82,6 +82,63 @@ export const DATA = {
             image: "",
             path: "project/2"
         },
+        {
+            id: 3,
+            name: "Pizza Order Application",
+            description: "A web application to order pizza, with functionalities to manage its topping, and check order details.",
+            stacks: "Angular, Node.js, Express Boot, MongoDB",
+            content: [
+                "Developed pizza order application website which allows users to order pizza, with a variety of toppings, using "
+                + "Angular, Node.js, Express and MongoDB.",
+                "Implemented a stylish website using Bootstrap, SASS, with Angular Animation effects.",
+                "Converted json data to objects with types using Typeorm, allows programming with virtual object database.",
+                "Provided user authentication functions with token-based authentication, with different role settings.",
+                "Implemented application functions with RESTful web services controllers for server-side using Express, makes it "
+                +"more suitable for internet usage."
+            ],
+            image: "",
+            path: "project/3"
+        },
+        {
+            id: 4,
+            name: "Task Timing App",       
+            description: "An Android application created for task's time tracking.",
+            stacks: "Android Studio, Java, SQLite",
+            content: [
+                "Github repo: https://github.com/Urehelonn/as-prac-task-timer",
+                "Developing Android app using Android Studio and SQLite to help user for event timing.",
+                "Analyzed the requirements and used Github for version.",
+                "Used SQLite database to persistently store the vast amounts of data into the database on android device.",
+                "Created SQLiteHelper and Content Provider classes to normalize SQL action instead of raw SQL query command.",
+                "Created different activities and layout for task list and task editing (creating).",
+                "Used Recycler View and Recycler Adapter to fill up task list information from database dynamically.",
+                "Provided deletion confirmation using Dialog, in case of accident click.",
+                "With different fragments, main activity is allowed to provide task editing or creating as well using Fragment Manager.",
+                "Still in progress, including task timing calculation and update, landscape functionalities."
+            ],
+            image: "",
+            path: "project/4"
+        },
+
+        {
+            id: 5,
+            name: "Movie Management Website (xMovies)",       
+            description: "A movie manage website to provide movie information, and share towards customer and movie manager.",
+            stacks: "ASP.NET, Razor, SQL Server",
+            content: [
+                "Github repo: https://github.com/Urehelonn/xMovies",
+                "Developed movie management website to provide movie source sharing towards customer and movie manager "
+                +"using ASP.NET independently.",
+                "Analyzed the requirements and drew diagram using sequence diagram and Kan-ban.",
+                "Implemented application functions with MVC design patterns and made it to fit the SOLID principle.",
+                "Implemented ASP.Net Identity with OAuth2 (Facebook as third party) for authentication to secure web API.",
+                "Deigned movie managing database with SQL Server following normalization form (NF).",
+                "Used Entity Framework for data mapping, to apply schema changed to production database, with code-first flow"
+                +" for migration."
+            ],
+            image: "",
+            path: "project/5"
+        },
 
     ],
     personal_info: {
