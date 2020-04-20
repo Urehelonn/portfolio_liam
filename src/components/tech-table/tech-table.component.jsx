@@ -31,7 +31,7 @@ const TechTable = (props) => {
     });
 
     return (
-        <div>
+        <div id="table_control">
             <div className='tech_table_intro'>
                 <div>
                     {profile2}
