@@ -1,7 +1,7 @@
 import React from 'react';
 import './page-index.style.scss';
 import IndexItem from '../index-item/index-item.component';
-import { DATA } from '../../assets/data';
+import { DATA } from '../../../assets/data';
 
 class PageIndex extends React.Component {
     state = { data: DATA };

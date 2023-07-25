@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './contact.style.scss';
-import DATA from '../../assets/data';
+import DATA from '../../../assets/data';
 
 const Contact = () => {
     return (

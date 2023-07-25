@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './project.style.scss';
-import DATA from '../../assets/data';
+import DATA from '../../../assets/data';
 
 const Project = (props) => {
     const { match: { params } } = props;
