@@ -1,10 +1,9 @@
 import React from 'react';
 
-import './_app.scss';
 import HomePage from "@/pages/homepage/HomePage";
 
 const Home = () => (
-    <div className="App">
+    <div>
         <HomePage/>
         {/*<Header/>*/}
         {/*<Switch>*/}
