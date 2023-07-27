@@ -1,9 +1,7 @@
 import React from 'react';
-// import ImageHeader from '../../../portfolio_liam/src/components/header-image/header-image.component';
-// import PageIndex from '../../../portfolio_liam/src/components/page-index/page-index.component';
-// import DATA from '../../assets/data';
-// import './homepage.style.scss';
-// import TechTable from '../../../portfolio_liam/src/components/tech-table/tech-table.component';
+
+// shared component import
+import MainHeader from '@/components/header/index'
 
 const Homepage = () => {
 
@@ -14,6 +12,7 @@ const Homepage = () => {
     return (
         <div>
             <h1>HomePage</h1>
+            <MainHeader></MainHeader>
             {/*<ImageHeader*/}
             {/*    data={DATA}></ImageHeader>*/}
             {/*<div className='container intro'>*/}
@@ -25,7 +24,7 @@ const Homepage = () => {
             {/*    </div>*/}
             {/*</div>*/}
 
-            <hr />
+            <hr/>
             {/*<TechTable data={DATA}></TechTable>*/}
 
             {/*<PageIndex></PageIndex>*/}
