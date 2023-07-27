@@ -5,10 +5,6 @@ import MainHeader from '@/components/header/index'
 
 const Homepage = () => {
 
-    // const profile1 = [];
-    // DATA.profile1.forEach((e, ind) => {
-    //     profile1.push(<li key={ind}>{e}</li>);
-    // });
     return (
         <div>
             <h1>HomePage</h1>
