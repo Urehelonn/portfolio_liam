@@ -4,6 +4,9 @@ import ContactPageIcon from '@mui/icons-material/ContactPage';
 import InfoIcon from '@mui/icons-material/Info';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import HomeIcon from '@mui/icons-material/Home';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
+
 import {useRouter} from "next/router";
 
 const MainHeader = () => {
@@ -29,6 +32,10 @@ const MainHeader = () => {
             <BottomNavigationAction label="Contact" icon={<ContactPageIcon/>}
                                     onClick={() => {
                                         router.push('/contact').then();
+                                    }}/>
+            <BottomNavigationAction label="Apps" icon={<CheckCircleIcon/>}
+                                    onClick={() => {
+                                        router.push('/apps').then();
                                     }}/>
         </BottomNavigation>
 
