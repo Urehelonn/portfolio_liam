@@ -6,24 +6,15 @@ import MainHeader from '@/components/header/index'
 const Homepage = () => {
 
     return (
-        <div>
-            <h1 className={''}>HomePage</h1>
-            <MainHeader></MainHeader>
-            {/*<ImageHeader*/}
-            {/*    data={DATA}></ImageHeader>*/}
-            {/*<div className='container intro'>*/}
-            {/*    {DATA.introduction_paragraph}*/}
-            {/*    <hr />*/}
-            {/*    <br/>*/}
-            {/*    <div>*/}
-            {/*        {profile1}*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-
-            <hr/>
-            {/*<TechTable data={DATA}></TechTable>*/}
-
-            {/*<PageIndex></PageIndex>*/}
+        <div className={'bg-sky h-screen'}>
+            <div className={'h-[330px] w-full'}></div>
+            <div className={'ml-[10%]'}>
+                <h1 className={'text-9xl'}>Title</h1>
+                <h5 className={'text-black text-xl'}>A friendly developer...</h5>
+                <h6 className={'text-sm font-semibold'}>more of a cat person<span className={'text-sm font-normal'}>(ASK ABOUT MY CAT!)</span>
+                </h6>
+                <MainHeader></MainHeader>
+            </div>
         </div>
     );
 }

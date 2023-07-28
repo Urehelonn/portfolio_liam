@@ -18,7 +18,9 @@ module.exports = {
                 300: '#799775',
                 400: '#5C6E59',
                 500: '#425141',
-            }
+            },
+            'white': '#FFFFFF',
+            'black': '#000000'
         },
         fontFamily: {
             sans: ['InknutAntiqua', 'sans-serif'], serif: ['Merriweather', 'serif'],

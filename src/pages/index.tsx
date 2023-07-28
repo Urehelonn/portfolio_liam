@@ -3,7 +3,7 @@ import React from 'react';
 import HomePage from "@/pages/homepage/HomePage";
 
 const App = () => (
-    <div>
+    <div className={'text-white'}>
         <HomePage/>
     </div>
 );
