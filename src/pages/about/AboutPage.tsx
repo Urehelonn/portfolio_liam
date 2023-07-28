@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function About() {
     return (
-        <div className='container about'>
+        <div className="container about">
             <h1>About This Portfolio</h1>
             <hr/>
             <MainHeader/>
@@ -12,7 +12,8 @@ export default function About() {
                 for my previous position.
             </div>
             <br/>
-            <div>Repo for this page: <a href="https://github.com/Urehelonn/portfolio_liam">Visit Liam's Github</a>
+            <div>Repo for this page: <a
+                href="https://github.com/Urehelonn/portfolio_liam">{'Visit Liam&apos;s Github'}</a>
             </div>
             <hr/>
 
