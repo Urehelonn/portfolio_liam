@@ -5,17 +5,18 @@ import InfoIcon from '@mui/icons-material/Info';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import HomeIcon from '@mui/icons-material/Home';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-
-
 import {useRouter} from "next/router";
 
 const NavBar = () => {
     const router = useRouter();
+
     return (
         <div
             className={'fixed bottom-20 left-1/2 border-2 border-solid border-green-500 border-opacity-30' +
                 ' rounded-md transform -translate-x-1/2'}>
-            <BottomNavigation showLabels className={''}>
+            <BottomNavigation showLabels sx={{
+                bgcolor: 'transparent',
+            }}>
                 <BottomNavigationAction label="Home" icon={<HomeIcon/>}
                                         onClick={() => {
                                             router.push('/').then();
