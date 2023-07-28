@@ -1,10 +1,9 @@
 import React from 'react';
 
 // shared component import
-import MainHeader from '@/components/header/index'
+import NavBar from '@/components/navbar/index'
 
 const Homepage = () => {
-
     return (
         <div className={'bg-sky h-screen'}>
             <div className={'h-[330px] w-full'}></div>
@@ -13,7 +12,7 @@ const Homepage = () => {
                 <h5 className={'text-black text-xl'}>A friendly developer...</h5>
                 <h6 className={'text-sm font-semibold'}>more of a cat person<span className={'text-sm font-normal'}>(ASK ABOUT MY CAT!)</span>
                 </h6>
-                <MainHeader></MainHeader>
+                <NavBar></NavBar>
             </div>
         </div>
     );

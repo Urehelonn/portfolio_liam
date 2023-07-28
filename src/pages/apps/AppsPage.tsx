@@ -1,9 +1,9 @@
-import MainHeader from "@/components/header";
+import NavBar from "@/components/navbar";
 
 const AppsPage = () => {
     return (<div><h2>Apps</h2>
         <hr/>
-        <MainHeader/>
+        <NavBar/>
     </div>);
 }
 

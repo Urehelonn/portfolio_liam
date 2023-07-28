@@ -1,4 +1,4 @@
-import MainHeader from '@/components/header';
+import NavBar from '@/components/navbar';
 import React from 'react';
 
 export default function About() {
@@ -6,7 +6,7 @@ export default function About() {
         <div className="container about">
             <h1>About This Portfolio</h1>
             <hr/>
-            <MainHeader/>
+            <NavBar/>
             <br/>
             <div>This page is used to demonstrate some of my work, and introduce with some of the projects I worked with
                 for my previous position.
