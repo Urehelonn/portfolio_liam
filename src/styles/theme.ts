@@ -1,7 +1,9 @@
-import { createTheme } from '@mui/material/styles';
+import {createTheme} from '@mui/material/styles';
 
 const theme = createTheme({
-    // Define your custom theme here
+    typography: {
+        fontFamily: 'InknutAntiqua, sans-serif', // Replace 'YourCustomFont' with the font you want to use
+    },
 });
 
 export default theme;

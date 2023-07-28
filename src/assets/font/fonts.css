@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'InknutAntiqua';
+    font-weight: 400;
+    src: url('./regular/InknutAntiqua-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'InknutAntiqua';
+    font-weight: 700;
+    src: url('./bold/InknutAntiqua-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'InknutAntiqua';
+    font-weight: 600;
+    src: url('./semi-bold/InknutAntiqua-SemiBold.ttf') format('truetype');
+}
