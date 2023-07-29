@@ -21,8 +21,6 @@
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
     box-sizing: border-box;
-    -webkit-animation: sdb03 1.5s infinite;
-    animation: sdb03 1.5s infinite;
 }
 
 
