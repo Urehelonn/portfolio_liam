@@ -6,12 +6,14 @@ export type JumpButtonProps = {
     colour?: string;
     sizeW?: number;
     sizeH?: number;
+    withLabel?: boolean;
 }
 
 const JumpButton = (props: JumpButtonProps) => {
     const colourStr = props.colour ? props.colour : 'white'
     const sizeW = props.sizeW && props.sizeW > 0 ? props.sizeW : 25
     const sizeH = props.sizeH && props.sizeH > 0 ? props.sizeH : 25
+    const withLabel = props.withLabel
     return (
         <div className={styles.scrollBt} onClick={() => {
 
@@ -22,7 +24,7 @@ const JumpButton = (props: JumpButtonProps) => {
                           height: sizeH,
                           marginLeft: -sizeW / 2,
                           borderColor: colourStr,
-                      }}/>Scroll
+                      }}/> {withLabel ? 'Scroll' : ''}
         </div>
     );
 }

@@ -12,7 +12,7 @@ const NavBar = () => {
 
     return (
         <div
-            className={'fixed bottom-20 left-1/2 border-2 border-solid border-green-500 border-opacity-30' +
+            className={'fixed bottom-15 left-1/2 border-2 border-solid border-green-500 border-opacity-30' +
                 ' rounded-md transform -translate-x-1/2'}>
             <BottomNavigation showLabels sx={{
                 bgcolor: 'transparent',
