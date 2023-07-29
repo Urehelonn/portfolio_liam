@@ -1,0 +1,26 @@
+.scrollBt {
+    padding-bottom: 25px;
+    position: relative;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.scrollBt:hover {
+    opacity: .5;
+}
+
+.scrollBtInner {
+    position: absolute;
+    margin-top: 30px;
+    top: 0;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    box-sizing: border-box;
+}
+
+

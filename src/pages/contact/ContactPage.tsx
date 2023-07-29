@@ -1,5 +1,5 @@
 import React from 'react';
-import MainHeader from "@/components/header";
+import NavBar from "@/components/navbar";
 
 const Contact = () => {
     const name = 'Lin Xu';
@@ -8,7 +8,7 @@ const Contact = () => {
     return (
         <div className='container'>
             <h1>Contact Information</h1>
-            <MainHeader></MainHeader>
+            <NavBar></NavBar>
             <hr></hr>
             <div className='inner-container'>
                 <div className='left'>
