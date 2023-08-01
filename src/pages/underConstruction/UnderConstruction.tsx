@@ -1,4 +1,4 @@
-import deadComputer from '../../assets/images/icon/deadComputer.png'
+import constructionImg from '../../assets/images/icon/constructionImg.png'
 import pointer from '../../assets/images/icon/pointer1.png'
 import Image from 'next/image';
 import CopyRightFooter from '@/components/copyRightFooter'
@@ -10,13 +10,13 @@ const UnderConstruction = () => {
         <div className={'h-screen bg-dark '}>
             <div className={'h-2/5'}/>
             <div className={'flex justify-center align-center items-end'}>
-                <h3 className={'ml-[75px]'}>404 Not Found</h3>
-                <Image src={deadComputer}
-                       className={'mb-[-70px] ml-[40px]'}
+                <h3 className={'ml-[75px]'}>Page Under Construction</h3>
+                <Image src={constructionImg}
+                       className={'mb-[-20px] ml-[40px]'}
                        alt="404"
                        quality={30}
-                       width="200"
-                       height="205"
+                       width="100"
+                       height="100"
                        priority={true}/>
             </div>
             <div className={'absolute bottom-[135px] w-screen flex justify-center align-center items-end'}>Check Other
