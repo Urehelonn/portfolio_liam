@@ -1,28 +1,52 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './HomePage.module.css';
 
 // shared component import
 import NavBar from '@/components/navbar/index'
 import JumpButton from '@/components/jumpButton/index'
 import CopyRightFooter from "@/components/copyRightFooter";
+import MountainAnimationDiv from "@/pages/homepage/mountainAnimationDiv";
 
 
 const Homepage = () => {
+    const [viewportHeight, setViewportHeight] = useState(330);
+    const [viewportWidth, setViewportWidth] = useState(1500);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setViewportHeight(window.innerHeight * 7 / 8);
+            setViewportWidth(window.innerWidth);
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        // Clean up the event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
         <div>
-            <div className={'bg-sky h-5/6'}>
-                <div className={'h-[330px] w-full'}></div>
-                <div className={'ml-[10%]'}>
-                    <h1 className={'text-9xl ' + styles.dropShadow}>Title</h1>
+            <div className={'bg-sky h-5/6 z-10'}>
+                <div className={'w-full'}>
+                    <MountainAnimationDiv width={viewportWidth} height={viewportHeight}/>
+                </div>
+                <div className={'ml-[10%] mt-[-20%] z-20'}>
+                    <h1 className={'text-9xl ' + styles.dropShadow}>Liam</h1>
                     <h5 className={'text-black text-xl'}>A friendly developer...</h5>
-                    <h6 className={'text-sm font-semibold'}>more of a cat person<span className={'text-sm font-normal'}>(ASK ABOUT MY CAT!)</span>
+                    <h6 className={'text-sm font-semibold'}>more of a cat person<span
+                        className={'text-sm font-normal'}>(ASK ABOUT MY CAT!)</span>
                     </h6>
-                    <div className={'mt-[120px] ml-[-11%] flex justify-center'}>
-                        <JumpButton jumpToPos={100} withLabel={true}/>
+                </div>
+
+                <div className="relative z-5 mt-[15px]">
+                    <div className={'relative z-5 bg-gradient-to-b from-green-500 ' +
+                        'to-dark h-[100px]'}>
                     </div>
-                    <NavBar></NavBar>
                 </div>
             </div>
+
+            <div className={'flex justify-center'}><JumpButton jumpToPos={100} withLabel={true}/></div>
 
             <div className={'h-[300px] ml-[10%] mr-[30%] mt-[120px]'}>
                 <h1 className={'mb-[30px]'}>Self Intro</h1>
@@ -39,13 +63,15 @@ For the past 3 years, I have been working on blah blah blah. <br/></span>
                 <JumpButton jumpToPos={100}/>
             </div>
 
-            <div className={'h-[220px] w-7/12 pb-[60px] mb-[20px] mt-[30px] m-auto text-center'}>
+            <div className={'h-[220px] w-7/12 pb-[60px] mt-[30px] m-auto text-center'}>
                 <h3>Nothing here, go check at other not that beautiful/useful pages I designed and created!</h3>
             </div>
 
-            <CopyRightFooter />
+            <NavBar/>
+            <CopyRightFooter/>
         </div>
     );
+
 }
 
 export default Homepage;

@@ -12,30 +12,35 @@ const NavBar = () => {
 
     return (
         <div
-            className={'fixed bottom-15 left-1/2 border-2 border-solid border-green-500 border-opacity-30' +
-                ' rounded-md transform -translate-x-1/2'}>
+            className={'fixed bottom-[45px] left-1/2 border-2 border-solid border-white border-opacity-30' +
+                ' rounded-md transform -translate-x-1/2 text-white'}>
             <BottomNavigation showLabels sx={{
                 bgcolor: 'transparent',
             }}>
                 <BottomNavigationAction label="Home" icon={<HomeIcon/>}
+                                        sx={{color: 'white', opacity: 0.6, ':hover': {opacity: 1}}}
                                         onClick={() => {
                                             router.push('/').then();
                                         }}/>
                 <BottomNavigationAction label="Projects" icon={<AccountTreeIcon/>}
+                                        sx={{color: 'white', opacity: 0.6, ':hover': {opacity: 1}}}
                                         onClick={() => {
                                             router.push('/project').then();
                                         }}/>
                 <BottomNavigationAction label="About" icon={<InfoIcon/>}
+                                        sx={{color: 'white', opacity: 0.6, ':hover': {opacity: 1}}}
                                         onClick={() => {
                                             router.push('/about').then(() => {
                                                 console.log('aefasdf')
                                             });
                                         }}/>
                 <BottomNavigationAction label="Contact" icon={<ContactPageIcon/>}
+                                        sx={{color: 'white', opacity: 0.6, ':hover': {opacity: 1}}}
                                         onClick={() => {
                                             router.push('/contact').then();
                                         }}/>
                 <BottomNavigationAction label="Apps" icon={<CheckCircleIcon/>}
+                                        sx={{color: 'white', opacity: 0.6, ':hover': {opacity: 1}}}
                                         onClick={() => {
                                             router.push('/apps').then();
                                         }}/>

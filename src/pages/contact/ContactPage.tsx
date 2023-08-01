@@ -8,7 +8,7 @@ const Contact = () => {
     return (
         <div className='container'>
             <h1>Contact Information</h1>
-            <NavBar></NavBar>
+            <NavBar />
             <hr></hr>
             <div className='inner-container'>
                 <div className='left'>
