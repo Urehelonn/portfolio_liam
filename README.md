@@ -2,18 +2,12 @@
 
 ## Objective
 
-This page is used to demonstrate some of my work, and introduce with some of the projects I worked with for my previous
-position.
-
-Repo for this page: https://github.com/Urehelonn/portfolio_liam
-
-Created using React.js
-Deployed using github page: https://urehelonn.github.io/portfolio_liam/#/
+This page is used to demonstrate some of my work and introduce some of the projects I worked on.
 ---
 
 ## Explanation
 
-* There will not be page to demonstrate my previous projects directly, and only introduction of some structures, and
+* There will not be a page to demonstrate my previous projects directly, and only an introduction of some structures, and
   functions explanation will be provided.
 * For the projects I worked with in my previous job, since I have no right to leak the code, I will only explain some
   features.
@@ -28,7 +22,7 @@ Deployed using github page: https://urehelonn.github.io/portfolio_liam/#/
 
 ## Development Track
 
-* Jira will be used to help to keep track with my project's tickets: https://urehelonn.atlassian.net/browse/KAN-1
+* Jira will be used to help to keep track of my project's tickets: https://urehelonn.atlassian.net/browse/KAN-1
 
 ---
 
