@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styles from './HomePage.module.css';
 
 // shared component import
@@ -11,6 +11,9 @@ import MountainAnimationDiv from "@/pages/homepage/mountainAnimationDiv";
 const Homepage = () => {
     const [viewportHeight, setViewportHeight] = useState(330);
     const [viewportWidth, setViewportWidth] = useState(1500);
+
+    const objSection = useRef(null);
+    const moreSection = useRef(null);
 
     useEffect(() => {
         const handleResize = () => {
@@ -39,16 +42,17 @@ const Homepage = () => {
                     </h6>
                 </div>
 
-                <div className="relative z-5 mt-[15px]">
+                <div className="relative z-5 mt-[10px]">
                     <div className={'relative z-5 bg-gradient-to-b from-green-500 ' +
-                        'to-dark h-[100px]'}>
+                        'to-dark h-[120px]'}>
                     </div>
                 </div>
             </div>
 
-            <div className={'flex justify-center'}><JumpButton jumpToPos={100} withLabel={true}/></div>
+            <div className={'flex justify-center mt-[-50px]'}><JumpButton jumpToPos={objSection} withLabel={true}/>
+            </div>
 
-            <div className={'h-[300px] ml-[10%] mr-[30%] mt-[120px]'}>
+            <div className={'h-[300px] ml-[10%] mr-[30%] mt-[120px]'} ref={objSection}>
                 <h1 className={'mb-[30px]'}>Self Intro</h1>
                 <span className={''}>I’m Liam, a full stack developer who prefer working on frontend blah blah...
 For the past 3 years, I have been working on blah blah blah. <br/></span>
@@ -60,10 +64,10 @@ For the past 3 years, I have been working on blah blah blah. <br/></span>
                 <span className={'mb-[50px] flex justify-end'}>TypeScript, Angular, React (Next.js), Spring Boot, MySQL, PostgreSQL, AWS, Golang, Git</span>
             </div>
             <div className={'mb-[80px] flex justify-center'}>
-                <JumpButton jumpToPos={100}/>
+                <JumpButton jumpToPos={moreSection}/>
             </div>
 
-            <div className={'h-[220px] w-7/12 pb-[60px] mt-[30px] m-auto text-center'}>
+            <div className={'h-[220px] w-7/12 pb-[60px] mt-[30px] m-auto text-center'} ref={moreSection}>
                 <h3>Nothing here, go check at other not that beautiful/useful pages I designed and created!</h3>
             </div>
 

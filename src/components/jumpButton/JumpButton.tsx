@@ -1,8 +1,8 @@
 import styles from './JumpButton.module.css';
-import Link from "next/link";
+import {MutableRefObject} from "react";
 
 export type JumpButtonProps = {
-    jumpToPos: number;
+    jumpToPos: MutableRefObject<HTMLElement | null>;
     colour?: string;
     sizeW?: number;
     sizeH?: number;
@@ -10,14 +10,21 @@ export type JumpButtonProps = {
 }
 
 const JumpButton = (props: JumpButtonProps) => {
+    const jumpTargetRef = props.jumpToPos;
+
     const colourStr = props.colour ? props.colour : 'white'
     const sizeW = props.sizeW && props.sizeW > 0 ? props.sizeW : 25
     const sizeH = props.sizeH && props.sizeH > 0 ? props.sizeH : 25
     const withLabel = props.withLabel
-    return (
-        <div className={styles.scrollBt} onClick={() => {
+    const handleJump = () => {
+        if (jumpTargetRef.current) {
+            jumpTargetRef.current.scrollIntoView({behavior: 'smooth'});
+        }
+    };
 
-        }}>
+
+    return (
+        <div className={styles.scrollBt} onClick={handleJump}>
                 <span className={styles.scrollBtInner}
                       style={{
                           width: sizeW,
