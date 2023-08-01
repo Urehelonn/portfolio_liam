@@ -14,17 +14,6 @@ module.exports = {
         },
         colors: {
             ...colours,
-            // 'dark': '#3A363E',
-            // 'sky': '#BDD8E7',
-            // 'green': {
-            //     100: '#cffafe',
-            //     200: '#C4D9C0',
-            //     300: '#799775',
-            //     400: '#5C6E59',
-            //     500: '#425141',
-            // },
-            // 'white': '#FFFFFF',
-            // 'black': '#000000'
         },
         fontFamily: {
             sans: ['InknutAntiqua', 'sans-serif'], serif: ['Merriweather', 'serif'],
