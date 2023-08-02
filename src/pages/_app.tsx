@@ -1,15 +1,19 @@
-// pages/_app.tsx
 import {CssBaseline, ThemeProvider} from '@mui/material';
 import {AppProps} from 'next/app';
-import theme from '../styles/theme'; // You need to create this theme file
-import '../assets/font/fonts.css'; // Check the correct relative path here
+import theme from '../styles/theme';
+import '../assets/font/fonts.css';
 import '../styles/globals.css';
 
 function MyApp({Component, pageProps}: AppProps) {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline/>
-            <Component {...pageProps} />
+            <Component {...pageProps}
+                       style={{
+                           backgroundColor: theme.palette.primary.main,
+                           color: theme.palette.text.primary
+                       }}
+            />
         </ThemeProvider>
     );
 }

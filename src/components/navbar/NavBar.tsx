@@ -18,29 +18,54 @@ const NavBar = () => {
                 bgcolor: 'transparent',
             }}>
                 <BottomNavigationAction label="Home" icon={<HomeIcon/>}
-                                        sx={{color: 'white', opacity: 0.6, ':hover': {opacity: 1}}}
+                                        sx={{
+                                            color: 'white',
+                                            opacity: 0.6,
+                                            ':hover': {opacity: 1},
+                                            transition: 'opacity 0.5s'
+                                        }}
                                         onClick={() => {
                                             router.push('/').then();
                                         }}/>
                 <BottomNavigationAction label="Projects" icon={<AccountTreeIcon/>}
-                                        sx={{color: 'white', opacity: 0.6, ':hover': {opacity: 1}}}
+                                        sx={{
+                                            color: 'white',
+                                            opacity: 0.6,
+                                            ':hover': {opacity: 1},
+                                            transition: 'opacity 0.5s'
+                                        }}
                                         onClick={() => {
                                             router.push('/project').then();
                                         }}/>
                 <BottomNavigationAction label="About" icon={<InfoIcon/>}
-                                        sx={{color: 'white', opacity: 0.6, ':hover': {opacity: 1}}}
+                                        sx={{
+                                            color: 'white',
+                                            opacity: 0.6,
+                                            ':hover': {opacity: 1},
+                                            transition: 'opacity 0.5s'
+                                        }}
                                         onClick={() => {
                                             router.push('/about').then(() => {
                                                 console.log('aefasdf')
                                             });
                                         }}/>
                 <BottomNavigationAction label="Contact" icon={<ContactPageIcon/>}
-                                        sx={{color: 'white', opacity: 0.6, ':hover': {opacity: 1}}}
+                                        sx={{
+                                            color: 'white',
+                                            opacity: 0.6,
+                                            ':hover': {opacity: 1},
+                                            transition: 'opacity 0.5s'
+                                        }}
                                         onClick={() => {
                                             router.push('/contact').then();
                                         }}/>
                 <BottomNavigationAction label="Apps" icon={<CheckCircleIcon/>}
-                                        sx={{color: 'white', opacity: 0.6, ':hover': {opacity: 1}}}
+                                        sx={{
+                                            color: 'white',
+                                            opacity: 0.6,
+                                            ':hover': {opacity: 1},
+                                            transition: 'opacity 0.5s'
+                                        }}
                                         onClick={() => {
                                             router.push('/apps').then();
                                         }}/>
