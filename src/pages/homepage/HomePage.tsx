@@ -5,34 +5,18 @@ import styles from './HomePage.module.css';
 import NavBar from '@/components/navbar/index'
 import JumpButton from '@/components/jumpButton/index'
 import CopyRightFooter from "@/components/copyRightFooter";
-import MountainAnimationDiv from "@/pages/homepage/mountainAnimationDiv";
+import MountainAnimationDiv from "@/components/mountainAnimationDiv";
 
 
 const Homepage = () => {
-    const [viewportHeight, setViewportHeight] = useState(330);
-    const [viewportWidth, setViewportWidth] = useState(1500);
-
     const objSection = useRef(null);
     const moreSection = useRef(null);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setViewportHeight(window.innerHeight * 7 / 8);
-            setViewportWidth(window.innerWidth);
-        };
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        // Clean up the event listener on component unmount
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
 
     return (
         <div>
             <div className={'bg-sky h-5/6 z-10'}>
                 <div className={'w-full'}>
-                    <MountainAnimationDiv width={viewportWidth} height={viewportHeight}/>
+                    <MountainAnimationDiv />
                 </div>
                 <div className={'ml-[10%] mt-[-20%] z-20'}>
                     <h1 className={'text-9xl ' + styles.dropShadow}>Liam</h1>

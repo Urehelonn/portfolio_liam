@@ -1,10 +1,13 @@
-import p5Types from "p5";
-
+// next.js && React
 import dynamic from 'next/dynamic'
 import * as React from "react";
-import {useCallback, useEffect, useRef} from 'react';
+import {useCallback, useEffect, useRef, useState} from 'react';
 
+// styles
 import colours from '@/styles/colours'
+
+// 3rd party lb
+import p5Types from "p5";
 
 
 // will only import `react-p5` on client-side
@@ -158,15 +161,31 @@ export type MountainAnimationDivProps = {
 }
 
 const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
+    const [viewportHeight, setViewportHeight] = useState(330);
+    const [viewportWidth, setViewportWidth] = useState(1500);
+
     let mountainAmount = 5;
     const mountainRangesRef = useRef<MountainRange[]>([]);
 
     // default width as 1000, height 200
-    const width = props.width && props.width > 0 ? props.width : 1000
-    const height = props.height && props.height > 300 ? props.height : 300
+    const width = props.width && props.width > 500 ? props.width : viewportWidth
+    const height = props.height && props.height > 100 ? props.height : viewportHeight
     const setup = useCallback((p5: p5Types, canvasParentRef: Element) => {
         p5.createCanvas(width, height).parent(canvasParentRef);
     }, [height, width])
+
+    useEffect(() => {
+        const handleResize = () => {
+            setViewportHeight(window.innerHeight * 7 / 8);
+            setViewportWidth(window.innerWidth);
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        // Clean up the event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     useEffect(() => {
         const mountainRanges: MountainRange[] = [];
@@ -188,8 +207,8 @@ const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
                         max: (i + 1) * 70,
                     },
                     height: {
-                        min: height*2/5 - i * 40,
-                        max: height*3/5 - i * 40,
+                        min: height * 2 / 5 - i * 40,
+                        max: height * 3 / 5 - i * 40,
                     },
                     speed: (i + 1) * 0.5,
                     colour: coloursSet[i],
