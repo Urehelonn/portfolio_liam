@@ -4,11 +4,23 @@ import colour from '@/styles/colours'
 const theme = createTheme({
     palette: {
         primary: {
-            main: colour.dark, // Replace this with your desired background color
+            main: colour.green['100'],
         },
         text: {
             primary: colour.white,
         },
+        success: {
+            main: '#6cad91',
+        }
+    },
+    components: {
+        MuiOutlinedInput: {
+            styleOverrides: {
+                notchedOutline: {
+                    borderColor: colour.sky
+                },
+            }
+        }
     },
     typography: {
         fontFamily: 'InknutAntiqua, sans-serif',
