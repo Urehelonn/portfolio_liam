@@ -3,12 +3,10 @@ import ProjectsDescription from "@/assets/commonTypes/types";
 import NavBar from "@/components/navbar";
 import CopyRightFooter from "@/components/copyRightFooter";
 import MountainAnimationDiv from "@/components/mountainAnimationDiv";
-
-type ProjectProps = {
-    data: ProjectsDescription
-}
+import ProjectsNav from "@/pages/project/projectsNav";
 
 const ProjectPage = () => {
+    const projects = ['project1', 'project2'];
     return (
         <>
             {/*header section*/}
@@ -29,6 +27,8 @@ const ProjectPage = () => {
                 </div>
             </div>
 
+            {/*projects nav*/}
+            <ProjectsNav projects={projects}/>
             <NavBar/>
             <CopyRightFooter/>
         </>
