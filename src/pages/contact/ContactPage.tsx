@@ -1,8 +1,10 @@
 // next.js && React
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Image from "next/image";
 
 // local components
+import colours from '@/styles/colours'
+import JumpButton from "@/components/jumpButton";
 import NavBar from "@/components/navbar";
 import CopyRightFooter from "@/components/copyRightFooter";
 import MountainAnimationDiv from "@/components/mountainAnimationDiv";
@@ -14,13 +16,15 @@ import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import {TextField, Button, Typography, Box} from "@mui/material";
-import colours from '@/styles/colours'
+import HoverColourChangeCharacter from "@/components/hoverColourChangeCharacter";
+
 
 const Contact = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [height, setHeight] = useState(400);
+    const objSection = useRef(null);
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -61,7 +65,7 @@ const Contact = () => {
             </div>
 
             {/* contact info section*/}
-            <div className={'relative z-4 w-[60%] flex m-auto justify-between pt-[50px]'}>
+            <div className={'relative z-4 w-[60%] flex  mt-[-70px] m-auto justify-between pt-[50px]'}>
                 {/*left part of the contact*/}
                 <div className={'mt-[-85px]'}>
                     <Image src={deadComputer}
@@ -95,22 +99,33 @@ const Contact = () => {
                 </div>
             </div>
 
+            {/*jump button*/}
+            <div className={'flex justify-center mb-[50px]'}><JumpButton jumpToPos={objSection}/>
+            </div>
+
             {/*contact form section*/}
             <div className={'mt-[30px] mb-[80px]'}>
-                <Box
-                    sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center"
-                    }}
-                >
+                <Box sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center"
+                }}>
                     <Box sx={{
                         maxWidth: 600, mx: "auto", p: 2,
                     }}>
                         <Typography variant="h5" align="center" mb={2}>
-                            Contact Me
+                            <HoverColourChangeCharacter fontSize={30} content={'C'}/>
+                            <HoverColourChangeCharacter fontSize={30} content={'o'}/>
+                            <HoverColourChangeCharacter fontSize={30} content={'n'}/>
+                            <HoverColourChangeCharacter fontSize={30} content={'t'}/>
+                            <HoverColourChangeCharacter fontSize={30} content={'a'}/>
+                            <HoverColourChangeCharacter fontSize={30} content={'c'}/>
+                            <HoverColourChangeCharacter fontSize={30} content={'t'}/>
+                            <HoverColourChangeCharacter fontSize={30} content={' '}/>
+                            <HoverColourChangeCharacter fontSize={30} content={'M'}/>
+                            <HoverColourChangeCharacter fontSize={30} content={'e'}/>
                         </Typography>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit} ref={objSection}>
                             <TextField
                                 InputLabelProps={{
                                     style: {color: colours.white}, // Adjust the label color here
@@ -154,7 +169,12 @@ const Contact = () => {
                                     color="primary"
                                     sx={{
                                         mt: 2,
-                                        color: colours.white
+                                        color: colours.white,
+                                        bgcolor: colours.sky,
+                                        ":hover": {
+                                            bgcolor: colours.green[300],
+                                            color: colours.dark
+                                        }
                                     }}>
                                 Submit
                             </Button>
