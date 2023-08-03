@@ -1,5 +1,5 @@
 // next.js && React
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
 
 // local components
 import colours from '@/styles/colours'
@@ -22,7 +22,6 @@ const Contact = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
-    const [height, setHeight] = useState(400);
     const objSection = useRef(null);
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -33,28 +32,15 @@ const Contact = () => {
         e.preventDefault();
         window.location.href = 'https://github.com/Urehelonn';
     };
-    useEffect(() => {
-        const handleResize = () => {
-            setHeight(
-                window.innerHeight / 2);
-        };
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        // Clean up the event listener on component unmount
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-
 
     return (
         <>
             {/*header section*/}
             <div className={'bg-sky h-5/6 z-10'}>
                 <div className={'w-full'}>
-                    <MountainAnimationDiv height={height}/>
+                    <MountainAnimationDiv height={400}/>
                 </div>
-                <div className={'z-20'} style={{marginTop: -height / 5}}>
+                <div className={'z-20'} style={{marginTop: -80}}>
                     <div className={'flex justify-center'}>
                         <h3 className={'text-[45px] underline'}>Get In Touch</h3>
                     </div>
@@ -98,6 +84,7 @@ const Contact = () => {
                     <h5 className={'m-[10px]'}>
                         <LocationOnIcon/> <span className={'ml-[5px]'}>Ottawa</span>
                     </h5>
+                    {/* todo: bring this section back after employed */}
                     {/*<h5 className={'m-[10px] text-[8px]'}>*/}
                     {/*    <span className={'ml-[5px]'}>*Actively looking for serious relationship!</span>*/}
                     {/*</h5>*/}
