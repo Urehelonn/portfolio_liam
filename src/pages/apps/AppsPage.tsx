@@ -5,8 +5,8 @@ import {useRouter} from "next/router";
 const AppsPage = () => {
     const router = useRouter();
     useEffect(() => {
-        router.push('/underConstruction');
-    }, [])
+        router.push('/underConstruction').then();
+    }, [router])
     return (<div><h2>Apps</h2>
         <hr/>
         <NavBar/>
