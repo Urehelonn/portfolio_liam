@@ -1,6 +1,5 @@
 // next.js && React
 import React, {useEffect, useRef, useState} from 'react';
-import Image from "next/image";
 
 // local components
 import colours from '@/styles/colours'
@@ -8,7 +7,6 @@ import JumpButton from "@/components/jumpButton";
 import NavBar from "@/components/navbar";
 import CopyRightFooter from "@/components/copyRightFooter";
 import MountainAnimationDiv from "@/components/mountainAnimationDiv";
-import deadComputer from "@/assets/images/icon/deadComputer.png";
 
 // mui
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
@@ -17,6 +15,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import {TextField, Button, Typography, Box} from "@mui/material";
 import HoverColourChangeCharacter from "@/components/hoverColourChangeCharacter";
+import style from './ContactPage.module.scss'
 
 
 const Contact = () => {
@@ -29,6 +28,10 @@ const Contact = () => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         alert('This function is under construction for now, please email me directly!')
+    };
+    const handleGitHubClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        window.location.href = 'https://github.com/Urehelonn';
     };
     useEffect(() => {
         const handleResize = () => {
@@ -65,21 +68,23 @@ const Contact = () => {
             </div>
 
             {/* contact info section*/}
-            <div className={'relative z-4 w-[60%] flex  mt-[-70px] m-auto justify-between pt-[50px]'}>
+            <div className={'relative z-4 w-[60%] flex  mt-[-30px] m-auto justify-between pt-[50px] cursor-pointer'}
+                 onClick={handleGitHubClick}>
                 {/*left part of the contact*/}
-                <div className={'mt-[-85px]'}>
-                    <Image src={deadComputer}
-                           className={'ml-[20px] mb-[-50px] mb-[-15px]'}
-                           alt="404"
-                           quality={30}
-                           width="200"
-                           height="205"
-                           priority={true}/>
+                <div className={'mt-[-85px] z-2'}>
+                    <div className={'flex items-center justify-center'}>
+                        <div className={style.box}>
+                            <div className={style.spinContainer}>
+                                <div className={style.shape}>
+                                    <div className={style.bd}/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div className={'m-[10px]'}>
                         <GitHubIcon/> <span className={'text-[10px] ml-[5px]'}>https://github.com/urehelonn</span>
                     </div>
                 </div>
-
 
                 {/*right section*/}
                 <div className='mt-[-50px]'>
@@ -93,9 +98,9 @@ const Contact = () => {
                     <h5 className={'m-[10px]'}>
                         <LocationOnIcon/> <span className={'ml-[5px]'}>Ottawa</span>
                     </h5>
-                    <h5 className={'m-[10px] text-[8px]'}>
-                        <span className={'ml-[5px]'}>*Actively looking for serious relationship!</span>
-                    </h5>
+                    {/*<h5 className={'m-[10px] text-[8px]'}>*/}
+                    {/*    <span className={'ml-[5px]'}>*Actively looking for serious relationship!</span>*/}
+                    {/*</h5>*/}
                 </div>
             </div>
 
