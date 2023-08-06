@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import ProjectsDescription from "@/assets/commonTypes/types";
 import NavBar from "@/components/navbar";
 import CopyRightFooter from "@/components/copyRightFooter";
 import MountainAnimationDiv from "@/components/mountainAnimationDiv";
 import ProjectsNav from "@/pages/project/projectsNav";
+import JumpButton from "@/components/jumpButton";
 
 const ProjectPage = () => {
-    const projects = ['project1', 'project2'];
+    const projects = ['project1', 'project2', 'project1', 'project2', 'project1', 'project2', 'project1', 'project2',
+        'project3', 'project4', 'project5', 'project6', 'project7', 'project8', 'project9', 'project10',];
+
+    const objSection = useRef(null);
     return (
-        <>
+        <div className={'min-w-[800px]'}>
             {/*header section*/}
             <div className={'bg-sky h-5/6 z-10'}>
                 <div className={'w-full'}>
@@ -29,9 +33,13 @@ const ProjectPage = () => {
 
             {/*projects nav*/}
             <ProjectsNav projects={projects}/>
+
+            {/*jump button*/}
+            <div className={'flex justify-center mb-[50px]'}><JumpButton jumpToPos={objSection}/></div>
+
             <NavBar/>
             <CopyRightFooter/>
-        </>
+        </div>
     );
 }
 

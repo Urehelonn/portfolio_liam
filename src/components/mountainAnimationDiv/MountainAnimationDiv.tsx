@@ -156,27 +156,24 @@ class MountainRange {
 }
 
 export type MountainAnimationDivProps = {
-    height?: number;
+    height: number;
     width?: number;
 }
 
 const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
-    const [viewportHeight, setViewportHeight] = useState(330);
     const [viewportWidth, setViewportWidth] = useState(1500);
 
     let mountainAmount = 5;
     const mountainRangesRef = useRef<MountainRange[]>([]);
 
-    // default width as 1000, height 200
-    const width = props.width && props.width > 500 ? props.width : viewportWidth
-    const height = props.height && props.height > 100 ? props.height : viewportHeight
+    // default width as 1500, height 200
+    const width = props.width && props.width > 800 ? props.width : viewportWidth
     const setup = useCallback((p5: p5Types, canvasParentRef: Element) => {
-        p5.createCanvas(width, height).parent(canvasParentRef);
-    }, [height, width])
+        p5.createCanvas(width, props.height).parent(canvasParentRef);
+    }, [props.height, width])
 
     useEffect(() => {
         const handleResize = () => {
-            setViewportHeight(window.innerHeight * 7 / 8);
             setViewportWidth(window.innerWidth);
         };
         handleResize();
@@ -207,18 +204,18 @@ const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
                         max: (i + 1) * 70,
                     },
                     height: {
-                        min: height * 2 / 5 - i * 40,
-                        max: height * 3 / 5 - i * 40,
+                        min: props.height * 2 / 5 - i * 40,
+                        max: props.height * 3 / 5 - i * 40,
                     },
                     speed: (i + 1) * 0.5,
                     colour: coloursSet[i],
                     sketchWidth: width,
-                    sketchHeight: height,
+                    sketchHeight: props.height,
                 })
             );
         }
         mountainRangesRef.current = mountainRanges;
-    }, [width, height, mountainAmount]);
+    }, [width, props.height, mountainAmount]);
 
     const draw = useCallback((p5: p5Types) => {
         p5.clear();

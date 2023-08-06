@@ -13,10 +13,10 @@ const Homepage = () => {
     const moreSection = useRef(null);
 
     return (
-        <div>
+        <div className={'min-w-[800px]'}>
             <div className={'bg-sky h-5/6 z-10'}>
                 <div className={'w-full'}>
-                    <MountainAnimationDiv />
+                    <MountainAnimationDiv height={600}/>
                 </div>
                 <div className={'ml-[10%] mt-[-20%] z-20'}>
                     <h1 className={'text-9xl ' + styles.dropShadow}>Liam</h1>
