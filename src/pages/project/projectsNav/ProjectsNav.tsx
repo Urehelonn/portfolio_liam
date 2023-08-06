@@ -13,6 +13,8 @@ const ProjectsNav = (props: ProjectsNavProps) => {
     const scrollIntervalRef = useRef<NodeJS.Timeout | null>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
     const [projectJustifyContent, setProjectJustifyContent] = useState<'center' | 'flex-start'>('center')
+    const clickActiveRef = useRef(false);
+
 
     useEffect(() => {
         const container = containerRef.current;
@@ -47,7 +49,8 @@ const ProjectsNav = (props: ProjectsNavProps) => {
     }
 
     const handleMouseEnter = (left: boolean) => {
-        if (!scrollIntervalRef.current) {
+        console.log(clickActiveRef)
+        if (!scrollIntervalRef.current && !clickActiveRef.current) {
             const startTime = Date.now();
             scrollIntervalRef.current = setInterval(() => {
                 const container = containerRef.current;
@@ -75,12 +78,26 @@ const ProjectsNav = (props: ProjectsNavProps) => {
     };
 
     const scrollHButtonOnClickHandling = (left: boolean) => {
-        const newPosition = left ? scrollPosition - 2 : scrollPosition + 2;
+        clickActiveRef.current = true;
+        console.log(clickActiveRef.current)
+        let newPosition: number
+        if (left) {
+            newPosition = Math.max(startPos, scrollPosition - 200);
+        } else {
+            newPosition = Math.min(endPos, scrollPosition + 200);
+        }
         setScrollPosition(newPosition);
+        setTimeout(() => {
+            clickActiveRef.current = false;
+        }, 500);
     }
 
     const navKeys = (project: string, key: string) => {
-        return (<button className={'min-w-[100px]'} onClick={navKeyOnClickHandling} key={key}>{project}</button>)
+        return (<button className={'m-[4px] min-w-[100px] border-l-2 ' +
+            'border-r-2 border-b-2 border-green-200 text-green-200 ' +
+            'rounded-b-lg p-[5px] pt-0 hover:border-green-100 ' +
+            'hover:text-green-100 active:border-white active:text-white'}
+                        onClick={navKeyOnClickHandling} key={key}>{project}</button>)
     }
 
     return (<>
