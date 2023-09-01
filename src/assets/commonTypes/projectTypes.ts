@@ -6,6 +6,6 @@ export type Project = {
 
 
 export type ProjectsDescription = {
-    image: string[]
+    image: string
     description: string
 }

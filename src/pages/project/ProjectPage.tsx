@@ -10,31 +10,37 @@ let projects: Project[];
 projects = [
     {
         title: 'project1', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
-            image: [''],
+            image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
         }]
     },
     {
         title: 'project2', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
-            image: [''],
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+            image: '',
+            description: 'Lorem ipsum dolor st, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        }, {
+            image: '',
+            description: 'Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        }, {
+            image: '',
+            description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
         }]
     },
     {
         title: 'project3', skillSet: ['CatCat', 'Wurf', 'Blah'], description: [{
-            image: [''],
+            image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
         }]
     },
     {
         title: 'project4', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
-            image: [''],
+            image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
         }]
     },
     {
         title: 'project4', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
-            image: [''],
+            image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
         }]
     },
@@ -54,6 +60,20 @@ const ProjectPage = () => {
     useEffect(() => {
         setCurrProjectTitleDisplayStr(projects[currProject].title.toUpperCase())
     }, [currProject])
+
+    const descriptionPoint = (ind: number) => {
+        // todo: fix opacity
+        return <button
+            className={'m-[10px] w-[10px] h-[10px] rounded-full bg-white hover:bg-green-100'}
+            style={{
+                opacity: currDescription == ind ? 1 : 0.6,
+                transition: 'opacity 0.5s'
+            }}
+            onClick={() => {
+                setCurrDescription(ind)
+            }}
+        />
+    }
 
     return (
         <div className={'min-w-[800px]'}>
@@ -95,13 +115,31 @@ const ProjectPage = () => {
                 </div>
 
                 {/* project display */}
-                <div className={'flex justify-center mb-[86px] border-2 ' +
-                    ' border-green-200 p-[20px] w-[80%] m-auto'}>
-                    <h2
-                    className={'text-bold text-[17px]'}>{projects[currProject].description[currDescription].description
-                }</h2>
+                <div className={'flex justify-center mb-[10px] border-2 ' +
+                    ' border-green-200 p-[20px] w-[80%] m-auto flex-row'}>
+                    {/* left side for image display */}
+                    {projects[currProject].description[currDescription].image[currDescription] != '' ?? (
+                        <div className={''}>
+                            {/* todo replace with next/Image */}
+                            <img
+                                src={projects[currProject].description[currDescription].image[currDescription]}
+                                alt={projects[currProject].title + ' image ' + currDescription}>
+                            </img>
+                        </div>)}
+                    {/* right side for description */}
+                    <h2 className={'text-bold text-[17px]'}>{projects[currProject].description[currDescription].description
+                    }</h2>
                 </div>
+
+                {/* description control dots*/}
+                <div className={'flex justify-center mb-[100px]'} ref={objSection}>
+                    {projects[currProject].description.map((val, ind) => {
+                        return descriptionPoint(ind)
+                    })}
+                </div>
+
             </div>
+
             <NavBar/>
             <CopyRightFooter/>
         </div>
