@@ -14,8 +14,10 @@ const ProjectsNav = (props: ProjectsNavProps) => {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const [projectJustifyContent, setProjectJustifyContent] = useState<'space-between' | 'flex-start'>('space-between')
     const clickActiveRef = useRef(false);
+    const [leftBtDisabled, setLeftBtDisabled] = useState(false)
+    const [rightBtDisabled, setRightBtDisabled] = useState(false)
 
-
+    // actual scroll position control
     useEffect(() => {
         const container = containerRef.current;
         if (container) {
@@ -23,6 +25,7 @@ const ProjectsNav = (props: ProjectsNavProps) => {
         }
     }, [scrollPosition])
 
+    // resize handling to get max width
     useEffect(() => {
         const container = containerRef.current;
         if (container) {
@@ -67,8 +70,13 @@ const ProjectsNav = (props: ProjectsNavProps) => {
                 }
             }, 10);
         }
-
     };
+
+    // check if the buttons should be disabled
+    useEffect(() => {
+        setLeftBtDisabled(startPos+5 >= scrollPosition)
+        setRightBtDisabled(endPos-5 <= scrollPosition)
+    }, [startPos, endPos, scrollPosition])
 
     const handleMouseLeave = () => {
         if (scrollIntervalRef.current) {
@@ -96,7 +104,7 @@ const ProjectsNav = (props: ProjectsNavProps) => {
         return (<button className={'m-[4px] min-w-[100px] border-l-2 ' +
             'border-r-2 border-b-2 border-green-200 text-green-200 ' +
             'rounded-b-lg p-[5px] pt-0 hover:border-green-100 ' +
-            'hover:text-green-100 active:border-white active:text-white'}
+            'hover:text-white active:border-white active:text-white'}
                         onClick={navKeyOnClickHandling} key={key}>{project}</button>)
     }
 
@@ -109,6 +117,7 @@ const ProjectsNav = (props: ProjectsNavProps) => {
                    className={'cursor-pointer'}
                    height="20"
                    priority={true}
+                   style={{opacity: leftBtDisabled ? 0.3 : 1}}
                    onMouseEnter={() => handleMouseEnter(true)}
                    onMouseLeave={handleMouseLeave}
             />
@@ -124,8 +133,9 @@ const ProjectsNav = (props: ProjectsNavProps) => {
                    width="15"
                    height="20"
                    priority={true}
+                   style={{opacity: rightBtDisabled ? 0.3 : 1}}
                    onMouseEnter={() => handleMouseEnter(false)}
-                   onMouseLeave={handleMouseLeave} />
+                   onMouseLeave={handleMouseLeave}/>
         </div>
     </>)
 }

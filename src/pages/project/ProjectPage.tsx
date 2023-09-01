@@ -4,7 +4,7 @@ import CopyRightFooter from "@/components/copyRightFooter";
 import MountainAnimationDiv from "@/components/mountainAnimationDiv";
 import ProjectsNav from "@/pages/project/projectsNav";
 import JumpButton from "@/components/jumpButton";
-import {Project, ProjectsDescription} from "@/assets/commonTypes/projectTypes";
+import {Project} from "@/assets/commonTypes/projectTypes";
 
 let projects: Project[];
 projects = [
@@ -22,6 +22,36 @@ projects = [
     },
     {
         title: 'project3', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
+            image: [''],
+            description: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.']
+        }]
+    },
+    {
+        title: 'project4', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
+            image: [''],
+            description: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.']
+        }]
+    },
+    {
+        title: 'project4', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
+            image: [''],
+            description: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.']
+        }]
+    },
+    {
+        title: 'project4', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
+            image: [''],
+            description: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.']
+        }]
+    },
+    {
+        title: 'project4', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
+            image: [''],
+            description: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.']
+        }]
+    },
+    {
+        title: 'project4', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
             image: [''],
             description: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.']
         }]
