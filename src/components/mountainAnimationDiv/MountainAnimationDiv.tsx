@@ -1,7 +1,7 @@
 // next.js && React
 import dynamic from 'next/dynamic'
 import * as React from "react";
-import {useCallback, useEffect, useRef, useState} from 'react';
+import {useCallback, useEffect, useRef} from 'react';
 
 // styles
 import colours from '@/styles/colours'
@@ -162,44 +162,14 @@ export type MountainAnimationDivProps = {
 
 const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
     // default width as 1500, height 200
-    const [viewportWidth, setViewportWidth] = useState(props.width && props.width > 800 ? props.width : 1500);
-    const [vpHeight, setVpHeight] = useState(props.height && props.height > 200 ? props.height : 200);
+    const viewportWidth = props.width && props.width > 800 ? props.width : 1500;
+    const vpHeight = props.height && props.height > 200 ? props.height : 200;
 
     let mountainAmount = 5;
     const mountainRangesRef = useRef<MountainRange[]>([]);
-
-    // const width = props.width && props.width > 800 ? props.width : viewportWidth
-    // const setup = useCallback((p5: p5Types, canvasParentRef: Element) => {
-    //     p5.createCanvas(width, props.height).parent(canvasParentRef);
-    // }, [props.height, width])
-    let setup = (p5: p5Types, canvasParentRef: Element) => {
-        console.log('reset')
+    const setup = useCallback((p5: p5Types, canvasParentRef: Element) => {
         p5.createCanvas(viewportWidth, vpHeight).parent(canvasParentRef);
-    }
-
-    // const [setup, setSetup] = useState<(p5: p5Types, canvasParentRef: Element) => void>(
-    //     (p5: p5Types, canvasParentRef: Element) => {
-    //         console.log('reset')
-    //         p5.createCanvas(viewportWidth, vpHeight).parent(canvasParentRef)
-    //     }
-    // )
-
-    useEffect(() => {
-        const handleResize = () => {
-            setViewportWidth(window.innerWidth);
-            console.log('window.innerWidth', window.innerWidth)
-            setup = (p5: p5Types, canvasParentRef: Element) => {
-                console.log('reset')
-                p5.createCanvas(viewportWidth, vpHeight).parent(canvasParentRef);
-            }
-        };
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        // Clean up the event listener on component unmount
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
+    }, [vpHeight, viewportWidth])
 
     useEffect(() => {
         const mountainRanges: MountainRange[] = [];
@@ -221,18 +191,18 @@ const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
                         max: (i + 1) * 70,
                     },
                     height: {
-                        min: props.height * 2 / 5 - i * 40,
-                        max: props.height * 3 / 5 - i * 40,
+                        min: vpHeight * 2 / 5 - i * 40,
+                        max: vpHeight * 3 / 5 - i * 40,
                     },
                     speed: (i + 1) * 0.5,
                     colour: coloursSet[i],
                     sketchWidth: viewportWidth,
-                    sketchHeight: props.height,
+                    sketchHeight: vpHeight,
                 })
             );
         }
         mountainRangesRef.current = mountainRanges;
-    }, [viewportWidth, props.height, mountainAmount]);
+    }, [viewportWidth, vpHeight, mountainAmount]);
 
     const draw = useCallback((p5: p5Types) => {
         p5.clear();
