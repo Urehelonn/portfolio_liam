@@ -161,20 +161,37 @@ export type MountainAnimationDivProps = {
 }
 
 const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
-    const [viewportWidth, setViewportWidth] = useState(1500);
+    // default width as 1500, height 200
+    const [viewportWidth, setViewportWidth] = useState(props.width && props.width > 800 ? props.width : 1500);
+    const [vpHeight, setVpHeight] = useState(props.height && props.height > 200 ? props.height : 200);
 
     let mountainAmount = 5;
     const mountainRangesRef = useRef<MountainRange[]>([]);
 
-    // default width as 1500, height 200
-    const width = props.width && props.width > 800 ? props.width : viewportWidth
-    const setup = useCallback((p5: p5Types, canvasParentRef: Element) => {
-        p5.createCanvas(width, props.height).parent(canvasParentRef);
-    }, [props.height, width])
+    // const width = props.width && props.width > 800 ? props.width : viewportWidth
+    // const setup = useCallback((p5: p5Types, canvasParentRef: Element) => {
+    //     p5.createCanvas(width, props.height).parent(canvasParentRef);
+    // }, [props.height, width])
+    let setup = (p5: p5Types, canvasParentRef: Element) => {
+        console.log('reset')
+        p5.createCanvas(viewportWidth, vpHeight).parent(canvasParentRef);
+    }
+
+    // const [setup, setSetup] = useState<(p5: p5Types, canvasParentRef: Element) => void>(
+    //     (p5: p5Types, canvasParentRef: Element) => {
+    //         console.log('reset')
+    //         p5.createCanvas(viewportWidth, vpHeight).parent(canvasParentRef)
+    //     }
+    // )
 
     useEffect(() => {
         const handleResize = () => {
             setViewportWidth(window.innerWidth);
+            console.log('window.innerWidth', window.innerWidth)
+            setup = (p5: p5Types, canvasParentRef: Element) => {
+                console.log('reset')
+                p5.createCanvas(viewportWidth, vpHeight).parent(canvasParentRef);
+            }
         };
         handleResize();
         window.addEventListener('resize', handleResize);
@@ -209,13 +226,13 @@ const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
                     },
                     speed: (i + 1) * 0.5,
                     colour: coloursSet[i],
-                    sketchWidth: width,
+                    sketchWidth: viewportWidth,
                     sketchHeight: props.height,
                 })
             );
         }
         mountainRangesRef.current = mountainRanges;
-    }, [width, props.height, mountainAmount]);
+    }, [viewportWidth, props.height, mountainAmount]);
 
     const draw = useCallback((p5: p5Types) => {
         p5.clear();

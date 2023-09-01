@@ -12,7 +12,7 @@ const ProjectsNav = (props: ProjectsNavProps) => {
     const [endPos, setEndPos] = useState(1000);
     const scrollIntervalRef = useRef<NodeJS.Timeout | null>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
-    const [projectJustifyContent, setProjectJustifyContent] = useState<'center' | 'flex-start'>('center')
+    const [projectJustifyContent, setProjectJustifyContent] = useState<'space-between' | 'flex-start'>('space-between')
     const clickActiveRef = useRef(false);
 
 
@@ -49,7 +49,7 @@ const ProjectsNav = (props: ProjectsNavProps) => {
     }
 
     const handleMouseEnter = (left: boolean) => {
-        console.log(clickActiveRef)
+        // console.log(clickActiveRef)
         if (!scrollIntervalRef.current && !clickActiveRef.current) {
             const startTime = Date.now();
             scrollIntervalRef.current = setInterval(() => {
@@ -77,20 +77,20 @@ const ProjectsNav = (props: ProjectsNavProps) => {
         }
     };
 
-    const scrollHButtonOnClickHandling = (left: boolean) => {
-        clickActiveRef.current = true;
-        console.log(clickActiveRef.current)
-        let newPosition: number
-        if (left) {
-            newPosition = Math.max(startPos, scrollPosition - 200);
-        } else {
-            newPosition = Math.min(endPos, scrollPosition + 200);
-        }
-        setScrollPosition(newPosition);
-        setTimeout(() => {
-            clickActiveRef.current = false;
-        }, 500);
-    }
+    // const scrollHButtonOnClickHandling = (left: boolean) => {
+    //     clickActiveRef.current = true;
+    //     console.log(clickActiveRef.current)
+    //     let newPosition: number
+    //     if (left) {
+    //         newPosition = Math.max(startPos, scrollPosition - 200);
+    //     } else {
+    //         newPosition = Math.min(endPos, scrollPosition + 200);
+    //     }
+    //     setScrollPosition(newPosition);
+    //     setTimeout(() => {
+    //         clickActiveRef.current = false;
+    //     }, 500);
+    // }
 
     const navKeys = (project: string, key: string) => {
         return (<button className={'m-[4px] min-w-[100px] border-l-2 ' +
@@ -109,7 +109,6 @@ const ProjectsNav = (props: ProjectsNavProps) => {
                    className={'cursor-pointer'}
                    height="20"
                    priority={true}
-                   onClick={() => scrollHButtonOnClickHandling(true)}
                    onMouseEnter={() => handleMouseEnter(true)}
                    onMouseLeave={handleMouseLeave}
             />
@@ -126,8 +125,7 @@ const ProjectsNav = (props: ProjectsNavProps) => {
                    height="20"
                    priority={true}
                    onMouseEnter={() => handleMouseEnter(false)}
-                   onMouseLeave={handleMouseLeave}
-                   onClick={() => scrollHButtonOnClickHandling(false)}/>
+                   onMouseLeave={handleMouseLeave} />
         </div>
     </>)
 }

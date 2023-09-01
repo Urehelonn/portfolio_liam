@@ -1,15 +1,46 @@
 import React, {useRef} from 'react';
-import ProjectsDescription from "@/assets/commonTypes/types";
 import NavBar from "@/components/navbar";
 import CopyRightFooter from "@/components/copyRightFooter";
 import MountainAnimationDiv from "@/components/mountainAnimationDiv";
 import ProjectsNav from "@/pages/project/projectsNav";
 import JumpButton from "@/components/jumpButton";
+import {Project, ProjectsDescription} from "@/assets/commonTypes/projectTypes";
+
+let projects: Project[];
+projects = [
+    {
+        title: 'project1', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
+            image: [''],
+            description: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.']
+        }]
+    },
+    {
+        title: 'project2', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
+            image: [''],
+            description: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.']
+        }]
+    },
+    {
+        title: 'project3', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
+            image: [''],
+            description: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.']
+        }]
+    },
+    {
+        title: 'project4', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
+            image: [''],
+            description: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.']
+        }]
+    },
+];
 
 const ProjectPage = () => {
-    const projects = ['project1', 'project2', 'project1', 'project2', 'project1', 'project2', 'project1', 'project2',
-        'project3', 'project4', 'project5', 'project6', 'project7', 'project8', 'project9', 'project10',];
+    // const projects = ['project1', 'project2', 'project1', 'project2', 'project1', 'project2', 'project1', 'project2',
+    //     'project3', 'project4', 'project5', 'project6', 'project7', 'project8', 'project9', 'project10',];
 
+    const projectsTitle = projects.map((p) => {
+        return p.title
+    })
     const objSection = useRef(null);
     return (
         <div className={'min-w-[800px]'}>
@@ -32,10 +63,13 @@ const ProjectPage = () => {
             </div>
 
             {/*projects nav*/}
-            <ProjectsNav projects={projects}/>
+            <ProjectsNav projects={projectsTitle}/>
 
             {/*jump button*/}
             <div className={'flex justify-center mb-[50px]'}><JumpButton jumpToPos={objSection}/></div>
+
+            {/* project title section */}
+
 
             <NavBar/>
             <CopyRightFooter/>

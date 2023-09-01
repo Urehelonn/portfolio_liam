@@ -11,12 +11,32 @@ import MountainAnimationDiv from "@/components/mountainAnimationDiv";
 const Homepage = () => {
     const objSection = useRef(null);
     const moreSection = useRef(null);
+    const [phHeight, setPhHeight] = useState(100);
+    const [phMarginTop, setPhMarginTop] = useState(10);
+
+    // place holder resize handling
+    useEffect(() => {
+        let vpWidth: number
+        const handleResize = () => {
+            vpWidth = (window.innerWidth);
+            const newPHHeight = vpWidth>1200? 120:100
+            const newPHMarginTop = vpWidth>1200?30:10
+            setPhHeight(newPHHeight)
+            setPhMarginTop(newPHMarginTop)
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        // Clean up the event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     return (
         <div className={'min-w-[800px]'}>
             <div className={'bg-sky h-5/6 z-10'}>
                 <div className={'w-full'}>
-                    <MountainAnimationDiv height={600}/>
+                    <MountainAnimationDiv height={500}/>
                 </div>
                 <div className={'ml-[10%] mt-[-20%] z-20'}>
                     <h1 className={'text-9xl ' + styles.dropShadow}>Liam</h1>
@@ -26,9 +46,12 @@ const Homepage = () => {
                     </h6>
                 </div>
 
-                <div className="relative z-5 mt-[10px]">
+                {/* placeholder to cover canvas  */}
+                <div className="relative z-5 " style={{marginTop: phMarginTop}}>
+                    {/*h-[120px] mt-[10px]*/}
                     <div className={'relative z-5 bg-gradient-to-b from-green-500 ' +
-                        'to-dark h-[120px]'}>
+                        'to-dark'}
+                         style={{height: phHeight}}>
                     </div>
                 </div>
             </div>
