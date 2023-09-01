@@ -3,7 +3,8 @@ import Image from 'next/image';
 import React, {useEffect, useRef, useState} from "react";
 
 export type ProjectsNavProps = {
-    projects: string[]
+    projects: string[],
+    setActiveProject: (projectInd: number) => void
 }
 
 const ProjectsNav = (props: ProjectsNavProps) => {
@@ -47,8 +48,8 @@ const ProjectsNav = (props: ProjectsNavProps) => {
         }
     }, [containerRef, props.projects.length]);
 
-    const navKeyOnClickHandling = (e: React.MouseEvent<HTMLButtonElement>) => {
-        console.log(e)
+    const navKeyOnClickHandling = (projectInd: number) => {
+        props.setActiveProject(projectInd)
     }
 
     const handleMouseEnter = (left: boolean) => {
@@ -74,8 +75,8 @@ const ProjectsNav = (props: ProjectsNavProps) => {
 
     // check if the buttons should be disabled
     useEffect(() => {
-        setLeftBtDisabled(startPos+5 >= scrollPosition)
-        setRightBtDisabled(endPos-5 <= scrollPosition)
+        setLeftBtDisabled(startPos + 5 >= scrollPosition)
+        setRightBtDisabled(endPos - 5 <= scrollPosition)
     }, [startPos, endPos, scrollPosition])
 
     const handleMouseLeave = () => {
@@ -85,6 +86,7 @@ const ProjectsNav = (props: ProjectsNavProps) => {
         }
     };
 
+    // click handling, due to conflict with hover function
     // const scrollHButtonOnClickHandling = (left: boolean) => {
     //     clickActiveRef.current = true;
     //     console.log(clickActiveRef.current)
@@ -100,12 +102,12 @@ const ProjectsNav = (props: ProjectsNavProps) => {
     //     }, 500);
     // }
 
-    const navKeys = (project: string, key: string) => {
+    const navKeys = (project: string, key: number) => {
         return (<button className={'m-[4px] min-w-[100px] border-l-2 ' +
             'border-r-2 border-b-2 border-green-200 text-green-200 ' +
             'rounded-b-lg p-[5px] pt-0 hover:border-green-100 ' +
             'hover:text-white active:border-white active:text-white'}
-                        onClick={navKeyOnClickHandling} key={key}>{project}</button>)
+                        onClick={() => navKeyOnClickHandling(key)} key={'' + key}>{project}</button>)
     }
 
     return (<>
@@ -124,7 +126,7 @@ const ProjectsNav = (props: ProjectsNavProps) => {
             <div className={'relative flex w-[80%] overflow-hidden'}
                  style={{justifyContent: projectJustifyContent}}
                  ref={containerRef}>
-                {props.projects.map((project, ind) => navKeys(project, 'projectNav' + ind))}
+                {props.projects.map((project, ind) => navKeys(project, ind))}
             </div>
             <Image src={arrow1}
                    className={'rotate-180 cursor-pointer'}

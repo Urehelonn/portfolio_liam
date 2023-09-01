@@ -7,5 +7,5 @@ export type Project = {
 
 export type ProjectsDescription = {
     image: string[]
-    description: string[]
+    description: string
 }
