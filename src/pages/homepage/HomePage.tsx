@@ -7,18 +7,34 @@ import JumpButton from '@/components/jumpButton/index'
 import CopyRightFooter from "@/components/copyRightFooter";
 import MountainAnimationDiv from "@/components/mountainAnimationDiv";
 
-
 const Homepage = () => {
     const objSection = useRef(null);
     const moreSection = useRef(null);
 
+    // canvas size state for resizing handling
+    const [canvasVPWidth, setCanvasVPWidth] = useState(1500)
+
+    // mountain canvas resize handling
+    useEffect(() => {
+        const handleResize = () => {
+            setCanvasVPWidth(window.innerWidth);
+            // console.log('window.innerWidth', window.innerWidth)
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        // Clean up the event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [canvasVPWidth]);
+
     return (
-        <div>
+        <div className={'min-w-[800px]'}>
             <div className={'bg-sky h-5/6 z-10'}>
                 <div className={'w-full'}>
-                    <MountainAnimationDiv />
+                    <MountainAnimationDiv width={canvasVPWidth} height={500}/>
                 </div>
-                <div className={'ml-[10%] mt-[-20%] z-20'}>
+                <div className={'ml-[10%] z-20 mt-[-280px]'}>
                     <h1 className={'text-9xl ' + styles.dropShadow}>Liam</h1>
                     <h5 className={'text-black text-xl'}>A friendly developer...</h5>
                     <h6 className={'text-sm font-semibold'}>more of a cat person<span
@@ -26,7 +42,9 @@ const Homepage = () => {
                     </h6>
                 </div>
 
-                <div className="relative z-5 mt-[10px]">
+                {/* placeholder to cover canvas  */}
+                <div className="relative z-5 mt-[30px]">
+                    {/* mt-[10px]*/}
                     <div className={'relative z-5 bg-gradient-to-b from-green-500 ' +
                         'to-dark h-[120px]'}>
                     </div>

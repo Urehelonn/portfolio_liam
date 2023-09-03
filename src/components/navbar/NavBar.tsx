@@ -45,9 +45,7 @@ const NavBar = () => {
                                             transition: 'opacity 0.5s'
                                         }}
                                         onClick={() => {
-                                            router.push('/about').then(() => {
-                                                console.log('aefasdf')
-                                            });
+                                            router.push('/about').then();
                                         }}/>
                 <BottomNavigationAction label="Contact" icon={<ContactPageIcon/>}
                                         sx={{
