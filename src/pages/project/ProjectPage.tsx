@@ -5,6 +5,7 @@ import MountainAnimationDiv from "@/components/mountainAnimationDiv";
 import ProjectsNav from "@/pages/project/projectsNav";
 import JumpButton from "@/components/jumpButton";
 import {Project} from "@/assets/commonTypes/projectTypes";
+import Image from "next/image";
 
 let projects: Project[];
 projects = [
@@ -69,6 +70,7 @@ const ProjectPage = () => {
                 opacity: currDescription == ind ? 1 : 0.6,
                 transition: 'opacity 0.5s'
             }}
+            key={currDescription + ind}
             onClick={() => {
                 setCurrDescription(ind)
             }}
@@ -101,30 +103,29 @@ const ProjectPage = () => {
             {/*jump button*/}
             <div className={'flex justify-center mb-[50px]'}><JumpButton jumpToPos={objSection}/></div>
 
-            {/* project title */}
-            <div className={'flex justify-center mt-[60px] mb-[10px]'}><h2
-                className={'text-bold text-[32px]'}>{currProjectTitleDisplayStr}</h2></div>
-
-            <div className={'flex justify-center flex-col'}>
-                {/* project stacks */}
-                <div className={'flex justify-center mb-[10px] border-2 ' +
-                    ' border-green-200 p-[20px] w-[50%] m-auto'}><h2
+            {/* project title & project stacks*/}
+            <div className={'pt-[15px] m-auto border-2 border-green-200 rounded-md max-w-[60%]'}>
+                <div className={'flex justify-center mt-[30px] mb-[10px] '}><h2
+                    className={'text-bold text-[32px]'}>{currProjectTitleDisplayStr}</h2></div>
+                <div className={'flex justify-center mb-[10px]' +
+                    '  p-[20px] w-[50%] m-auto'}><h2
                     className={'text-bold text-[15px]'}>{projects[currProject].skillSet.map((value, ind) => {
                     return ind == projects[currProject].skillSet.length - 1 ? value : value + ', '
                 })}</h2>
                 </div>
+            </div>
 
+            <div className={'flex justify-center flex-col mt-[15px]'}>
                 {/* project display */}
-                <div className={'flex justify-center mb-[10px] border-2 ' +
-                    ' border-green-200 p-[20px] w-[80%] m-auto flex-row'}>
+                <div className={'flex justify-center mb-[10px]' +
+                    ' p-[20px] w-[80%] m-auto flex-row h-[200px]'}>
                     {/* left side for image display */}
                     {projects[currProject].description[currDescription].image[currDescription] != '' ?? (
                         <div className={''}>
-                            {/* todo replace with next/Image */}
-                            <img
+                            <Image
                                 src={projects[currProject].description[currDescription].image[currDescription]}
                                 alt={projects[currProject].title + ' image ' + currDescription}>
-                            </img>
+                            </Image>
                         </div>)}
                     {/* right side for description */}
                     <h2 className={'text-bold text-[17px]'}>{projects[currProject].description[currDescription].description

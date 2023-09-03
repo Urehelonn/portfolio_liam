@@ -107,7 +107,7 @@ const ProjectsNav = (props: ProjectsNavProps) => {
             'border-r-2 border-b-2 border-green-200 text-green-200 ' +
             'rounded-b-lg p-[5px] pt-0 hover:border-green-100 ' +
             'hover:text-white active:border-white active:text-white'}
-                        onClick={() => navKeyOnClickHandling(key)} key={'' + key}>{project}</button>)
+                        onClick={() => navKeyOnClickHandling(key)} key={project + key}>{project}</button>)
     }
 
     return (<>
