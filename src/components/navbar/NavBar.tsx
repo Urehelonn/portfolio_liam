@@ -1,7 +1,6 @@
 import {BottomNavigation, BottomNavigationAction} from "@mui/material";
 
 import ContactPageIcon from '@mui/icons-material/ContactPage';
-import InfoIcon from '@mui/icons-material/Info';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import HomeIcon from '@mui/icons-material/Home';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -36,16 +35,6 @@ const NavBar = () => {
                                         }}
                                         onClick={() => {
                                             router.push('/project').then();
-                                        }}/>
-                <BottomNavigationAction label="About" icon={<InfoIcon/>}
-                                        sx={{
-                                            color: 'white',
-                                            opacity: 0.6,
-                                            ':hover': {opacity: 1},
-                                            transition: 'opacity 0.5s'
-                                        }}
-                                        onClick={() => {
-                                            router.push('/about').then();
                                         }}/>
                 <BottomNavigationAction label="Contact" icon={<ContactPageIcon/>}
                                         sx={{
