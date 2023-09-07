@@ -54,8 +54,7 @@ const Contact = () => {
             </div>
 
             {/* contact info section*/}
-            <div className={'relative z-4 w-[60%] flex  mt-[-30px] m-auto justify-between pt-[50px] cursor-pointer'}
-                 onClick={handleGitHubClick}>
+            <div className={'relative z-4 w-[60%] flex  mt-[-30px] m-auto justify-between pt-[50px] cursor-pointer'}>
                 {/*left part of the contact*/}
                 <div className={'mt-[-85px] z-2'}>
                     <div className={'flex items-center justify-center'}>
@@ -67,7 +66,7 @@ const Contact = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={'m-[10px]'}>
+                    <div className={'m-[7px]'} onClick={handleGitHubClick}>
                         <GitHubIcon/> <span className={'text-[10px] ml-[5px]'}>https://github.com/urehelonn</span>
                     </div>
                 </div>
@@ -84,10 +83,6 @@ const Contact = () => {
                     <h5 className={'m-[10px]'}>
                         <LocationOnIcon/> <span className={'ml-[5px]'}>Ottawa</span>
                     </h5>
-                    {/* todo: bring this section back after employed */}
-                    {/*<h5 className={'m-[10px] text-[8px]'}>*/}
-                    {/*    <span className={'ml-[5px]'}>*Actively looking for serious relationship!</span>*/}
-                    {/*</h5>*/}
                 </div>
             </div>
 
