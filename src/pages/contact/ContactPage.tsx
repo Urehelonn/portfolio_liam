@@ -66,7 +66,7 @@ const Contact = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={'m-[10px]'} onClick={handleGitHubClick}>
+                    <div className={'m-[7px]'} onClick={handleGitHubClick}>
                         <GitHubIcon/> <span className={'text-[10px] ml-[5px]'}>https://github.com/urehelonn</span>
                     </div>
                 </div>
