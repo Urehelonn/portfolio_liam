@@ -1,8 +1,8 @@
 import constructionImg from '../../assets/images/icon/constructionImg.png'
 import pointer from '../../assets/images/icon/pointer1.png'
 import Image from 'next/image';
-import CopyRightFooter from '@/components/copyRightFooter'
-import NavBar from "@/components/navbar/NavBar";
+import CopyRightFooter from '@/components/common/copyRightFooter'
+import NavBar from "@/components/common/navbar/NavBar";
 
 
 const UnderConstruction = () => {

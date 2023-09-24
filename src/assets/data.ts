@@ -1,3 +1,5 @@
+import {Project} from "@/assets/commonTypes/projectTypes";
+
 export const DATA = {
     base_url: "https://urehelonn.github.io/porfolio_liam",
     introduction_paragraph:
@@ -152,4 +154,42 @@ export const DATA = {
     }
 };
 
+export const projects: Project[] = [
+    {
+        title: 'project1', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
+            image: '',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        }]
+    },
+    {
+        title: 'project2', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
+            image: '',
+            description: 'Lorem ipsum dolor st, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        }, {
+            image: '',
+            description: 'Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        }, {
+            image: '',
+            description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        }]
+    },
+    {
+        title: 'project3', skillSet: ['CatCat', 'Wurf', 'Blah'], description: [{
+            image: '',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        }]
+    },
+    {
+        title: 'project4', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
+            image: '',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        }]
+    },
+    {
+        title: 'project4', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
+            image: '',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        }]
+    },
+];
 export default DATA;

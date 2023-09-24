@@ -53,7 +53,6 @@ const ProjectsNav = (props: ProjectsNavProps) => {
     }
 
     const handleMouseEnter = (left: boolean) => {
-        // console.log(clickActiveRef)
         if (!scrollIntervalRef.current && !clickActiveRef.current) {
             const startTime = Date.now();
             scrollIntervalRef.current = setInterval(() => {

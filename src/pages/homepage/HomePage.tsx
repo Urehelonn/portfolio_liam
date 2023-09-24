@@ -2,13 +2,12 @@ import React, {useEffect, useRef, useState} from 'react';
 import styles from './HomePage.module.css';
 
 // shared component import
-import NavBar from '@/components/navbar/index'
-import JumpButton from '@/components/jumpButton/index'
-import CopyRightFooter from "@/components/copyRightFooter";
-import MountainAnimationDiv from "@/components/mountainAnimationDiv";
-import TechStackIcon from "@/components/techStackIcon";
-
-import git from '/src/assets/images/businessIcon/git.png'
+import NavBar from '@/components/common/navbar/index'
+import JumpButton from '@/components/common/jumpButton/index'
+import CopyRightFooter from "@/components/common/copyRightFooter";
+import MountainAnimationDiv from "@/components/common/mountainAnimationDiv";
+import TechStackIcon from "@/components/home/techStackIcon";
+import HoverColourChangeCharacter from "@/components/common/hoverColourChangeCharacter";
 
 const Homepage = () => {
     const objSection = useRef(null);
@@ -70,11 +69,21 @@ const Homepage = () => {
             <div className={'flex justify-center mt-[-50px]'}><JumpButton jumpToPos={objSection} withLabel={true}/>
             </div>
 
-            <div className={'h-[200px] ml-[10%] mr-[30%] mt-[120px]'} ref={objSection}>
-                <h1 className={'mb-[30px]'}>Self Intro</h1>
-                <span className={''}>I’m Liam, a full stack developer who prefer working on frontend blah blah...
-For the past 3 years, I have been working on blah blah blah. <br/></span>
-                <span>More general terms can be found in this CV -- nothing special, just a regular guy basically.</span>
+            <div className={'h-[200px] ml-[10%] mr-[30%] mt-[60px]'} ref={objSection}>
+                <div className={'mb-[30px]'}>
+                    <HoverColourChangeCharacter fontSize={50} content={'S'}/>
+                    <HoverColourChangeCharacter fontSize={50} content={'e'}/>
+                    <HoverColourChangeCharacter fontSize={50} content={'l'}/>
+                    <HoverColourChangeCharacter fontSize={50} content={'f'}/>
+                    <span className={'m-[10px]'} />
+                    <HoverColourChangeCharacter fontSize={50} content={'I'}/>
+                    <HoverColourChangeCharacter fontSize={50} content={'n'}/>
+                    <HoverColourChangeCharacter fontSize={50} content={'t'}/>
+                    <HoverColourChangeCharacter fontSize={50} content={'r'}/>
+                    <HoverColourChangeCharacter fontSize={50} content={'o'}/>
+                </div>
+                {/*<h1>Self Intro</h1>*/}
+                <span className={''}>I’m Liam, a full stack developer. For the past 3 years, I have been working on Developer with a diverse background in finance and retail, eager to pursue a more front-end focusing role.<br/></span>
             </div>
 
             {/* jump bt */}
@@ -100,7 +109,19 @@ For the past 3 years, I have been working on blah blah blah. <br/></span>
                                                                     src={techStackIcons.react}/></div>
                     </div>
                     <div className={'flex flex-col justify-end'} ref={techSection}>
-                        <h1 className={'mb-[30px] flex justify-end'}>Tech Stacks</h1>
+                        <div className={'mb-[30px] flex justify-end'}>
+                            <HoverColourChangeCharacter fontSize={50} content={'T'}/>
+                            <HoverColourChangeCharacter fontSize={50} content={'e'}/>
+                            <HoverColourChangeCharacter fontSize={50} content={'c'}/>
+                            <HoverColourChangeCharacter fontSize={50} content={'h'}/>
+                            <span className={'m-[10px]'} />
+                            <HoverColourChangeCharacter fontSize={50} content={'S'}/>
+                            <HoverColourChangeCharacter fontSize={50} content={'t'}/>
+                            <HoverColourChangeCharacter fontSize={50} content={'a'}/>
+                            <HoverColourChangeCharacter fontSize={50} content={'c'}/>
+                            <HoverColourChangeCharacter fontSize={50} content={'k'}/>
+                            <HoverColourChangeCharacter fontSize={50} content={'s'}/>
+                        </div>
                         <span className={'mb-[50px] flex justify-end'}>TypeScript, Angular, React (Next.js), Spring Boot, MySQL, PostgreSQL, AWS, Golang, Git</span>
                     </div>
                 </div>
@@ -127,7 +148,7 @@ For the past 3 years, I have been working on blah blah blah. <br/></span>
             </div>
 
             <div className={'mt-[8%] h-[220px] w-7/12 pb-[60px] mt-[30px] m-auto text-center'} ref={moreSection}>
-                <h3>Nothing here, go check at other not that beautiful/useful pages I designed and created!</h3>
+                <h3>Nothing more, go check at other pages! :D</h3>
             </div>
 
             <NavBar/>

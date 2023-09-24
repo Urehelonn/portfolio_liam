@@ -1,3 +1,0 @@
-import HoverColourChangeCharacter from "@/components/hoverColourChangeCharacter/HoverColourChangeCharacter";
-
-export default HoverColourChangeCharacter

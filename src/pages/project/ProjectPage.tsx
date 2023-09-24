@@ -1,51 +1,12 @@
 import React, {useEffect, useRef, useState} from 'react';
-import NavBar from "@/components/navbar";
-import CopyRightFooter from "@/components/copyRightFooter";
-import MountainAnimationDiv from "@/components/mountainAnimationDiv";
-import ProjectsNav from "@/pages/project/projectsNav";
-import JumpButton from "@/components/jumpButton";
-import {Project} from "@/assets/commonTypes/projectTypes";
+import NavBar from "@/components/common/navbar";
+import CopyRightFooter from "@/components/common/copyRightFooter";
+import MountainAnimationDiv from "@/components/common/mountainAnimationDiv";
+import ProjectsNav from "@/components/project/projectsNav";
+import JumpButton from "@/components/common/jumpButton";
 import Image from "next/image";
 
-let projects: Project[];
-projects = [
-    {
-        title: 'project1', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
-            image: '',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        }]
-    },
-    {
-        title: 'project2', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
-            image: '',
-            description: 'Lorem ipsum dolor st, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        }, {
-            image: '',
-            description: 'Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        }, {
-            image: '',
-            description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        }]
-    },
-    {
-        title: 'project3', skillSet: ['CatCat', 'Wurf', 'Blah'], description: [{
-            image: '',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        }]
-    },
-    {
-        title: 'project4', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
-            image: '',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        }]
-    },
-    {
-        title: 'project4', skillSet: ['CatCat', 'DogieDoggie', 'Blah'], description: [{
-            image: '',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        }]
-    },
-];
+import {projects} from "@/assets/data";
 
 const ProjectPage = () => {
     const projectsTitle = projects.map((p) => {
