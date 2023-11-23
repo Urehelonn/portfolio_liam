@@ -1,4 +1,4 @@
-import arrow1 from '../../../assets/images/icon/arrow1.png'
+import arrow1 from '../../../../public/images/icon/arrow1.png'
 import Image from 'next/image';
 import React, {useEffect, useRef, useState} from "react";
 
@@ -53,7 +53,6 @@ const ProjectsNav = (props: ProjectsNavProps) => {
     }
 
     const handleMouseEnter = (left: boolean) => {
-        // console.log(clickActiveRef)
         if (!scrollIntervalRef.current && !clickActiveRef.current) {
             const startTime = Date.now();
             scrollIntervalRef.current = setInterval(() => {

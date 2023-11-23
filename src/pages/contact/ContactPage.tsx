@@ -3,10 +3,10 @@ import React, {useRef, useState} from 'react';
 
 // local components
 import colours from '@/styles/colours'
-import JumpButton from "@/components/jumpButton";
-import NavBar from "@/components/navbar";
-import CopyRightFooter from "@/components/copyRightFooter";
-import MountainAnimationDiv from "@/components/mountainAnimationDiv";
+import JumpButton from "@/components/common/jumpButton";
+import NavBar from "@/components/common/navbar";
+import CopyRightFooter from "@/components/common/copyRightFooter";
+import MountainAnimationDiv from "@/components/common/mountainAnimationDiv";
 
 // mui
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
@@ -14,7 +14,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import {TextField, Button, Typography, Box} from "@mui/material";
-import HoverColourChangeCharacter from "@/components/hoverColourChangeCharacter";
+import HoverColourChangeCharacter from "@/components/common/hoverColourChangeCharacter";
 import style from './ContactPage.module.scss'
 
 
