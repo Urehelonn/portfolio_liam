@@ -6,7 +6,7 @@ import NavBar from '@/components/common/navbar/index'
 import JumpButton from '@/components/common/jumpButton/index'
 import CopyRightFooter from "@/components/common/copyRightFooter";
 import MountainAnimationDiv from "@/components/common/mountainAnimationDiv";
-import TechStackIcon from "@/components/home/techStackIcon";
+import TechStackIcon from "@/components/homepage/techStackIcon";
 import HoverColourChangeCharacter from "@/components/common/hoverColourChangeCharacter";
 
 const Homepage = () => {
