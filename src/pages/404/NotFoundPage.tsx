@@ -1,5 +1,5 @@
-import deadComputer from '../../assets/images/icon/deadComputer.png'
-import pointer from '../../assets/images/icon/pointer1.png'
+import deadComputer from '../../../public/images/icon/deadComputer.png'
+import pointer from '../../../public/images/icon/pointer1.png'
 import Image from 'next/image';
 import CopyRightFooter from '@/components/common/copyRightFooter'
 import NavBar from "@/components/common/navbar/NavBar";

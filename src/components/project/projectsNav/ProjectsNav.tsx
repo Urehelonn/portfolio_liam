@@ -1,4 +1,4 @@
-import arrow1 from '../../../assets/images/icon/arrow1.png'
+import arrow1 from '../../../../public/images/icon/arrow1.png'
 import Image from 'next/image';
 import React, {useEffect, useRef, useState} from "react";
 

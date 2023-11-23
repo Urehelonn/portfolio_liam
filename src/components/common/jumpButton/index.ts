@@ -1,4 +1,4 @@
-import JumpButton from "@/components/common/jumpButton/JumpButton";
+import JumpButton from "./JumpButton";
 
 
 export default JumpButton;
