@@ -6,8 +6,10 @@ module.exports = {
     content: [
         './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
         './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-        './src/app/**/*.{js,ts,jsx,tsx,mdx}'
+        './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/**/*.{js,ts,jsx,tsx,mdx}',
     ],
+    // important: '#root',
     theme: {
         screens: {
             sm: '480px', md: '768px', lg: '976px', xl: '1440px',
@@ -22,7 +24,6 @@ module.exports = {
             customItalic: ['InknutAntiqua', 'sans'],
         },
     },
-
     extend: {
         spacing: {
             '128': '32rem', '144': '36rem',

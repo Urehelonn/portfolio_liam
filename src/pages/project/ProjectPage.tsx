@@ -50,7 +50,7 @@ const ProjectPage = () => {
                 </div>
                 <div className={'z-20'} style={{ marginTop: -80 }}>
                     <div className={'flex justify-center'}>
-                        <h3 className={'text-[45px] underline'}>Some of Past Projects</h3>
+                        <h3 className={'text-[45px] underline'}>Some Past Projects</h3>
                     </div>
                 </div>
 
