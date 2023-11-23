@@ -205,6 +205,7 @@ const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
     }, [viewportWidth, vpHeight, mountainAmount]);
 
     const draw = useCallback((p5: p5Types) => {
+        // p5.clear(189, 216, 231, 1);
         p5.clear();
         let i = mountainRangesRef.current.length;
         while (i--) {
