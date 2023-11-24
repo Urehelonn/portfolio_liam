@@ -153,7 +153,7 @@ const Contact = () => {
                                 rows={4}
                             />
                             <Button fullWidth variant="contained" type="submit"
-                                    color="primary"
+                                    color="secondary"
                                     sx={{
                                         mt: 2,
                                         color: colours.white,
