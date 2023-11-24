@@ -1,24 +1,14 @@
 // next.js && React
 import * as React from "react";
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 
 // styles
 import colours from "@/styles/colours";
 
 // 3rd party lb
-import {type Sketch } from "@p5-wrapper/react";
-import { NextReactP5Wrapper } from "@p5-wrapper/next";
+import {type Sketch} from "@p5-wrapper/react";
+import {NextReactP5Wrapper} from "@p5-wrapper/next";
 import {P5CanvasInstance} from "@p5-wrapper/react/dist/component/contracts/P5CanvasInstance";
-
-type MountainRangeProps = {
-    layer: number;
-    width: { min: number; max: number };
-    height: { min: number; max: number };
-    speed: number;
-    colour: string;
-    sketchWidth: number;
-    sketchHeight: number;
-};
 
 type Mountain = {
     layer: number;
@@ -28,7 +18,6 @@ type Mountain = {
     height: number;
     colour: string;
 };
-
 type MountainRange = {
     x: number;
     mountains: Mountain[];
@@ -40,6 +29,19 @@ type MountainRange = {
     sketchWidth: number;
     sketchHeight: number;
 }
+type MountainRangeProps = {
+    layer: number;
+    width: { min: number; max: number };
+    height: { min: number; max: number };
+    speed: number;
+    colour: string;
+    sketchWidth: number;
+    sketchHeight: number;
+};
+export type MountainAnimationDivProps = {
+    height: number;
+    width?: number;
+};
 
 const mountainRangeConstructor = (config: MountainRangeProps) => {
     let mountainRange: MountainRange = {
@@ -113,8 +115,7 @@ const update = (mountainRange: MountainRange) => {
         mountainRange.mountains.push(firstMountain);
     }
 }
-
-const render = (mountainRange: MountainRange, p5:  P5CanvasInstance) => {
+const render = (mountainRange: MountainRange, p5: P5CanvasInstance) => {
     p5.push();
     p5.translate(mountainRange.x, ((p5.height - p5.mouseY) / 40) * mountainRange.layer);
 
@@ -136,18 +137,14 @@ const render = (mountainRange: MountainRange, p5:  P5CanvasInstance) => {
     p5.pop();
 }
 
-export type MountainAnimationDivProps = {
-    height: number;
-    width?: number;
-};
-
 const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
     // default width as 1500, height 200
-    const viewportWidth = props.width && props.width > 800 ? props.width : 1500;
-    const vpHeight = props.height && props.height > 200 ? props.height : 200;
+    const [viewportWidth, setViewportWidth] = useState(props.width && props.width > 800 ? props.width : 1500)
+    const vpHeight = props.height && props.height > 200 ? props.height: 200;
 
     let mountainAmount = 5;
     const mountainRangesRef = useRef<MountainRange[]>([]);
+
     useEffect(() => {
         const mountainRanges: MountainRange[] = [];
         const coloursSet = [
@@ -157,6 +154,13 @@ const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
             colours.green["400"],
             colours.green["500"],
         ];
+
+        const handleResize = () => {
+            setViewportWidth(window.innerWidth);
+            // console.log('window.innerWidth', window.innerWidth)
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
 
         let i = mountainAmount;
         while (i--) {
@@ -178,6 +182,11 @@ const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
             mountainRanges.push(newMountainRg);
         }
         mountainRangesRef.current = mountainRanges;
+
+        // Clean up the event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, [viewportWidth, vpHeight, mountainAmount]);
 
     const sketch: Sketch = p5 => {
@@ -194,7 +203,7 @@ const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
 
     return (
         <div>
-            <NextReactP5Wrapper sketch={sketch} />
+            <NextReactP5Wrapper sketch={sketch}/>
         </div>
     );
 };

@@ -1,5 +1,5 @@
 // next.js && React
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 
 // local components
 import colours from '@/styles/colours'
