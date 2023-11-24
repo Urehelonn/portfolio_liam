@@ -131,8 +131,17 @@ const render = (mountainRange: MountainRange, p5: P5CanvasInstance) => {
     // set line and filling colour
     p5.fill(mountainRange.colour);
     p5.stroke(mountainRange.colour);
-    p5.vertex(p5.width - mountainRange.x, p5.height);
-    p5.vertex(0 - mountainRange.x, p5.height);
+
+    // Adjust the y-coordinate of the last vertex based on mouse position
+    if (p5.mouseY <= p5.height) {
+        p5.vertex(p5.width - mountainRange.x, p5.height);
+        p5.vertex(0 - mountainRange.x, p5.height);
+        // p5.endShape(p5.CLOSE);
+    } else {
+        const lastMountain = mountainRange.mountains[pointCount - 1];
+        p5.vertex(p5.width - mountainRange.x, lastMountain.y + p5.mouseY * 0.4);
+        p5.vertex(0 - mountainRange.x, lastMountain.y + p5.mouseY * 0.4);
+    }
     p5.endShape(p5.CLOSE);
     p5.pop();
 }
@@ -140,7 +149,7 @@ const render = (mountainRange: MountainRange, p5: P5CanvasInstance) => {
 const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
     // default width as 1500, height 200
     const [viewportWidth, setViewportWidth] = useState(props.width && props.width > 800 ? props.width : 1500)
-    const vpHeight = props.height && props.height > 200 ? props.height: 200;
+    const vpHeight = props.height && props.height > 200 ? props.height : 200;
 
     let mountainAmount = 5;
     const mountainRangesRef = useRef<MountainRange[]>([]);
