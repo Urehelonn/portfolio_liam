@@ -147,7 +147,7 @@ const Homepage = () => {
                 <JumpButton jumpToPos={moreSection}/>
             </div>
 
-            <div className={'mt-[8%] h-[220px] w-7/12 pb-[60px] mt-[30px] m-auto text-center'} ref={moreSection}>
+            <div className={'mt-[8%] h-[220px] w-7/12 pb-[60px] m-auto text-center'} ref={moreSection}>
                 <h3>Nothing more, go check at other pages! :D</h3>
             </div>
 
