@@ -33,7 +33,6 @@ const Homepage = () => {
   useEffect(() => {
     const handleResize = () => {
       setCanvasVPWidth(window.innerWidth);
-      // console.log('window.innerWidth', window.innerWidth)
     };
     handleResize();
     window.addEventListener('resize', handleResize);

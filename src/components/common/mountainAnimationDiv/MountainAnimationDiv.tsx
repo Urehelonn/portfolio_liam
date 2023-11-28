@@ -65,15 +65,15 @@ const mountainRangeConstructor = (config: MountainRangeProps) => {
   // populate function creates the static mountainRange
   const populate = () => {
     let totalWidth = 0;
-    while (totalWidth <= mountainRange.sketchWidth + mountainRange.width.max * 4) {
+        while (totalWidth <= mountainRange.sketchWidth + mountainRange.width.max * 4) {
       const newWidth = Math.round(
         Math.random() * (mountainRange.width.max - mountainRange.width.min) + mountainRange.width.min,
       );
       const newHeight = Math.round(
         Math.random() * (mountainRange.height.max - mountainRange.height.min) + mountainRange.height.min,
       );
-      mountainRange.mountains.push(
-        {
+            mountainRange.mountains.push(
+                {
           layer: mountainRange.layer,
           x:
             mountainRange.mountains.length === 0
@@ -95,48 +95,47 @@ const mountainRangeConstructor = (config: MountainRangeProps) => {
 const update = (mountainRange: MountainRange) => {
   mountainRange.x -= mountainRange.speed;
   let firstMountain = mountainRange.mountains[0];
-  if (firstMountain.width + firstMountain.x + mountainRange.x < -mountainRange.width.max) {
+    if (firstMountain.width + firstMountain.x + mountainRange.x < -mountainRange.width.max) {
     const newWidth = Math.round(
       Math.random() * (mountainRange.width.max - mountainRange.width.min) + mountainRange.width.min,
     );
     const newHeight = Math.round(
       Math.random() * (mountainRange.height.max - mountainRange.height.min) + mountainRange.height.min,
     );
-    const lastMountain = mountainRange.mountains[mountainRange.mountains.length - 1];
-    firstMountain = ({
+        const lastMountain = mountainRange.mountains[mountainRange.mountains.length - 1];
+        firstMountain = ({
       layer: mountainRange.layer,
       x: lastMountain.x + lastMountain.width,
       y: mountainRange.sketchHeight - newHeight,
       width: newWidth,
       height: newHeight,
       colour: mountainRange.colour,
-    });
+        });
     mountainRange.mountains.shift();
     mountainRange.mountains.push(firstMountain);
   }
 };
 const render = (mountainRange: MountainRange, p5: P5CanvasInstance) => {
   p5.push();
-  p5.translate(mountainRange.x, ((p5.height - p5.mouseY) / 40) * mountainRange.layer);
+    p5.translate(mountainRange.x, ((p5.height - p5.mouseY) / 40) * mountainRange.layer);
 
   p5.beginShape();
   const pointCount = mountainRange.mountains.length;
   p5.vertex(mountainRange.mountains[0].x, mountainRange.mountains[0].y);
   for (let i = 0; i < pointCount - 1; i += 1) {
-    const c = (mountainRange.mountains[i].x + mountainRange.mountains[i + 1].x) / 2;
-    const d = (mountainRange.mountains[i].y + mountainRange.mountains[i + 1].y) / 2;
-    p5.quadraticVertex(mountainRange.mountains[i].x, mountainRange.mountains[i].y, c, d);
+        const c = (mountainRange.mountains[i].x + mountainRange.mountains[i + 1].x) / 2;
+        const d = (mountainRange.mountains[i].y + mountainRange.mountains[i + 1].y) / 2;
+        p5.quadraticVertex(mountainRange.mountains[i].x, mountainRange.mountains[i].y, c, d);
   }
 
   // set line and filling colour
   p5.fill(mountainRange.colour);
   p5.stroke(mountainRange.colour);
 
-  // Adjust the y-coordinate of the last vertex based on mouse position
+  // adjust y based on mouse position
   if (p5.mouseY <= p5.height) {
     p5.vertex(p5.width - mountainRange.x, p5.height);
     p5.vertex(0 - mountainRange.x, p5.height);
-    // p5.endShape(p5.CLOSE);
   } else {
     const lastMountain = mountainRange.mountains[pointCount - 1];
     p5.vertex(p5.width - mountainRange.x, lastMountain.y + p5.mouseY * 0.4);
@@ -198,7 +197,7 @@ const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
     };
   }, [viewportWidth, vpHeight, mountainAmount]);
 
-  const sketch: Sketch = p5 => {
+    const sketch: Sketch = p5 => {
     p5.setup = () => p5.createCanvas(viewportWidth, vpHeight);
     p5.draw = () => {
       p5.clear();
