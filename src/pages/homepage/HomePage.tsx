@@ -82,7 +82,7 @@ const Homepage = () => {
           <HoverColourChangeCharacter fontSize={50} content={'r'} />
           <HoverColourChangeCharacter fontSize={50} content={'o'} />
         </div>
-        <span className={''}>Hello, I'm Liam, a seasoned full-stack developer with a rich background in finance and retail. Over the last 5 years, I've been dedicated to refining my skills and expertise in software development.<br /></span>
+        <span className={''}>{'Hello, I\'m Liam, a seasoned full-stack developer with a rich background in finance and retail. Over the last 5 years, I\'ve been dedicated to refining my skills and expertise in software development.'}<br /></span>
       </div>
 
       {/* jump bt */}
