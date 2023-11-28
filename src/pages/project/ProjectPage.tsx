@@ -86,7 +86,7 @@ const ProjectPage = () => {
                 <div className={'flex justify-center mb-[10px]' +
                     ' p-[20px] w-[80%] m-auto flex-row min-h-[200px]'}>
                     {/* left side for image display */}
-                    {projects[currProject].description[currDescription].image && (
+                    {projects[currProject].description[currDescription] && projects[currProject].description[currDescription].image && (
                         <div className={'mr-[40px]'}>
                             <Image
                                 style={{cursor: 'pointer'}}
