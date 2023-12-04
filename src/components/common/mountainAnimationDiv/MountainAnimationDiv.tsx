@@ -28,7 +28,7 @@ type MountainRange = {
   colour: string;
   sketchWidth: number;
   sketchHeight: number;
-}
+};
 type MountainRangeProps = {
   layer: number;
   width: { min: number; max: number };
@@ -65,26 +65,30 @@ const mountainRangeConstructor = (config: MountainRangeProps) => {
   // populate function creates the static mountainRange
   const populate = () => {
     let totalWidth = 0;
-        while (totalWidth <= mountainRange.sketchWidth + mountainRange.width.max * 4) {
+    while (
+      totalWidth <=
+      mountainRange.sketchWidth + mountainRange.width.max * 4
+    ) {
       const newWidth = Math.round(
-        Math.random() * (mountainRange.width.max - mountainRange.width.min) + mountainRange.width.min,
+        Math.random() * (mountainRange.width.max - mountainRange.width.min) +
+          mountainRange.width.min
       );
       const newHeight = Math.round(
-        Math.random() * (mountainRange.height.max - mountainRange.height.min) + mountainRange.height.min,
+        Math.random() * (mountainRange.height.max - mountainRange.height.min) +
+          mountainRange.height.min
       );
-            mountainRange.mountains.push(
-                {
-          layer: mountainRange.layer,
-          x:
-            mountainRange.mountains.length === 0
-              ? 0
-              : mountainRange.mountains[mountainRange.mountains.length - 1].x +
+      mountainRange.mountains.push({
+        layer: mountainRange.layer,
+        x:
+          mountainRange.mountains.length === 0
+            ? 0
+            : mountainRange.mountains[mountainRange.mountains.length - 1].x +
               mountainRange.mountains[mountainRange.mountains.length - 1].width,
-          y: mountainRange.sketchHeight - newHeight,
-          width: newWidth,
-          height: newHeight,
-          colour: mountainRange.colour,
-        });
+        y: mountainRange.sketchHeight - newHeight,
+        width: newWidth,
+        height: newHeight,
+        colour: mountainRange.colour,
+      });
       totalWidth += newWidth;
     }
   };
@@ -95,37 +99,53 @@ const mountainRangeConstructor = (config: MountainRangeProps) => {
 const update = (mountainRange: MountainRange) => {
   mountainRange.x -= mountainRange.speed;
   let firstMountain = mountainRange.mountains[0];
-    if (firstMountain.width + firstMountain.x + mountainRange.x < -mountainRange.width.max) {
+  if (
+    firstMountain.width + firstMountain.x + mountainRange.x <
+    -mountainRange.width.max
+  ) {
     const newWidth = Math.round(
-      Math.random() * (mountainRange.width.max - mountainRange.width.min) + mountainRange.width.min,
+      Math.random() * (mountainRange.width.max - mountainRange.width.min) +
+        mountainRange.width.min
     );
     const newHeight = Math.round(
-      Math.random() * (mountainRange.height.max - mountainRange.height.min) + mountainRange.height.min,
+      Math.random() * (mountainRange.height.max - mountainRange.height.min) +
+        mountainRange.height.min
     );
-        const lastMountain = mountainRange.mountains[mountainRange.mountains.length - 1];
-        firstMountain = ({
+    const lastMountain =
+      mountainRange.mountains[mountainRange.mountains.length - 1];
+    firstMountain = {
       layer: mountainRange.layer,
       x: lastMountain.x + lastMountain.width,
       y: mountainRange.sketchHeight - newHeight,
       width: newWidth,
       height: newHeight,
       colour: mountainRange.colour,
-        });
+    };
     mountainRange.mountains.shift();
     mountainRange.mountains.push(firstMountain);
   }
 };
 const render = (mountainRange: MountainRange, p5: P5CanvasInstance) => {
   p5.push();
-    p5.translate(mountainRange.x, ((p5.height - p5.mouseY) / 40) * mountainRange.layer);
+  p5.translate(
+    mountainRange.x,
+    ((p5.height - p5.mouseY) / 40) * mountainRange.layer
+  );
 
   p5.beginShape();
   const pointCount = mountainRange.mountains.length;
   p5.vertex(mountainRange.mountains[0].x, mountainRange.mountains[0].y);
   for (let i = 0; i < pointCount - 1; i += 1) {
-        const c = (mountainRange.mountains[i].x + mountainRange.mountains[i + 1].x) / 2;
-        const d = (mountainRange.mountains[i].y + mountainRange.mountains[i + 1].y) / 2;
-        p5.quadraticVertex(mountainRange.mountains[i].x, mountainRange.mountains[i].y, c, d);
+    const c =
+      (mountainRange.mountains[i].x + mountainRange.mountains[i + 1].x) / 2;
+    const d =
+      (mountainRange.mountains[i].y + mountainRange.mountains[i + 1].y) / 2;
+    p5.quadraticVertex(
+      mountainRange.mountains[i].x,
+      mountainRange.mountains[i].y,
+      c,
+      d
+    );
   }
 
   // set line and filling colour
@@ -147,7 +167,9 @@ const render = (mountainRange: MountainRange, p5: P5CanvasInstance) => {
 
 const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
   // default width as 1500, height 200
-  const [viewportWidth, setViewportWidth] = useState(props.width && props.width > 800 ? props.width : 1500);
+  const [viewportWidth, setViewportWidth] = useState(
+    props.width && props.width > 800 ? props.width : 1500
+  );
   const vpHeight = props.height && props.height > 200 ? props.height : 200;
 
   let mountainAmount = 5;
@@ -162,9 +184,34 @@ const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
       colours.green['400'],
       colours.green['500'],
     ];
+    const getVerticalScrollbarWidth = () => {
+      const outer = document.createElement('div');
+      outer.style.visibility = 'hidden';
+      outer.style.width = '100px';
+      // type assertion
+      (outer.style as any).msOverflowStyle = 'scrollbar';
+
+      document.body.appendChild(outer);
+
+      const widthNoScroll = outer.offsetWidth;
+      outer.style.overflow = 'scroll';
+
+      const inner = document.createElement('div');
+      inner.style.width = '100%';
+      outer.appendChild(inner);
+
+      const widthWithScroll = inner.offsetWidth;
+      outer.parentNode?.removeChild(outer);
+
+      return widthNoScroll - widthWithScroll;
+    };
 
     const handleResize = () => {
-      setViewportWidth(window.innerWidth);
+      let newWindowWidth = window.innerWidth;
+      if (document.body.scrollHeight > window.innerHeight) {
+        newWindowWidth -= getVerticalScrollbarWidth();
+      }
+      setViewportWidth(newWindowWidth);
       // console.log('window.innerWidth', window.innerWidth)
     };
     handleResize();
@@ -197,7 +244,7 @@ const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
     };
   }, [viewportWidth, vpHeight, mountainAmount]);
 
-    const sketch: Sketch = p5 => {
+  const sketch: Sketch = (p5) => {
     p5.setup = () => p5.createCanvas(viewportWidth, vpHeight);
     p5.draw = () => {
       p5.clear();
