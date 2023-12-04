@@ -9,6 +9,7 @@ import colours from '@/styles/colours';
 import { type Sketch } from '@p5-wrapper/react';
 import { NextReactP5Wrapper } from '@p5-wrapper/next';
 import { P5CanvasInstance } from '@p5-wrapper/react/dist/component/contracts/P5CanvasInstance';
+import { minWidth } from '@mui/system';
 
 type Mountain = {
   layer: number;
@@ -37,10 +38,6 @@ type MountainRangeProps = {
   colour: string;
   sketchWidth: number;
   sketchHeight: number;
-};
-export type MountainAnimationDivProps = {
-  height: number;
-  width?: number;
 };
 
 const mountainRangeConstructor = (config: MountainRangeProps) => {
@@ -165,8 +162,23 @@ const render = (mountainRange: MountainRange, p5: P5CanvasInstance) => {
   p5.pop();
 };
 
-const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
+/**
+ * MountainAnimationDivProps holds:
+ * @param {number} height - Height of the mountain range canvas
+ * @param {number} width - Width of the mountain range canvas
+ * @param {number} minWidth - Min width of the mountain range canvas
+ */
+export type MountainAnimationDivProps = {
   // default width as 1500, height 200
+  height: number;
+  width?: number;
+  minWidth?: number;
+};
+
+/**
+ * MountainAnimationDiv generate a canvas with mountain range moving animation;
+ **/
+const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
   const [viewportWidth, setViewportWidth] = useState(
     props.width && props.width > 800 ? props.width : 1500
   );
@@ -211,7 +223,9 @@ const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
       if (document.body.scrollHeight > window.innerHeight) {
         newWindowWidth -= getVerticalScrollbarWidth();
       }
-      setViewportWidth(newWindowWidth);
+      setViewportWidth(
+        Math.max(newWindowWidth, props.minWidth ? props.minWidth : 800)
+      );
       // console.log('window.innerWidth', window.innerWidth)
     };
     handleResize();
@@ -242,7 +256,7 @@ const MountainAnimationDiv = (props: MountainAnimationDivProps) => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [viewportWidth, vpHeight, mountainAmount]);
+  }, [viewportWidth, vpHeight, mountainAmount, props.minWidth]);
 
   const sketch: Sketch = (p5) => {
     p5.setup = () => p5.createCanvas(viewportWidth, vpHeight);
