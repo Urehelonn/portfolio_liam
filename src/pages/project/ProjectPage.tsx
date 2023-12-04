@@ -81,7 +81,7 @@ const ProjectPage = () => {
         <div className={'w-full'}>
           <MountainAnimationDiv height={400} minWidth={800} />
         </div>
-        <div className={'z-20'} style={{ marginTop: -80 }}>
+        <div className={'z-20 relative'} style={{ marginTop: -80 }}>
           <div className={'flex justify-center'}>
             <h3 className={'text-[45px] underline'}>Some Past Projects</h3>
           </div>

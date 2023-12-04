@@ -52,7 +52,7 @@ const Homepage = () => {
             minWidth={800}
           />
         </div>
-        <div className={'ml-[10%] z-20 mt-[-280px]'}>
+        <div className={'ml-[10%] relative z-20 mt-[-280px]'}>
           <h1 className={'text-9xl ' + styles.dropShadow}>Liam</h1>
           <h5 className={'text-black text-xl'}>A friendly developer...</h5>
           <h6 className={'text-sm font-semibold'}>
