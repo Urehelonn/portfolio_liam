@@ -9,29 +9,21 @@ export type LogInReq = {
 };
 
 const register = async (data: LogInReq) => {
-  try {
-    return await axios.post(AUTH_REGISTER_URL, {
-      email: data.username,
-      password: data.password,
-    });
-  } catch (e) {
-    console.log(e);
-  }
+  return await axios.post(AUTH_REGISTER_URL, {
+    email: data.username,
+    password: data.password,
+  });
 };
 
 const login = async (data: LogInReq) => {
-  try {
-    const response = await axios.post(AUTH_LOGIN_URL, {
-      email: data.username,
-      password: data.password,
-    });
-    if (response.data.accessToken) {
-      localStorage.setItem('user', JSON.stringify(response.data));
-    }
-    return response.data;
-  } catch (e) {
-    console.log(e);
+  const response = await axios.post(AUTH_LOGIN_URL, {
+    email: data.username,
+    password: data.password,
+  });
+  if (response.data.sessionId) {
+    localStorage.setItem('user', JSON.stringify(response.data));
   }
+  return response.data;
 };
 
 const logout = () => {

@@ -10,8 +10,13 @@ import {
   FormControlLabel,
   Link,
 } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@/reduxs/store';
+import authServices from '@/services/auth.services';
+import { login } from '@/reduxs/slices/authSlices';
 
 const LoginPage = () => {
+  const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -21,8 +26,12 @@ const LoginPage = () => {
     const username = formData.get('email') as string;
     const password = formData.get('password') as string;
 
-    console.log({ username, password });
-    // router.push('/dashboard').then();
+    try {
+      const userData = await authServices.login({ username, password }).then();
+      dispatch(login(userData));
+    } catch (error) {
+      console.error('Login failed', error);
+    }
   };
 
   return (
