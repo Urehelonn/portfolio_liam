@@ -5,7 +5,6 @@ const theme = createTheme({
     palette: {
         primary: {
             main: colour.green['100'],
-
         },
         text: {
             primary: colour.white,
