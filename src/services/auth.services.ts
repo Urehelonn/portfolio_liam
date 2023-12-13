@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const AUTH_REGISTER_URL = `${process.env.API_URL}register`;
-const AUTH_LOGIN_URL = `${process.env.API_URL}login`;
+const AUTH_REGISTER_URL = `${process.env.API_URL}user/register`;
+const AUTH_LOGIN_URL = `${process.env.API_URL}user/login`;
 
 export type LogInReq = {
   username: string;
@@ -10,14 +10,14 @@ export type LogInReq = {
 
 const register = async (data: LogInReq) => {
   return await axios.post(AUTH_REGISTER_URL, {
-    email: data.username,
+    username: data.username,
     password: data.password,
   });
 };
 
 const login = async (data: LogInReq) => {
   const response = await axios.post(AUTH_LOGIN_URL, {
-    email: data.username,
+    username: data.username,
     password: data.password,
   });
   if (response.data.sessionId) {

@@ -13,12 +13,22 @@ const RegisterPage = () => {
     const username = formData.get('email') as string;
     const password = formData.get('password') as string;
     const passwordConfirmation = formData.get('passwordConfirmation') as string;
+
+    console.log({ username, password });
     if (passwordConfirmation !== password) {
       alert('Passwords entered do not match, please try again!');
     } else {
-      await authServices.register({ username, password }).then(
-
-      );
+      try {
+        await authServices.register({ username, password }).then(() => {
+          alert('Register succeed. Welcome! :D');
+        });
+      } catch (error: any) {
+        if (error.response.data) {
+          alert(error.response.data);
+        } else {
+          console.log(error);
+        }
+      }
     }
   };
 
@@ -72,7 +82,7 @@ const RegisterPage = () => {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Sign In
+            Sign Up
           </Button>
           <Grid container>
             <Grid item xs></Grid>

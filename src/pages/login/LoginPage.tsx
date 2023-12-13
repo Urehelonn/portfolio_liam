@@ -29,8 +29,12 @@ const LoginPage = () => {
     try {
       const userData = await authServices.login({ username, password }).then();
       dispatch(login(userData));
-    } catch (error) {
-      console.error('Login failed', error);
+    } catch (error: any) {
+      if (error.response.data) {
+        alert(error.response.data);
+      } else {
+        alert('Login failed: ' + error.message);
+      }
     }
   };
 
