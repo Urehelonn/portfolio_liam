@@ -14,8 +14,11 @@ h3 {
     font-size: 25px;
 }
 
-
 body {
     background-color: theme('colors.dark'); /* Background color */
     color: white;
+}
+
+a:hover {
+    cursor:pointer;
 }
