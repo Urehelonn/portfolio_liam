@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@/reduxs/store';
-import authServices, { LogInReq } from '@/services/auth.services';
+import authServices from '@/services/auth.services';
 import { login } from '@/reduxs/slices/authSlices';
 
 const LoginPage = () => {

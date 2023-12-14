@@ -34,30 +34,29 @@ const RegisterPage = () => {
 
   const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
-    // if (formData.passwordConfirmation !== formData.password) {
-    //   alert('Passwords entered do not match, please try again!');
-    // } else {
-    //   const infoSubmission = {
-    //     username: formData.email,
-    //     password: formData.password,
-    //   };
-    //   try {
-    //     await authServices.register(infoSubmission).then(() => {
-    //       alert('Register succeed. Welcome! :D');
-    //     });
-    //   } catch (error: any) {
-    //     if (error.response.data) {
-    //       alert(error.response.data);
-    //     } else {
-    //       console.log(error);
-    //     }
-    //   }
-    // }
+    if (formData.passwordConfirmation !== formData.password) {
+      alert('Passwords entered do not match, please try again!');
+    } else {
+      const infoSubmission = {
+        username: formData.username,
+        password: formData.password,
+      };
+      try {
+        await authServices.register(infoSubmission).then(() => {
+          alert('Register succeed. Welcome! :D');
+        });
+      } catch (error: any) {
+        if (error.response.data) {
+          alert(error.response.data);
+        } else {
+          console.log(error);
+        }
+      }
+    }
   };
 
   const passConfirmationValidator = (pwd: string, pwdConf: string): string => {
-    return pwd == pwdConf ? '' : 'Must match with the password.';
+    return pwd === pwdConf ? '' : 'Must match with the password.';
   };
 
   useEffect(() => {
@@ -118,7 +117,7 @@ const RegisterPage = () => {
             required
             fullWidth
             id="username"
-            label="Email Address"
+            label="Username (Email Address)"
             name="username"
             autoComplete="username"
             autoFocus
@@ -126,7 +125,7 @@ const RegisterPage = () => {
             onChange={(e) =>
               setFormData({ ...formData, username: e.target.value })
             }
-            onBlur={() => {
+            onSelect={() => {
               setFieldDirty((prev) => ({
                 ...prev,
                 username: true,
@@ -150,7 +149,7 @@ const RegisterPage = () => {
             onChange={(e) =>
               setFormData({ ...formData, password: e.target.value })
             }
-            onBlur={() => {
+            onSelect={() => {
               setFieldDirty((prev) => ({
                 ...prev,
                 password: true,
@@ -172,7 +171,7 @@ const RegisterPage = () => {
             onChange={(e) =>
               setFormData({ ...formData, passwordConfirmation: e.target.value })
             }
-            onBlur={() => {
+            onSelect={() => {
               setFieldDirty((prev) => ({
                 ...prev,
                 passwordConfirmation: true,
