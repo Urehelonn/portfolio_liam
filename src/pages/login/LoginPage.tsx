@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@/reduxs/store';
-import authServices from '@/services/auth.services';
+import authServices, { LogInReq } from '@/services/auth.services';
 import { login } from '@/reduxs/slices/authSlices';
 
 const LoginPage = () => {
@@ -26,14 +26,22 @@ const LoginPage = () => {
     const username = formData.get('email') as string;
     const password = formData.get('password') as string;
 
-    try {
-      const userData = await authServices.login({ username, password }).then();
-      dispatch(login(userData));
-    } catch (error: any) {
-      if (error.response.data) {
-        alert(error.response.data);
-      } else {
-        alert('Login failed: ' + error.message);
+    if (username.length <= 5 || password.length <= 5) {
+      alert(
+        'Please make sure your username and password has been entered correctly.'
+      );
+    } else {
+      try {
+        const userData = await authServices
+          .login({ username, password })
+          .then();
+        dispatch(login(userData));
+      } catch (error: any) {
+        if (error.response.data) {
+          alert(error.response.data);
+        } else {
+          alert('Login failed: ' + error.message);
+        }
       }
     }
   };
@@ -62,6 +70,7 @@ const LoginPage = () => {
             name="email"
             autoComplete="email"
             autoFocus
+            helperText="Need to be an valid email address. "
           />
           <TextField
             className={'mt-3'}
@@ -72,6 +81,7 @@ const LoginPage = () => {
             type="password"
             id="password"
             autoComplete="current-password"
+            helperText="Need to have 6 or more digit of mixed number and letters."
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}

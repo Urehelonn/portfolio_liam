@@ -1,36 +1,102 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavBar from '@/components/common/navbar';
 import { useRouter } from 'next/router';
 import { Grid, Box, TextField, Button, Link } from '@mui/material';
 import authServices from '@/services/auth.services';
+import { emailValidator, passwordValidator } from '@/logic/formValidator';
 
 const RegisterPage = () => {
   const router = useRouter();
 
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const username = formData.get('email') as string;
-    const password = formData.get('password') as string;
-    const passwordConfirmation = formData.get('passwordConfirmation') as string;
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+    passwordConfirmation: '',
+  });
 
-    console.log({ username, password });
-    if (passwordConfirmation !== password) {
-      alert('Passwords entered do not match, please try again!');
-    } else {
-      try {
-        await authServices.register({ username, password }).then(() => {
-          alert('Register succeed. Welcome! :D');
-        });
-      } catch (error: any) {
-        if (error.response.data) {
-          alert(error.response.data);
-        } else {
-          console.log(error);
-        }
-      }
-    }
+  const [fieldDirty, setFieldDirty] = useState({
+    username: false,
+    password: false,
+    passwordConfirmation: false,
+  });
+
+  const [validationErrors, setValidationErrors] = useState({
+    username: { display: false, msg: '' },
+    password: {
+      display: false,
+      msg: '',
+    },
+    passwordConfirmation: {
+      display: false,
+      msg: '',
+    },
+  });
+
+  const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(formData);
+    // if (formData.passwordConfirmation !== formData.password) {
+    //   alert('Passwords entered do not match, please try again!');
+    // } else {
+    //   const infoSubmission = {
+    //     username: formData.email,
+    //     password: formData.password,
+    //   };
+    //   try {
+    //     await authServices.register(infoSubmission).then(() => {
+    //       alert('Register succeed. Welcome! :D');
+    //     });
+    //   } catch (error: any) {
+    //     if (error.response.data) {
+    //       alert(error.response.data);
+    //     } else {
+    //       console.log(error);
+    //     }
+    //   }
+    // }
   };
+
+  const passConfirmationValidator = (pwd: string, pwdConf: string): string => {
+    return pwd == pwdConf ? '' : 'Must match with the password.';
+  };
+
+  useEffect(() => {
+    if (fieldDirty.username) {
+      const err = emailValidator(formData.username);
+      setValidationErrors((prevErrors) => ({
+        ...prevErrors,
+        username: {
+          display: err.length > 0,
+          msg: err,
+        },
+      }));
+    }
+
+    if (fieldDirty.password) {
+      const err = passwordValidator(formData.password);
+      setValidationErrors((prevErrors) => ({
+        ...prevErrors,
+        password: {
+          display: err.length > 0,
+          msg: err,
+        },
+      }));
+    }
+
+    if (fieldDirty.passwordConfirmation) {
+      const err = passConfirmationValidator(
+        formData.password,
+        formData.passwordConfirmation
+      );
+      setValidationErrors((prevErrors) => ({
+        ...prevErrors,
+        passwordConfirmation: {
+          display: err.length > 0,
+          msg: err,
+        },
+      }));
+    }
+  }, [formData, fieldDirty]);
 
   return (
     <div className={'min-w-[800px]'}>
@@ -46,16 +112,30 @@ const RegisterPage = () => {
           'border-2 rounded-lg border-white p-[20px]'
         }
       >
-        <Box component="form" onSubmit={handleLogin} noValidate sx={{ mt: 1 }}>
+        <Box component="form" onSubmit={handleRegister} sx={{ mt: 1 }}>
           <TextField
             margin="normal"
             required
             fullWidth
-            id="email"
+            id="username"
             label="Email Address"
-            name="email"
-            autoComplete="email"
+            name="username"
+            autoComplete="username"
             autoFocus
+            value={formData.username}
+            onChange={(e) =>
+              setFormData({ ...formData, username: e.target.value })
+            }
+            onBlur={() => {
+              setFieldDirty((prev) => ({
+                ...prev,
+                username: true,
+              }));
+            }}
+            error={validationErrors.username.display}
+            helperText={
+              validationErrors.username.display && validationErrors.username.msg
+            }
           />
           <TextField
             className={'mt-3'}
@@ -66,6 +146,20 @@ const RegisterPage = () => {
             type="password"
             id="password"
             autoComplete="current-password"
+            value={formData.password}
+            onChange={(e) =>
+              setFormData({ ...formData, password: e.target.value })
+            }
+            onBlur={() => {
+              setFieldDirty((prev) => ({
+                ...prev,
+                password: true,
+              }));
+            }}
+            error={validationErrors.password.display}
+            helperText={
+              validationErrors.password.display && validationErrors.password.msg
+            }
           />
           <TextField
             className={'mt-3'}
@@ -75,12 +169,35 @@ const RegisterPage = () => {
             name="passwordConfirmation"
             type="password"
             id="passwordConfirmation"
+            onChange={(e) =>
+              setFormData({ ...formData, passwordConfirmation: e.target.value })
+            }
+            onBlur={() => {
+              setFieldDirty((prev) => ({
+                ...prev,
+                passwordConfirmation: true,
+              }));
+            }}
+            error={validationErrors.passwordConfirmation.display}
+            helperText={
+              validationErrors.passwordConfirmation.display &&
+              validationErrors.passwordConfirmation.msg
+            }
           />
+
           <Button
             type="submit"
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
+            disabled={
+              !fieldDirty.username ||
+              !fieldDirty.password ||
+              !fieldDirty.passwordConfirmation ||
+              validationErrors.username.display ||
+              validationErrors.password.display ||
+              validationErrors.passwordConfirmation.display
+            }
           >
             Sign Up
           </Button>
