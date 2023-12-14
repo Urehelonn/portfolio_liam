@@ -61,8 +61,11 @@ describe('Register page test', () => {
       .should('be.visible')
       .should('have.text', 'Password needs to have at least 6 digits.')
       .should('have.class', 'Mui-error');
-    cy.get('body').click();
-    cy.get('#passwordConfirmation-helper-text').should('not.exist');
+    cy.get('#passwordConfirmation').type('wasdwasd');
+    cy.get('#passwordConfirmation-helper-text')
+      .should('be.visible')
+      .should('have.text', 'Need to be a valid email address.')
+      .should('have.class', 'Mui-error');
     cy.contains('button', /SIGN UP/i).should('have.attr', 'disabled', 'disabled');
   });
 });
