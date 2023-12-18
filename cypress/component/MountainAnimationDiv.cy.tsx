@@ -1,5 +1,5 @@
 import React from 'react';
-import MountainAnimationDiv from './MountainAnimationDiv';
+import MountainAnimationDiv from '@/components/common/mountainAnimationDiv/MountainAnimationDiv';
 
 describe('<MountainAnimationDiv />', () => {
   it('renders', () => {

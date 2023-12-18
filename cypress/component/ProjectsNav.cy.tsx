@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectsNav from './ProjectsNav';
+import ProjectsNav from '@/components/project/projectsNav/ProjectsNav';
 
 describe('<ProjectsNav />', () => {
   it('renders', () => {

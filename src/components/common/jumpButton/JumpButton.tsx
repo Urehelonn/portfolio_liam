@@ -11,7 +11,6 @@ export type JumpButtonProps = {
 
 const JumpButton = (props: JumpButtonProps) => {
     const jumpTargetRef = props.jumpToPos;
-
     const colourStr = props.colour ? props.colour : 'white'
     const sizeW = props.sizeW && props.sizeW > 0 ? props.sizeW : 25
     const sizeH = props.sizeH && props.sizeH > 0 ? props.sizeH : 25
@@ -21,7 +20,6 @@ const JumpButton = (props: JumpButtonProps) => {
             jumpTargetRef.current.scrollIntoView({behavior: 'smooth'});
         }
     };
-
 
     return (
         <div className={styles.scrollBt} onClick={handleJump}>

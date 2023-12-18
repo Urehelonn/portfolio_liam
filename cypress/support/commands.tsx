@@ -8,12 +8,24 @@
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
-//
+// Cypress.Commands.add('login', (email, password) => { ... })
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
 //
 //
+
+// Cypress.Commands.add(
+//   'nextMount',
+//   (component: ReactNode, options?: CustomMountOptions): Cypress.Chainable<MountReturn> => {
+//     // Use the default store if one is not provided
+//     const { reduxStore = store.getState(), ...mountOptions } = options || {};
+//
+//     const wrapped = <Provider store={reduxStore}>{component}</Provider>;
+//     return mount(wrapped, mountOptions);
+//   }
+// );
+
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //

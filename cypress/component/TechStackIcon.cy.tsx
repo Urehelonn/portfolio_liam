@@ -1,5 +1,5 @@
 import React from 'react';
-import TechStackIcon from './TechStackIcon';
+import TechStackIcon from '@/components/homepage/techStackIcon/TechStackIcon';
 
 describe('<TechStackIcon />', () => {
   it('renders', () => {

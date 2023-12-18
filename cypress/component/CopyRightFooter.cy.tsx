@@ -1,5 +1,5 @@
 import React from 'react'
-import CopyRightFooter from './CopyRightFooter'
+import CopyRightFooter from '@/components/common/copyRightFooter/CopyRightFooter'
 
 describe('<CopyRightFooter />', () => {
   it('renders', () => {

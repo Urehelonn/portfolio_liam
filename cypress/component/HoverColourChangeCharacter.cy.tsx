@@ -1,5 +1,5 @@
 import React from 'react'
-import HoverColourChangeCharacter from './HoverColourChangeCharacter'
+import HoverColourChangeCharacter from '@/components/common/hoverColourChangeCharacter/HoverColourChangeCharacter'
 
 describe('<HoverColourChangeCharacter />', () => {
   it('renders', () => {
