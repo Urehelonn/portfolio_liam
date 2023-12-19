@@ -1,3 +1,22 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "prettier"
+  ],
+  // Add this below ↓
+  "overrides": [
+    // https://github.com/jest-community/eslint-plugin-jest#running-rules-only-on-test-related-files
+    // https://github.com/testing-library/eslint-plugin-testing-library#run-the-plugin-only-against-test-files
+    // https://github.com/testing-library/eslint-plugin-jest-dom#recommended-configuration
+    // https://github.com/cypress-io/eslint-plugin-cypress#recommended-configuration
+    // Only uses Testing Library lint rules in test files
+    {
+      "files": [
+        "**/*.cy.tsx"
+      ],
+      "extends": [
+        "plugin:cypress/recommended"
+      ]
+    }
+  ]
 }
