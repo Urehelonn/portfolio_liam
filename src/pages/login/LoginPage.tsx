@@ -70,7 +70,8 @@ const LoginPage = () => {
             name="email"
             autoComplete="email"
             autoFocus
-            helperText="Need to be an valid email address. "
+            helperText="Need to be an valid email address."
+            error={true}
           />
           <TextField
             className={'mt-3'}
@@ -81,6 +82,7 @@ const LoginPage = () => {
             type="password"
             id="password"
             autoComplete="current-password"
+            error={true}
             helperText="Need to have 6 or more digit of mixed number and letters."
           />
           <FormControlLabel

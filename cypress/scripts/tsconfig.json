@@ -1,0 +1,11 @@
+{
+  "extends": "../tsconfig.json",
+  "include": ["./*/*.ts", "../src", "../models"],
+  "exclude": [],
+  "compilerOptions": {
+    "types": ["node"],
+    "target": "es6", // or higher
+    "lib": ["es6", "dom"],
+    "isolatedModules": false
+  }
+}

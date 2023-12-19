@@ -6,6 +6,9 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
+    env: {
+      backendUrl: 'http://localhost:8080/api/',
+    },
     testIsolation: true,
     experimentalRunAllSpecs: true,
   },

@@ -1,3 +1,5 @@
+import { generateRandomString } from '../../support/common';
+
 describe('Register page test', () => {
   beforeEach(() => {
     cy.visit('/register');
@@ -44,10 +46,16 @@ describe('Register page test', () => {
       .should('have.class', 'Mui-error');
     cy.get('body').click();
     cy.get('#passwordConfirmation-helper-text').should('not.exist');
-    cy.contains('button', /SIGN UP/i).should('have.attr', 'disabled', 'disabled');
+    cy.contains('button', /SIGN UP/i).should(
+      'have.attr',
+      'disabled',
+      'disabled'
+    );
   });
 
   it('should only be able to sign up only if the form is valid', () => {
+    const email = generateRandomString(5) + '@test.ca';
+    const password = 'wasd1wasd';
     cy.get('#username').type('rand213@34');
     cy.get('body').click();
     cy.get('#username-helper-text')
@@ -55,17 +63,44 @@ describe('Register page test', () => {
       .should('have.text', 'Need to be a valid email address.')
       .should('have.class', 'Mui-error');
     cy.get('#passwordConfirmation').click();
-    cy.get('#username').type('rand2134@ds.c');
+    cy.get('#username').clear().type(email);
     cy.get('#password-helper-text')
       .should('exist')
       .should('be.visible')
       .should('have.text', 'Password needs to have at least 6 digits.')
       .should('have.class', 'Mui-error');
-    cy.get('#passwordConfirmation').type('wasdwasd');
+    cy.get('#passwordConfirmation').type(password);
     cy.get('#passwordConfirmation-helper-text')
       .should('be.visible')
-      .should('have.text', 'Need to be a valid email address.')
+      .should('have.text', 'Must match with the password.')
       .should('have.class', 'Mui-error');
-    cy.contains('button', /SIGN UP/i).should('have.attr', 'disabled', 'disabled');
+    cy.contains('button', /SIGN UP/i).should(
+      'have.attr',
+      'disabled',
+      'disabled'
+    );
+    cy.get('#password').type(password);
+    cy.contains('button', /SIGN UP/i).should(
+      'not.have.attr',
+      'disabled',
+      'disabled'
+    );
+  });
+
+  it('should create proper request and response of 201 CREATED', () => {
+    const email = generateRandomString(5) + '@test.ca';
+    const password = 'wasd1wasd';
+    cy.get('#passwordConfirmation').click();
+    cy.get('#username').clear().type(email);
+    cy.get('#password').type(password);
+    cy.get('#passwordConfirmation').type(password);
+
+    cy.intercept('POST', Cypress.env('backendUrl') + '/api/register').as(
+      'register'
+    );
+    cy.contains('button', /SIGN UP/i).click();
+    cy.on('window:alert', (alertText) => {
+      expect(alertText).to.equal('Register succeed. Welcome! :D');
+    });
   });
 });
