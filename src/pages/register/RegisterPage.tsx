@@ -46,7 +46,7 @@ const RegisterPage = () => {
           alert('Register succeed. Welcome! :D');
         });
       } catch (error: any) {
-        if (error.response.data) {
+        if (error.response && error.response.data) {
           alert(error.response.data);
         } else {
           console.log(error);

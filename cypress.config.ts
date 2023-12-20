@@ -11,6 +11,7 @@ export default defineConfig({
     },
     testIsolation: true,
     experimentalRunAllSpecs: true,
+    experimentalStudio: true,
   },
 
   component: {

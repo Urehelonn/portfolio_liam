@@ -87,7 +87,7 @@ describe('Register page test', () => {
     );
   });
 
-  it('should create proper request and response of 201 CREATED', () => {
+  it('should create proper request and response of 201 CREATED with right username', () => {
     const email = generateRandomString(5) + '@test.ca';
     const password = 'wasd1wasd';
     cy.get('#passwordConfirmation').click();
@@ -95,12 +95,46 @@ describe('Register page test', () => {
     cy.get('#password').type(password);
     cy.get('#passwordConfirmation').type(password);
 
-    cy.intercept('POST', Cypress.env('backendUrl') + '/api/register').as(
-      'register'
-    );
+    const registerLink = Cypress.env('backendUrl') + 'user/register';
+    cy.log(registerLink);
+    cy.intercept('POST', registerLink).as('register');
+    const alertShown = cy.stub().as('registerSuccessAlert');
     cy.contains('button', /SIGN UP/i).click();
-    cy.on('window:alert', (alertText) => {
-      expect(alertText).to.equal('Register succeed. Welcome! :D');
+
+    cy.wait('@register').then((interception) => {
+      // @ts-ignore
+      expect(interception.response.statusCode).to.equal(201);
+      // @ts-ignore
+      expect(interception.response.body.username).to.deep.equal(email);
+    });
+    cy.on('window:alert', alertShown);
+    cy.get('@registerSuccessAlert').should(
+      'have.been.calledOnceWith',
+      'Register succeed. Welcome! :D'
+    );
+  });
+
+  it('should give error when username has already been taken', () => {
+    const email = generateRandomString(5) + '@test.ca';
+    const password = 'wasd1wasd';
+    cy.get('#passwordConfirmation').click();
+    cy.get('#username').clear().type(email);
+    cy.get('#password').type(password);
+    cy.get('#passwordConfirmation').type(password);
+
+    const registerLink = Cypress.env('backendUrl') + 'user/register';
+    cy.contains('button', /SIGN UP/i).click();
+
+    // create the second call and check response
+    cy.intercept('POST', registerLink).as('register');
+    cy.contains('button', /SIGN UP/i).click();
+
+    cy.wait('@register').then((interception) => {
+      // @ts-ignore
+      expect(interception.response.statusCode).to.equal(400);
+      cy.on('window:alert', (message) => {
+        expect(message).to.equal('UserExceptions: Username name has already been taken.');
+      });
     });
   });
 });

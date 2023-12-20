@@ -40,7 +40,10 @@ describe('Login page test', () => {
     cy.get('#password-helper-text')
       .should('exist')
       .should('be.visible')
-      .should('have.text', 'Need to have 6 or more digit of mixed number and letters.')
+      .should(
+        'have.text',
+        'Need to have 6 or more digit of mixed number and letters.'
+      )
       .should('have.class', 'Mui-error');
     cy.contains('button', /SIGN IN/i).should(
       'not.have.attr',
@@ -49,7 +52,20 @@ describe('Login page test', () => {
     );
   });
 
-  it('should create proper request and response of 201 CREATED', () => {
+  it('should not be able to login', () => {
+    cy.get('#email').type('aoef@oidfj.com');
+    cy.get('#password').type('qweqw');
+    const alertShown = cy.stub().as('registerSuccessAlert');
+    cy.on('window:alert', alertShown);
+    cy.contains('button', /SIGN IN/i).click();
+    cy.get('@registerSuccessAlert').should(
+      'have.been.calledOnceWith',
+      'Please make sure your username and password has been entered correctly.'
+    );
+  });
+
+  it('should create proper request and response of 200 OK with user email', () => {
+    // sign up before login
     cy.visit('/register');
     const email = generateRandomString(5) + '@test.ca';
     const password = 'wasd1wasd';
@@ -63,9 +79,15 @@ describe('Login page test', () => {
     cy.get('#email').clear().type(email);
     cy.get('#password').type(password);
 
-    cy.intercept('POST', Cypress.env('backendUrl') + '/api/login').as(
-      'login'
-    );
+    const loginLink = Cypress.env('backendUrl') + 'user/login'
+    cy.intercept('POST', loginLink).as('login');
     cy.contains('button', /SIGN IN/i).click();
+
+    cy.wait('@login').then((interception) => {
+      // @ts-ignore
+      expect(interception.response.statusCode).to.equal(200);
+      // @ts-ignore
+      expect(interception.response.body.username).to.equal(email);
+    });
   });
 });
