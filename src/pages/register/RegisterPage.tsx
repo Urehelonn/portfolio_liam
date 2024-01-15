@@ -46,10 +46,11 @@ const RegisterPage = () => {
           alert('Register succeed. Welcome! :D');
         });
       } catch (error: any) {
-        if (error.response.data) {
+        console.log(error)
+        if (error && error.response && error.response.data) {
           alert(error.response.data);
         } else {
-          console.log(error);
+          alert('Register failed: ' + error.message);
         }
       }
     }
