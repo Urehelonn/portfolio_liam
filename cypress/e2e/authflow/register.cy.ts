@@ -95,7 +95,7 @@ describe('Register page test', () => {
     cy.get('#password').type(password);
     cy.get('#passwordConfirmation').type(password);
 
-    cy.intercept('POST', Cypress.env('backendUrl') + '/api/register').as(
+    cy.intercept('POST', Cypress.env('backendUrl') + '/user/register').as(
       'register'
     );
     cy.contains('button', /SIGN UP/i).click();

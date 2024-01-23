@@ -37,7 +37,7 @@ const LoginPage = () => {
           .then();
         dispatch(login(userData));
       } catch (error: any) {
-        if (error.response.data) {
+        if (error && error.response && error.response.data) {
           alert(error.response.data);
         } else {
           alert('Login failed: ' + error.message);

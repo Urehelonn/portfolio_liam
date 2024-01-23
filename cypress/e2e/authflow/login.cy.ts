@@ -57,13 +57,20 @@ describe('Login page test', () => {
     cy.get('#username').clear().type(email);
     cy.get('#password').type(password);
     cy.get('#passwordConfirmation').type(password);
+    cy.intercept('POST', Cypress.env('backendUrl') + '/user/register').as('register');
     cy.contains('button', /SIGN UP/i).click();
+    cy.get('@register', { timeout: 5000 }).should((interception) => {
+      expect(interception).to.have.property('response');
+    });
+    cy.on('window:alert', (alertText) => {
+      expect(alertText).to.equal('Register succeed. Welcome! :D');
+    });
 
     cy.visit('/login');
     cy.get('#email').clear().type(email);
     cy.get('#password').type(password);
 
-    cy.intercept('POST', Cypress.env('backendUrl') + '/api/login').as(
+    cy.intercept('POST', Cypress.env('backendUrl') + '/user/login').as(
       'login'
     );
     cy.contains('button', /SIGN IN/i).click();
