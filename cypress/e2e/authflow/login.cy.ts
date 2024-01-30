@@ -49,7 +49,7 @@ describe('Login page test', () => {
     );
   });
 
-  it('should create proper request and response of 201 CREATED', () => {
+  it('should create proper request and response of 201 CREATED and nav to main page', () => {
     cy.visit('/register');
     const email = generateRandomString(5) + '@test.ca';
     const password = 'wasd1wasd';
@@ -73,6 +73,9 @@ describe('Login page test', () => {
     cy.intercept('POST', Cypress.env('backendUrl') + '/user/login').as(
       'login'
     );
-    cy.contains('button', /SIGN IN/i).click();
+    cy.contains('button', /SIGN IN/i).click()
+
+    cy.wait(2000)
+    cy.get('h1').invoke('text').should('include', 'Liam');
   });
 });

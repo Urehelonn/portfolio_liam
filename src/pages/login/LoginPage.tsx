@@ -36,7 +36,7 @@ const LoginPage = () => {
           .login({ username, password })
           .then();
         dispatch(login(userData));
-        alert('Welcome to! :D')
+        router.push('/').then();
       } catch (error: any) {
         if (error && error.response && error.response.data) {
           alert(error.response.data);
