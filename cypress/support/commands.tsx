@@ -47,3 +47,33 @@
 //     }
 //   }
 // }
+
+/// <reference types="cypress" />
+
+// Cypress.Commands.add('waitForAlert', { prevSubject: 'optional' }, () => {
+//   return cy.window().then((win) => {
+//     return new Promise<string>((resolve) => {
+//       cy.on('window:alert', (text) => {
+//         resolve(text);
+//       });
+//       // Return a promise that resolves when the alert is caught
+//       cy.wrap(win);
+//     });
+//   });
+// });
+declare namespace Cypress {
+  interface Chainable<Subject = any> {
+    waitForAlert(): Chainable<string>;
+  }
+}
+
+Cypress.Commands.add('waitForAlert', { prevSubject: 'optional' }, () => {
+  return cy.window().then((win) => {
+    return new Promise<string>((resolve) => {
+      cy.on('window:alert', (text) => {
+        resolve(text);
+      });
+    });
+  });
+});
+

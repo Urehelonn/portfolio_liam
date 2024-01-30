@@ -7,20 +7,17 @@ import { emailValidator, passwordValidator } from '@/logic/formValidator';
 
 const RegisterPage = () => {
   const router = useRouter();
-
-  const [formData, setFormData] = useState({
+  const formDataInitVal = {
     username: '',
     password: '',
     passwordConfirmation: '',
-  });
-
-  const [fieldDirty, setFieldDirty] = useState({
+  };
+  const fieldsDirtyInit = {
     username: false,
     password: false,
     passwordConfirmation: false,
-  });
-
-  const [validationErrors, setValidationErrors] = useState({
+  };
+  const validationErrorInit = {
     username: { display: false, msg: '' },
     password: {
       display: false,
@@ -30,7 +27,11 @@ const RegisterPage = () => {
       display: false,
       msg: '',
     },
-  });
+  };
+
+  const [formData, setFormData] = useState(formDataInitVal);
+  const [fieldDirty, setFieldDirty] = useState(fieldsDirtyInit);
+  const [validationErrors, setValidationErrors] = useState(validationErrorInit);
 
   const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -43,10 +44,11 @@ const RegisterPage = () => {
       };
       try {
         await authServices.register(infoSubmission).then(() => {
+          resetInputs();
           alert('Register succeed. Welcome! :D');
         });
       } catch (error: any) {
-        console.log(error)
+        console.log(error);
         if (error && error.response && error.response.data) {
           alert(error.response.data);
         } else {
@@ -56,6 +58,11 @@ const RegisterPage = () => {
     }
   };
 
+  const resetInputs = () => {
+    setFormData(formDataInitVal);
+    setFieldDirty(fieldsDirtyInit);
+    setValidationErrors(validationErrorInit);
+  };
   const passConfirmationValidator = (pwd: string, pwdConf: string): string => {
     return pwd === pwdConf ? '' : 'Must match with the password.';
   };
@@ -169,6 +176,7 @@ const RegisterPage = () => {
             name="passwordConfirmation"
             type="password"
             id="passwordConfirmation"
+            value={formData.passwordConfirmation}
             onChange={(e) =>
               setFormData({ ...formData, passwordConfirmation: e.target.value })
             }
